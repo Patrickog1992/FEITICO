@@ -221,7 +221,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             >
                 LANÇAR FEITIÇO AGORA
             </Button>
-             <div className="mt-8 text-center text-foreground/80 max-w-md mx-auto">
+            <div className="mt-8 text-center text-foreground/80 max-w-md mx-auto">
                 <Paragraph>A partir daí, você será direcionada para um formulário de pedido 100% seguro.</Paragraph>
                 <Paragraph>Isso nos ajuda a manter o site no ar.</Paragraph>
                 <Paragraph>Assim que preencher seus dados...</Paragraph>
@@ -233,6 +233,13 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <Paragraph>Porque este foi o momento em que sua vida amorosa mudou para sempre.</Paragraph>
                 <Paragraph>O dia em que você assumiu o controle. O dia em que ele finalmente percebeu...</Paragraph>
                 <p className="text-2xl font-bold my-4 text-primary">💖 Vocês são destinados um ao outro. 💖</p>
+                <Button
+                    onClick={onStart}
+                    size="lg"
+                    className="mt-8 animate-button-glow bg-accent font-bold text-accent-foreground hover:bg-accent/90 w-full max-w-md"
+                >
+                    quero agora
+                </Button>
             </div>
              <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
         </Section>
@@ -262,5 +269,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

@@ -221,6 +221,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             >
                 LANÇAR FEITIÇO AGORA
             </Button>
+            <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
             <div className="mt-8 text-center text-foreground/80 max-w-md mx-auto">
                 <Paragraph>A partir daí, você será direcionada para um formulário de pedido 100% seguro.</Paragraph>
                 <Paragraph>Isso nos ajuda a manter o site no ar.</Paragraph>
@@ -238,10 +239,10 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                     size="lg"
                     className="mt-8 animate-button-glow bg-accent font-bold text-accent-foreground hover:bg-accent/90 w-full max-w-md"
                 >
-                    quero agora
+                    QUERO AGORA
                 </Button>
+                <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
             </div>
-             <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
         </Section>
         
         <Section>
@@ -269,8 +270,9 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 size="lg"
                 className="mt-4 animate-button-glow bg-accent font-bold text-accent-foreground hover:bg-accent/90 w-full max-w-md"
             >
-                quero agora
+                QUERO AGORA
             </Button>
+             <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
         </Section>
       </main>
       <footer className="text-center w-full max-w-4xl mx-auto my-8 md:my-12 px-4">
@@ -279,3 +281,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

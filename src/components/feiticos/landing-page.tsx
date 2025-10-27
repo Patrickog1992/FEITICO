@@ -222,6 +222,18 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 LANÇAR FEITIÇO AGORA
             </Button>
              <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
+             <div className="mt-8 text-center text-foreground/80 max-w-md mx-auto">
+                <Paragraph>A partir daí, você será direcionada para um formulário de pedido 100% seguro.</Paragraph>
+                <Paragraph>Isso nos ajuda a manter o site no ar.</Paragraph>
+                <Paragraph>Assim que preencher seus dados... Você será levada a um pequeno quiz.</Paragraph>
+                <Paragraph>Esse quiz ajudará Lady Soraya a lançar o feitiço com o máximo de poder e precisão possível.</Paragraph>
+                <Paragraph>Depois de concluir tudo...</Paragraph>
+                <p className="text-xl font-bold my-4 text-primary">✨ Seu feitiço será lançado dentro de 24 a 48 horas. ✨</p>
+                <Paragraph>E, em apenas alguns dias... Você vai olhar para este momento e sorrir,</Paragraph>
+                <Paragraph>Porque este foi o momento em que sua vida amorosa mudou para sempre.</Paragraph>
+                <Paragraph>O dia em que você assumiu o controle. O dia em que ele finalmente percebeu...</Paragraph>
+                <p className="text-2xl font-bold my-4 text-primary">💖 Vocês são destinados um ao outro. 💖</p>
+            </div>
         </Section>
         
         <Section>
@@ -249,3 +261,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

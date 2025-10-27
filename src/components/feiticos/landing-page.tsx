@@ -35,11 +35,11 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 export default function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <header className="text-center my-8 md:my-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-primary font-headline">
+      <header className="text-center my-8 md:my-12 bg-primary text-primary-foreground p-6 rounded-lg">
+        <h1 className="text-4xl md:text-5xl font-bold font-headline">
           🌹 Último desejo de Lady Soraya 🌹
         </h1>
-        <p className="text-xl md:text-2xl text-secondary mt-2">
+        <p className="text-xl md:text-2xl mt-2">
           Ajudar 1.111 mulheres a criarem o amor de suas vidas
         </p>
       </header>

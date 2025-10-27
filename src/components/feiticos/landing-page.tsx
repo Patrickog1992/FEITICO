@@ -264,8 +264,18 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section className="text-center">
             <h2 className="text-2xl font-bold text-primary mb-4">✨ Lance seu feitiço de amor agora. ✨</h2>
             <Paragraph>Funciona ainda hoje à noite.</Paragraph>
+            <Button
+                onClick={onStart}
+                size="lg"
+                className="mt-4 animate-button-glow bg-accent font-bold text-accent-foreground hover:bg-accent/90 w-full max-w-md"
+            >
+                quero agora
+            </Button>
         </Section>
       </main>
+      <footer className="text-center w-full max-w-4xl mx-auto my-8 md:my-12 px-4">
+        <p className="text-sm text-foreground/60">Feitiços do amor todos os DIREITOS RESERVADOS</p>
+      </footer>
     </div>
   );
 }

@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Mystical background with pink smoke and crystals",
+      "imageUrl": "https://images.unsplash.com/photo-1679837577464-11def9613750?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxteXN0aWNhbCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzYxNTg5NzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mystical background"
+    },
+    {
+      "id": "confirmation-heart",
+      "description": "A glowing heart in hands",
+      "imageUrl": "https://images.unsplash.com/photo-1760389276529-315c4ae62e87?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxnbG93aW5nJTIwaGVhcnR8ZW58MHx8fHwxNzYxNTg5NzM0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "glowing heart"
+    }
+  ]
 }

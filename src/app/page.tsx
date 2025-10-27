@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -7,8 +8,9 @@ import SpellForm from "@/components/feiticos/spell-form";
 import ConfirmationPage from "@/components/feiticos/confirmation-page";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
+import Step1Modal from "@/components/feiticos/step1-modal";
 
-type Step = "landing" | "quiz" | "form" | "confirmation";
+type Step = "landing" | "step1" | "quiz" | "form" | "confirmation";
 
 export default function Home() {
   const [step, setStep] = useState<Step>("landing");
@@ -19,7 +21,9 @@ export default function Home() {
   const renderStep = () => {
     switch (step) {
       case "landing":
-        return <LandingPage onStart={() => setStep("quiz")} />;
+        return <LandingPage onStart={() => setStep("step1")} />;
+      case "step1":
+        return <Step1Modal onComplete={() => setStep("quiz")} />;
       case "quiz":
         return (
           <RitualQuiz
@@ -34,7 +38,7 @@ export default function Home() {
       case "confirmation":
         return <ConfirmationPage onReset={() => setStep("landing")} />;
       default:
-        return <LandingPage onStart={() => setStep("quiz")} />;
+        return <LandingPage onStart={() => setStep("step1")} />;
     }
   };
 
@@ -51,7 +55,13 @@ export default function Home() {
       )}
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
       
-      {renderStep()}
+      {step === "landing" && <LandingPage onStart={() => setStep("step1")} />}
+      
+      {step !== "landing" && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+           {renderStep()}
+        </div>
+      )}
 
     </main>
   );

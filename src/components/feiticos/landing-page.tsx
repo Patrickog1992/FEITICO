@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Sparkles, Check } from "lucide-react";
@@ -37,18 +38,16 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     <div className="w-full max-w-4xl mx-auto">
       <header className="text-center my-8 md:my-12 bg-primary text-primary-foreground p-6 rounded-lg">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">
-          🌹 Último desejo de Lady Soraya 🌹
+        Último desejo de Lady Soraya
         </h1>
         <p className="text-xl md:text-2xl mt-2">
-          Ajudar 3737 mulheres a criarem o amor de suas vidas
+        Ajudar 3737 mulheres a criarem o amor de suas vidas
         </p>
       </header>
       
       <main>
         <Section className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-            A Sacerdotisa do amor revela: 💘 O feitiço proibido do amor que faz ele se comprometer de uma vez por todas
-          </h2>
+          <SectionTitle>A Sacerdotisa do amor revela: 💘 O feitiço proibido do amor que faz ele se comprometer de uma vez por todas</SectionTitle>
           <Image
             src="https://www.secretlovespells.com/hosted/images/a4/38766aa00344bc8c6032fb72ec7f42/desert-mystic-book-1-.png"
             alt="Livro místico no deserto"
@@ -281,5 +280,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

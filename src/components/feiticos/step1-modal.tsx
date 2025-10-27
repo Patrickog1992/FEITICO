@@ -1,15 +1,14 @@
 
 "use client";
 
+import { useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,10 +17,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MagicContainer } from "./magic-container";
-import { useToast } from "@/hooks/use-toast";
 
-type SpellFormProps = {
-  onComplete: (data: z.infer<typeof formSchema>) => void;
+type Step1ModalProps = {
+  onComplete: () => void;
 };
 
 const formSchema = z.object({
@@ -42,9 +40,34 @@ const formSchema = z.object({
   }),
 });
 
-export default function SpellForm({ onComplete }: SpellFormProps) {
-  const { toast } = useToast();
+const Timer = () => {
+  const [timeLeft, setTimeLeft] = useState(120);
 
+  useEffect(() => {
+    if (timeLeft === 0) return;
+
+    const intervalId = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [timeLeft]);
+
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
+  return (
+    <div className="text-center my-4">
+      <p className="text-lg">Isto vai expirar em...</p>
+      <p className="text-2xl font-bold text-red-500">
+        {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
+      </p>
+    </div>
+  );
+};
+
+
+export default function Step1Modal({ onComplete }: Step1ModalProps) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,52 +80,20 @@ export default function SpellForm({ onComplete }: SpellFormProps) {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    onComplete(values);
-    toast({
-      title: "Energias Invocadas!",
-      description: "O ritual está sendo preparado.",
-    });
+    console.log(values);
+    onComplete();
   }
 
   return (
     <MagicContainer>
-      <h2 className="mb-2 text-center font-headline text-2xl font-semibold">
-        Canalize sua Energia
+      <h2 className="mb-2 text-center font-headline text-xl font-semibold">
+        Etapa 1: Concorde com as Condições de Lady Soraya
       </h2>
-      <p className="mb-6 text-center text-foreground/80">
-        Forneça as informações necessárias para que Lady Soraya possa focar o
-        feitiço em você.
-      </p>
+      <Timer />
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Seu Primeiro Nome</FormLabel>
-                <FormControl>
-                  <Input placeholder="Digite aqui seu nome" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-           <FormField
-            control={form.control}
-            name="targetName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nome Dele</FormLabel>
-                <FormControl>
-                  <Input placeholder="Digite aqui o nome do homem desejado" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
-            <FormField
+             <FormField
               control={form.control}
               name="terms1"
               render={({ field }) => (
@@ -157,8 +148,35 @@ export default function SpellForm({ onComplete }: SpellFormProps) {
               )}
             />
           </div>
-          <Button type="submit" size="lg" className="w-full font-bold bg-accent hover:bg-accent/90">
-             Ir para a Etapa #2
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Seu primeiro nome</FormLabel>
+                <FormControl>
+                  <Input placeholder="Digite aqui seu nome" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+           <FormField
+            control={form.control}
+            name="targetName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Nome dele</FormLabel>
+                <FormControl>
+                  <Input placeholder="Digite aqui o nome do homem desejado" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <Button type="submit" size="lg" className="w-full font-bold bg-accent hover:bg-accent/90 animate-button-glow">
+            👉 Ir para a Etapa #2
           </Button>
         </form>
       </Form>

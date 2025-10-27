@@ -198,7 +198,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
             <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. Apenas $11,11 — um número sagrado — para as 1.111 mulheres escolhidas. Mesmo que você esteja passando por dificuldades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
-                <p className="text-2xl font-bold text-primary">✨ Por apenas $11,11 hoje, você pode lançar o feitiço que fará ele te amar eternamente. ✨</p>
+                <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>
             </div>
              <Image
                 src="https://www.secretlovespells.com/hosted/images/50/d38d8157b4432497d7d8d9ef7ea0da/romantic-couple-at-park.png"
@@ -261,5 +261,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

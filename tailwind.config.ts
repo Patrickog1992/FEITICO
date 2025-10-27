@@ -91,11 +91,11 @@ export default {
         'button-glow': {
           '0%, 100%': {
             transform: 'scale(1)',
-            boxShadow: '0 0 5px hsl(var(--accent)), 0 0 15px hsl(var(--accent)), 0 0 25px hsl(var(--accent))',
+            boxShadow: '0 0 5px hsl(var(--accent))',
           },
           '50%': {
-            transform: 'scale(1.05)',
-            boxShadow: '0 0 20px hsl(var(--accent)), 0 0 40px hsl(var(--accent)), 0 0 60px hsl(var(--accent))',
+            transform: 'scale(1.02)',
+            boxShadow: '0 0 15px hsl(var(--accent))',
           },
         },
         heartbeat: {
@@ -107,7 +107,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'button-glow': 'button-glow 1.5s ease-in-out infinite',
+        'button-glow': 'button-glow 2.5s ease-in-out infinite',
         heartbeat: 'heartbeat 1.5s ease-in-out infinite',
       },
     },

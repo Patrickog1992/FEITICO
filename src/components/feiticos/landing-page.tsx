@@ -89,7 +89,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             />
             <Paragraph className="mt-4">Meu nome é Jessica. E, pra ser sincera, tenho até um pouco de vergonha de contar essa história.</Paragraph>
             <Paragraph>Nos últimos meses, estávamos emocionalmente distantes... E parecia que a cada dia nos afastávamos mais.</Paragraph>
-            <Paragraph>O nome dele é Mark.</Paragraph>
+            <Paragraph>O nome dele é Andre.</Paragraph>
         </Section>
 
         <Section>
@@ -110,7 +110,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={400}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Fui enviada numa viagem de trabalho de última hora. Destino: Dubai. A cidade das possibilidades. Pensei que seria o lugar perfeito pra colocar a cabeça no lugar. Mas, na verdade, eu estava me preparando pro pior. Na primeira noite, fui a um bar. Pedi uma bebida atrás da outra. Conversei com o bartender, e... acabei contando tudo sobre o Mark. O quanto eu sentia que éramos almas gêmeas, mas ele simplesmente não via isso. Foi então que ela me contou sobre a mulher que mudaria minha vida.</Paragraph>
+            <Paragraph>Fui enviada numa viagem de trabalho de última hora. Destino: Dubai. A cidade das possibilidades. Pensei que seria o lugar perfeito pra colocar a cabeça no lugar. Mas, na verdade, eu estava me preparando pro pior. Na primeira noite, fui a um bar. Pedi uma bebida atrás da outra. Conversei com o bartender, e... acabei contando tudo sobre o Andre. O quanto eu sentia que éramos almas gêmeas, mas ele simplesmente não via isso. Foi então que ela me contou sobre a mulher que mudaria minha vida.</Paragraph>
         </Section>
 
         <Section className="text-center">
@@ -142,7 +142,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={400}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>A porta se abriu. E lá estava ela. Linda, misteriosa, com um olhar que parecia ter séculos de sabedoria. “Minha querida, eu já estava te esperando”, ela disse com voz calma. “Eu senti a sua dor desde que chegou à cidade.” “Meu nome é Lady Soraya.” “Diga-me, o que está te afligindo?” Contei tudo. Sobre o Mark. Sobre como sentia que ele era o homem da minha vida... E sobre como me sentia perdida, impotente e cansada. Ela ouviu atentamente. Depois sorriu:</Paragraph>
+            <Paragraph>A porta se abriu. E lá estava ela. Linda, misteriosa, com um olhar que parecia ter séculos de sabedoria. “Minha querida, eu já estava te esperando”, ela disse com voz calma. “Eu senti a sua dor desde que chegou à cidade.” “Meu nome é Lady Soraya.” “Diga-me, o que está te afligindo?” Contei tudo. Sobre o Andre. Sobre como sentia que ele era o homem da minha vida... E sobre como me sentia perdida, impotente e cansada. Ela ouviu atentamente. Depois sorriu:</Paragraph>
             <Paragraph>“Você veio ao lugar certo, minha querida.”</Paragraph>
             <Paragraph>“Desde jovem, dedico minha vida à magia do amor.”</Paragraph>
             <Paragraph>“E aprendi a diferença entre o amor passageiro e o amor eterno.”</Paragraph>
@@ -178,7 +178,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <Paragraph>Quando, antes de dormir, meu celular vibrou. Uma mensagem dele. "Eu sei que tenho agido estranho... mas desde que você viajou, percebi que você é a única pra mim. Quero consertar tudo quando você voltar."</Paragraph>
              <Image
                 src="https://i.imgur.com/Aiaa0J9.jpeg"
-                alt="Mensagem de texto do Mark"
+                alt="Mensagem de texto do Andre"
                 width={400}
                 height={200}
                 className="rounded-lg shadow-lg mx-auto my-4"
@@ -221,11 +221,11 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             >
                 LANÇAR FEITIÇO AGORA
             </Button>
-             <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
              <div className="mt-8 text-center text-foreground/80 max-w-md mx-auto">
                 <Paragraph>A partir daí, você será direcionada para um formulário de pedido 100% seguro.</Paragraph>
                 <Paragraph>Isso nos ajuda a manter o site no ar.</Paragraph>
-                <Paragraph>Assim que preencher seus dados... Você será levada a um pequeno quiz.</Paragraph>
+                <Paragraph>Assim que preencher seus dados...</Paragraph>
+                <Paragraph>Você será levada a um pequeno quiz.</Paragraph>
                 <Paragraph>Esse quiz ajudará Lady Soraya a lançar o feitiço com o máximo de poder e precisão possível.</Paragraph>
                 <Paragraph>Depois de concluir tudo...</Paragraph>
                 <p className="text-xl font-bold my-4 text-primary">✨ Seu feitiço será lançado dentro de 24 a 48 horas. ✨</p>
@@ -234,6 +234,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <Paragraph>O dia em que você assumiu o controle. O dia em que ele finalmente percebeu...</Paragraph>
                 <p className="text-2xl font-bold my-4 text-primary">💖 Vocês são destinados um ao outro. 💖</p>
             </div>
+             <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
         </Section>
         
         <Section>
@@ -261,3 +262,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

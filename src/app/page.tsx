@@ -4,7 +4,6 @@
 import { useState } from "react";
 import LandingPage from "@/components/feiticos/landing-page";
 import RitualQuiz from "@/components/feiticos/ritual-quiz";
-import SpellForm from "@/components/feiticos/spell-form";
 import ConfirmationPage from "@/components/feiticos/confirmation-page";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -12,7 +11,7 @@ import Step1Modal from "@/components/feiticos/step1-modal";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-type Step = "landing" | "step1" | "quiz" | "form" | "confirmation";
+type Step = "landing" | "step1" | "quiz" | "confirmation";
 
 export default function Home() {
   const [step, setStep] = useState<Step>("landing");
@@ -33,12 +32,10 @@ export default function Home() {
           <RitualQuiz
             onComplete={(data) => {
               setQuizData(data);
-              setStep("form");
+              setStep("confirmation");
             }}
           />
         );
-      case "form":
-        return <SpellForm onComplete={() => setStep("confirmation")} />;
       case "confirmation":
         return <ConfirmationPage onReset={() => setStep("landing")} />;
       default:

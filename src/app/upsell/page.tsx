@@ -66,8 +66,8 @@ export default function UpsellPage() {
                   {offer.description}
                 </p>
                 <div className="my-4">
-                  <p className="line-through text-muted-foreground">DE R$47,00</p>
-                  <p className="text-2xl font-bold text-success-foreground">por R$19,90</p>
+                  <p className="line-through text-red-500">DE R$47,00</p>
+                  <p className="text-2xl font-bold text-green-500">por R$19,90</p>
                 </div>
                 <Button asChild size="lg" className="w-full max-w-xs animate-button-glow-success bg-success text-success-foreground hover:bg-success/90">
                   <Link href={offer.link}>

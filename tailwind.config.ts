@@ -45,6 +45,10 @@ export default {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -98,6 +102,16 @@ export default {
             boxShadow: '0 0 15px hsl(var(--accent))',
           },
         },
+        'button-glow-success': {
+            '0%, 100%': {
+                transform: 'scale(1)',
+                boxShadow: '0 0 7px hsl(var(--success))',
+            },
+            '50%': {
+                transform: 'scale(1.03)',
+                boxShadow: '0 0 20px hsl(var(--success))',
+            },
+        },
         heartbeat: {
           '0%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.1)' },
@@ -108,6 +122,7 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'button-glow': 'button-glow 2.5s ease-in-out infinite',
+        'button-glow-success': 'button-glow-success 2s ease-in-out infinite',
         heartbeat: 'heartbeat 1.5s ease-in-out infinite',
       },
     },

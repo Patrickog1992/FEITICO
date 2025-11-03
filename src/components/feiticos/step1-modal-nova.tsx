@@ -168,7 +168,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
               <FormItem>
                 <FormLabel>Nome dele</FormLabel>
                 <FormControl>
-                  <Input placeholder="Digite here o nome do homem desejado" {...field} />
+                  <Input placeholder="Digite aqui o nome do homem desejado" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

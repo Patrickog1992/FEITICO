@@ -43,7 +43,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             Último desejo de Lady Soraya
             </h1>
             <p className="text-xl md:text-2xl mt-2">
-            Ajudar 3737 mulheres a criarem o amor de suas vidas
+            Ajudar 2121 mulheres a criarem o amor de suas vidas
             </p>
         </div>
       </header>
@@ -185,7 +185,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={200}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia seguinte, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que mulheres do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 3737 mulheres a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
+            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia seguinte, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que mulheres do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 2121 mulheres a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
         </Section>
 
         <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm">
@@ -198,7 +198,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 className="mx-auto mb-4"
             />
             <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
-            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500 font-bold">Apenas R$21,21</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificuldades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
+            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500 font-bold">Apenas R$21,21</span> — um número sagrado — para as 2121 mulheres escolhidas. Mesmo que você esteja passando por dificuldades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>
             </div>

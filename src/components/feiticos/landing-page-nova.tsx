@@ -38,12 +38,14 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     <div className="w-full max-w-4xl mx-auto">
        <header className="text-center my-8 md:my-12">
         <p className="text-xl md:text-2xl text-accent font-semibold">Feitiço proibido para deixar qualquer homem obcecado !</p>
-        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary mt-2">
-          Último desejo de Lady Soraya
-        </h1>
-        <p className="text-xl md:text-2xl mt-2 text-foreground/90">
-          Ajudar 3737 mulheres a criarem o amor de suas vidas
-        </p>
+        <div className="bg-primary text-primary-foreground p-6 rounded-lg mt-4">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline">
+            Último desejo de Lady Soraya
+            </h1>
+            <p className="text-xl md:text-2xl mt-2">
+            Ajudar 3737 mulheres a criarem o amor de suas vidas
+            </p>
+        </div>
       </header>
       
       <main>

@@ -81,7 +81,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
-    window.location.href = 'https://pay.kirvano.com/a8ad5893-8313-4959-95b1-4b87d4ada784';
+    window.location.href = 'https://pay.kirvano.com/7c899f74-1519-49fa-a545-d8ef80cebc20';
   }
 
   return (

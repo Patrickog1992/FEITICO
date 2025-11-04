@@ -8,21 +8,21 @@ const upsellOffers = [
     title: "Feitiço DUPLO + Removedor de Rivais",
     imageUrl: "https://i.imgur.com/gp4VXrm.png",
     description: "Feitiço místico que duplica o poder do amor e remove rivais, despertando devoção e atração irresistível.",
-    price: "DE R$47,00 por R$19,90",
+    price: "DE R$47,00 por R$9,90",
     link: "https://pay.kirvano.com/bcfceec3-293d-46eb-b85a-abd26f6ad1fa"
   },
   {
     title: "Mensagem astral de Amor",
     imageUrl: "https://i.imgur.com/0IjhiNs.png",
     description: "Receba uma mensagem canalizada diretamente pelo oráculo de Lady Soraya, revelando o que ele sente por você neste momento.",
-    price: "DE R$47,00 por R$19,90",
+    price: "DE R$47,00 por R$9,90",
     link: "https://pay.kirvano.com/fd8086e8-eb72-418c-bcac-56187b994617"
   },
   {
     title: "Leitura do Destino Amoroso",
     imageUrl: "https://i.imgur.com/hAQmrcz.png",
     description: "Descubra o que os Oráculos de Lady Soraya revelam sobre o futuro do seu relacionamento.",
-    price: "DE R$47,00 por R$19,90",
+    price: "DE R$47,00 por R$9,90",
     link: "https://pay.kirvano.com/0a352bf2-5dc5-46d9-8fcf-3f9dd96bfc9f"
   }
 ];
@@ -67,7 +67,7 @@ export default function UpsellPage() {
                 </p>
                 <div className="my-4">
                   <p className="line-through text-red-500">DE R$47,00</p>
-                  <p className="text-2xl font-bold text-green-500">por R$19,90</p>
+                  <p className="text-2xl font-bold text-green-500">por R$9,90</p>
                 </div>
                 <Button asChild size="lg" className="w-full max-w-xs animate-button-glow-success bg-success text-success-foreground hover:bg-success/90">
                   <Link href={offer.link}>

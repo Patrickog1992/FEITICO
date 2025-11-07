@@ -69,7 +69,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section>
             <Paragraph>Mas antes de continuar...</Paragraph>
             <Paragraph className="border-l-4 border-primary pl-4 italic font-semibold">
-                Quero que você entenda que o feitiço de amor que vou te revelar é <span className="font-bold text-destructive">irreversível</span>. Uma vez que você use este feitiço proibido no homem que escolher... Não há volta. A única forma de quebrar este feitiço é — a morte. Ou seja, será mesmo até o fim.
+                Quero que você entenda que o feitiço de amor que vou te revelar é <span className="font-bold text-destructive">irreversível</span>. Uma vez que you use este feitiço proibido no homem que escolher... Não há volta. A única forma de quebrar este feitiço é — a morte. Ou seja, será mesmo até o fim.
             </Paragraph>
         </Section>
 
@@ -112,7 +112,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={400}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Fui enviada numa viagem de trabalho de última hora. Destino: Dubai. A cidade das possibilidades. Pensei que seria o lugar perfeito pra colocar a cabeça no lugar. Mas, na verdade, eu estava me preparando pro pior. Na primeira noite, fui a um bar. Pedi uma bebida atrás da outra. Conversei com a garçonete, e... acabei contando tudo sobre o Andre. O quanto eu sentia que éramos almas gêmeas, mas ele simplesmente não via isso. Foi então que ela me contou sobre a mulher que mudaria minha vida.</Paragraph>
+            <Paragraph>Fui enviada numa viagem de trabalho de última hora. Destino: Dubai. A cidade das possibilidades. Pensei que seria o lugar perfeito pra colocar a cabeça no lugar. Mas, na verdade, eu estava me preparando pro pior. Na primeira noite, fui a um bar. Pedi uma bebida atrás da outra. Conversei com o bartender, e... acabei contando tudo sobre o Andre. O quanto eu sentia que éramos almas gêmeas, mas ele simplemente não via isso. Foi então que ele me contou sobre a mulher que mudaria minha vida.</Paragraph>
         </Section>
 
         <Section className="text-center">
@@ -185,7 +185,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={200}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia seguinte, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que mulheres do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 3737 mulheres a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
+            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia siguiente, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que mulheres do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 3737 mulheres a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
         </Section>
 
         <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm">
@@ -197,7 +197,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={100}
                 className="mx-auto mb-4"
             />
-            <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
+            <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com otra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
             <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500 font-bold">Apenas R$37,37</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>

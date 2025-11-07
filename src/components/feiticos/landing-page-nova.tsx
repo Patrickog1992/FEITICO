@@ -219,11 +219,14 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <div className="my-6 text-center">
                 <h3 className="text-xl font-bold text-primary mb-2">Lady Soraya tem um recado para você</h3>
                 <p className="text-sm text-foreground/70 mb-4">(Aperte o play e escute)</p>
-                <div className="mx-auto rounded-lg overflow-hidden shadow-lg flex justify-center">
+                <div
+                    className="mx-auto rounded-lg overflow-hidden shadow-lg flex justify-center bg-cover bg-center"
+                    style={{ backgroundImage: "url('https://i.imgur.com/6MQCnLK.png')" }}
+                >
                     <video
                     src="https://i.imgur.com/SsEhu1f.mp4"
                     controls
-                    className="max-w-full h-auto"
+                    className="max-w-full h-auto bg-transparent"
                     />
                 </div>
             </div>
@@ -301,5 +304,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    
 
     

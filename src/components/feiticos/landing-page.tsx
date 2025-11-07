@@ -4,6 +4,7 @@
 import { Sparkles, Check, LockIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Testimonials from "./testimonials";
 
 type LandingPageProps = {
   onStart: () => void;
@@ -243,6 +244,8 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
             </div>
         </Section>
+        
+        <Testimonials />
 
         <Section>
             <SectionTitle>Perguntas Frequentes</SectionTitle>
@@ -280,3 +283,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

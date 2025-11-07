@@ -12,7 +12,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-const testimonials = [
+const testimonialsData = [
   {
     name: "Juliana Paes",
     avatar: "https://i.imgur.com/Sza1ZfT.png",
@@ -45,10 +45,32 @@ const testimonials = [
   },
 ];
 
+type Testimonial = typeof testimonialsData[0] & {
+    likes: number;
+    hearts: number;
+    time: number;
+};
+
 export default function Testimonials() {
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
   );
+
+  const [testimonials, setTestimonials] = React.useState<Testimonial[]>([]);
+
+  React.useEffect(() => {
+    const testimonialsWithRandoms = testimonialsData.map(t => ({
+      ...t,
+      likes: Math.floor(Math.random() * (250 - 50 + 1)) + 50,
+      hearts: Math.floor(Math.random() * (500 - 150 + 1)) + 150,
+      time: Math.floor(Math.random() * (59 - 2 + 1)) + 2,
+    }));
+    setTestimonials(testimonialsWithRandoms);
+  }, []);
+
+  if (testimonials.length === 0) {
+    return null;
+  }
 
   return (
     <section className="w-full max-w-4xl mx-auto my-8 md:my-16 px-4">
@@ -89,16 +111,16 @@ export default function Testimonials() {
                             <div className="p-1 bg-blue-600 rounded-full">
                                 <ThumbsUp className="h-3 w-3 text-white" />
                             </div>
-                             <span className="text-xs">{Math.floor(Math.random() * (250 - 50 + 1)) + 50}</span>
+                             <span className="text-xs">{testimonial.likes}</span>
                         </div>
                         <div className="flex items-center gap-1">
                             <div className="p-1 bg-red-600 rounded-full">
                                <Heart className="h-3 w-3 text-white fill-white" />
                             </div>
-                            <span className="text-xs">{Math.floor(Math.random() * (500 - 150 + 1)) + 150}</span>
+                            <span className="text-xs">{testimonial.hearts}</span>
                         </div>
                     </div>
-                     <span className="text-xs">{Math.floor(Math.random() * (59 - 2 + 1)) + 2} min</span>
+                     <span className="text-xs">{testimonial.time} min</span>
                 </div>
               </div>
             </CarouselItem>
@@ -108,5 +130,3 @@ export default function Testimonials() {
     </section>
   );
 }
-
-    

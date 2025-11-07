@@ -186,7 +186,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={200}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia siguiente, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que mulheres do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 3737 mulheres a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
+            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia seguinte, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que mulheres do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 3737 mulheres a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
         </Section>
 
         <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm">
@@ -216,8 +216,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Não revelarei a ninguém que lancei o feitiço (isso causa “quebra do encanto”).</p>
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Entendo que, uma vez lançado, não há retorno.</p>
             </div>
-             <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>
-             <div className="my-6">
+            <div className="my-6">
                 <h3 className="text-xl font-bold text-primary mb-4">Lady Soraya tem um recado para você</h3>
                 <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-lg">
                     <video
@@ -230,6 +229,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                     />
                 </div>
             </div>
+             <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>
              <Button
                 onClick={onStart}
                 size="lg"

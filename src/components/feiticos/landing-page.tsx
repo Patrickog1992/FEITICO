@@ -214,6 +214,19 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Entendo que, uma vez lançado, não há retorno.</p>
             </div>
              <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>
+             <div className="my-6">
+                <h3 className="text-xl font-bold text-primary mb-4">Lady Soraya tem um recado para você</h3>
+                <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-lg">
+                    <video
+                    src="https://i.imgur.com/SsEhu1f.mp4"
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
              <Button
                 onClick={onStart}
                 size="lg"
@@ -283,5 +296,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

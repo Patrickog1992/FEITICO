@@ -198,7 +198,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={100}
                 className="mx-auto mb-4"
             />
-            <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com otra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
+            <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
             <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500 font-bold">Apenas R$37,37</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>
@@ -217,6 +217,19 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Entendo que, uma vez lançado, não há retorno.</p>
             </div>
              <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>
+             <div className="my-6">
+                <h3 className="text-xl font-bold text-primary mb-4">Lady Soraya tem um recado para você</h3>
+                <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-lg">
+                    <video
+                    src="https://i.imgur.com/SsEhu1f.mp4"
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full h-full object-cover"
+                    />
+                </div>
+            </div>
              <Button
                 onClick={onStart}
                 size="lg"
@@ -290,5 +303,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Sparkles, Check } from "lucide-react";
+import { Sparkles, Check, LockIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
@@ -245,6 +245,17 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         </Section>
         
         <Section>
+          <div className="bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm max-w-2xl mx-auto">
+              <h3 className="font-bold text-xl text-primary flex items-center gap-2 justify-center"><LockIcon className="w-5 h-5"/> Garantia Inabalável de 7 Dias</h3>
+              <Paragraph className="text-center mt-4">
+                  Experimente o Ritual de Lady Soraya por 7 dias, sem risco.
+                  Se você sentir que não é para você, basta enviar uma mensagem para suporte@seusite.com dentro do prazo e devolvemos 100% do seu investimento.
+                  Sem perguntas, sem burocracia. Seu coração em primeiro lugar. 💖
+              </Paragraph>
+          </div>
+        </Section>
+
+        <Section>
             <SectionTitle>Perguntas Frequentes</SectionTitle>
             <div className="space-y-4 max-w-2xl mx-auto">
                 <div>
@@ -280,5 +291,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

@@ -249,7 +249,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               <h3 className="font-bold text-xl text-primary flex items-center gap-2 justify-center"><LockIcon className="w-5 h-5"/> Garantia Inabalável de 7 Dias</h3>
               <Paragraph className="text-center mt-4">
                   Experimente o Ritual de Lady Soraya por 7 dias, sem risco.
-                  Se você sentir que não é para você, basta enviar uma mensagem para suporte@seusite.com dentro do prazo e devolvemos 100% do seu investimento.
+                  Se você sentir que não é para você, basta enviar uma mensagem para suporte@ladysoraya.com.br dentro do prazo e devolvemos 100% do seu investimento.
                   Sem perguntas, sem burocracia. Seu coração em primeiro lugar. 💖
               </Paragraph>
           </div>

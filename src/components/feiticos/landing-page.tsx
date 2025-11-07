@@ -109,7 +109,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={400}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Fui enviada numa viagem de trabalho de última hora. Destino: Dubai. A cidade das possibilidades. Pensei que seria o lugar perfeito pra colocar a cabeça no lugar. Mas, na verdade, eu estava me preparando pro pior. Na primeira noite, fui a um bar. Pedi uma bebida atrás da outra. Conversei com o bartender, e... acabei contando tudo sobre o Andre. O quanto eu sentia que éramos almas gêmeas, mas ele simplesmente não via isso. Foi então que ela me contou sobre a mulher que mudaria minha vida.</Paragraph>
+            <Paragraph>Fui enviada numa viagem de trabalho de última hora. Destino: Dubai. A cidade das possibilidades. Pensei que seria o lugar perfeito pra colocar a cabeça no lugar. Mas, na verdade, eu estava me preparando pro pior. Na primeira noite, fui a um bar. Pedi uma bebida atrás da outra. Conversei com a garçonete, e... acabei contando tudo sobre o Andre. O quanto eu sentia que éramos almas gêmeas, mas ele simplesmente não via isso. Foi então que ela me contou sobre a mulher que mudaria minha vida.</Paragraph>
         </Section>
 
         <Section className="text-center">
@@ -228,7 +228,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <Paragraph>Você será levada a um pequeno quiz.</Paragraph>
                 <Paragraph>Esse quiz ajudará Lady Soraya a lançar o feitiço com o máximo de poder e precisão possível.</Paragraph>
                 <Paragraph>Depois de concluir tudo...</Paragraph>
-                <p className="text-xl font-bold my-4 text-primary">✨ Seu feitiço será lançado dentro de 24 a 48 horas. ✨</p>
+                <p className="text-xl font-bold my-4 text-primary">✨ Seu feitiço será lançado dentro de 24 horas. ✨</p>
                 <Paragraph>E, em apenas alguns dias... Você vai olhar para este momento e sorrir,</Paragraph>
                 <Paragraph>Porque este foi o momento em que sua vida amorosa mudou para sempre.</Paragraph>
                 <Paragraph>O dia em que você assumiu o controle. O dia em que ele finalmente percebeu...</Paragraph>

@@ -243,15 +243,6 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <p className="mt-4 text-sm text-foreground/70">💫 Funciona ainda hoje à noite 💫</p>
             </div>
         </Section>
-        
-        <Section>
-          <div className="bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm max-w-2xl mx-auto">
-              <h3 className="font-bold text-xl text-primary flex items-center gap-2 justify-center"><LockIcon className="w-5 h-5"/> Garantia Inabalável de 7 Dias</h3>
-              <Paragraph className="text-center mt-4">
-                  Experimente o Ritual de Lady Soraya por 7 dias, sem risco. Se você não sentir os sinais de conexão e transformação amorosa durante esse período, basta enviar uma mensagem para suporte@ladysoraya.com.br e devolvemos 100% do seu investimento. Sem perguntas, sem burocracia. 🌙 O amor verdadeiro não precisa de pressa — apenas confiança.
-              </Paragraph>
-          </div>
-        </Section>
 
         <Section>
             <SectionTitle>Perguntas Frequentes</SectionTitle>
@@ -289,5 +280,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

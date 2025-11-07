@@ -222,9 +222,6 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                     <video
                     src="https://i.imgur.com/SsEhu1f.mp4"
                     controls
-                    autoPlay
-                    muted
-                    loop
                     className="max-w-full h-auto"
                     />
                 </div>

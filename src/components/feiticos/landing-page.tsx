@@ -215,14 +215,14 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             </div>
             <div className="my-6">
                 <h3 className="text-xl font-bold text-primary mb-4">Lady Soraya tem um recado para você</h3>
-                <div className="aspect-video w-full max-w-lg mx-auto rounded-lg overflow-hidden shadow-lg">
+                <div className="mx-auto rounded-lg overflow-hidden shadow-lg flex justify-center">
                     <video
                     src="https://i.imgur.com/SsEhu1f.mp4"
                     controls
                     autoPlay
                     muted
                     loop
-                    className="w-full h-full object-cover"
+                    className="max-w-full h-auto"
                     />
                 </div>
             </div>
@@ -296,3 +296,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

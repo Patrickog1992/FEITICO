@@ -257,7 +257,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 </div>
                  <div>
                     <h3 className="font-bold text-lg">Como faço para lançar o feitiço?</h3>
-                    <Paragraph>Clique no botão “Lançar Feitiço Agora”. Responda um breve quiz (para personalizar o ritual). Depois, complete o formulário seguro. E, em até 48 horas, Lady Soraya lançará o feitiço em seu nome.</Paragraph>
+                    <Paragraph>Clique no botão “Lançar Feitiço Agora”. Responda um breve quiz (para personalizar o ritual). Depois, complete o formulário seguro. E, em 24 horas, Lady Soraya lançará o feitiço em seu nome.</Paragraph>
                 </div>
             </div>
         </Section>

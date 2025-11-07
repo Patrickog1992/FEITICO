@@ -216,8 +216,9 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Não revelarei a ninguém que lancei o feitiço (isso causa “quebra do encanto”).</p>
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Entendo que, uma vez lançado, não há retorno.</p>
             </div>
-            <div className="my-6">
-                <h3 className="text-xl font-bold text-primary mb-4">Lady Soraya tem um recado para você</h3>
+            <div className="my-6 text-center">
+                <h3 className="text-xl font-bold text-primary mb-2">Lady Soraya tem um recado para você</h3>
+                <p className="text-sm text-foreground/70 mb-4">(Aperte o play e escute)</p>
                 <div className="mx-auto rounded-lg overflow-hidden shadow-lg flex justify-center">
                     <video
                     src="https://i.imgur.com/SsEhu1f.mp4"

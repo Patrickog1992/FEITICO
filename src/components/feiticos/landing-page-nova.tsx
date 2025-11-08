@@ -224,7 +224,6 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <video
                   controls
                   className="object-cover"
-                  poster="https://i.imgur.com/6MQCnLK.png"
                 >
                   <source src="https://i.imgur.com/SsEhu1f.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -306,7 +305,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    
-
-    

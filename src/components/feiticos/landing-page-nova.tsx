@@ -220,7 +220,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <div className="my-8 text-center">
               <h3 className="text-xl font-bold text-primary">Lady Soraya tem um recado para você</h3>
               <p className="text-sm text-foreground/70">(Aperte o play e escute)</p>
-              <div className="mt-4 aspect-video w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg">
+              <div className="mt-4 aspect-video w-full rounded-lg overflow-hidden shadow-lg">
                 <video
                   controls
                   className="w-full h-full object-cover"
@@ -306,5 +306,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    
 
     

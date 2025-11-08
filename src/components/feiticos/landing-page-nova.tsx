@@ -217,6 +217,21 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Entendo que, uma vez lançado, não há retorno.</p>
             </div>
             
+            <div className="my-8 text-center">
+              <h3 className="text-xl font-bold text-primary">Lady Soraya tem um recado para você</h3>
+              <p className="text-sm text-foreground/70">(Aperte o play e escute)</p>
+              <div className="mt-4 aspect-video w-full max-w-md mx-auto rounded-lg overflow-hidden shadow-lg">
+                <video
+                  controls
+                  className="w-full h-full object-cover"
+                  poster="https://i.imgur.com/6MQCnLK.png"
+                >
+                  <source src="https://i.imgur.com/SsEhu1f.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
              <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>
              <Button
                 onClick={onStart}
@@ -291,3 +306,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

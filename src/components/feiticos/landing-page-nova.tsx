@@ -5,7 +5,7 @@ import { Sparkles, Check, Heart, LockIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Testimonials from "./testimonials";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 type LandingPageProps = {
   onStart: () => void;
@@ -35,38 +35,33 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
   </p>
 );
 
+const VturbVideoPlayer = () => {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://scripts.converteai.net/82b0f5b7-3ef8-4fad-9a6a-1e700b3d750b/players/690f41a0230c7d2caf630448/v4/player.js";
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Optional: remove script when component unmounts
+      const scripts = document.head.getElementsByTagName('script');
+      for (let i = 0; i < scripts.length; i++) {
+        if (scripts[i].src === script.src) {
+          document.head.removeChild(scripts[i]);
+          break;
+        }
+      }
+    };
+  }, []);
+
+  return React.createElement('vturb-smartplayer', {
+    id: 'vid-690f41a0230c7d2caf630448',
+    style: { display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }
+  });
+};
+
 const VideoPlayer = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlay = () => {
-    setIsPlaying(true);
-  };
-
-  return (
-    <div className="mt-4 rounded-lg overflow-hidden shadow-lg inline-block relative">
-      {isPlaying ? (
-        <video controls autoPlay className="object-contain">
-          <source src="https://i.imgur.com/SsEhu1f.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <div onClick={handlePlay} className="cursor-pointer">
-          <Image
-            src="https://i.imgur.com/2hnUgvP.png"
-            alt="Play video"
-            width={560}
-            height={315}
-            className="object-contain"
-          />
-           <div className="absolute inset-0 flex items-center justify-center">
-                <svg className="h-16 w-16 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
-                </svg>
-            </div>
-        </div>
-      )}
-    </div>
-  );
+  return <VturbVideoPlayer />;
 };
 
 

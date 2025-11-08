@@ -52,7 +52,7 @@ const VideoPlayer = () => {
       ) : (
         <div onClick={handlePlay} className="cursor-pointer">
           <Image
-            src="https://i.imgur.com/6MQCnLK.png"
+            src="https://i.imgur.com/2hnUgvP.png"
             alt="Play video"
             width={560}
             height={315}

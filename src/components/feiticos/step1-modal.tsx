@@ -175,7 +175,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
             )}
           />
           
-          <Button type="submit" size="lg" className="w-full font-bold bg-success text-success-foreground hover:bg-success/90 animate-button-glow-success">
+          <Button type="submit" size="lg" className="w-full font-bold bg-accent text-accent-foreground hover:bg-accent/90 animate-button-glow">
             👉 Ir para a Etapa #2
           </Button>
         </form>

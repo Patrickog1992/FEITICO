@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -176,7 +175,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
             )}
           />
           
-          <Button type="submit" size="lg" className="w-full font-bold bg-accent hover:bg-accent/90 animate-button-glow">
+          <Button type="submit" size="lg" className="w-full font-bold bg-success text-success-foreground hover:bg-success/90 animate-button-glow-success">
             👉 Ir para a Etapa #2
           </Button>
         </form>

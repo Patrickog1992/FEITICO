@@ -5,6 +5,7 @@ import { Sparkles, Check, Heart, LockIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Testimonials from "./testimonials";
+import React, { useState } from "react";
 
 type LandingPageProps = {
   onStart: () => void;
@@ -33,6 +34,41 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
     {children}
   </p>
 );
+
+const VideoPlayer = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
+  return (
+    <div className="mt-4 rounded-lg overflow-hidden shadow-lg inline-block relative">
+      {isPlaying ? (
+        <video controls autoPlay className="object-contain">
+          <source src="https://i.imgur.com/SsEhu1f.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <div onClick={handlePlay} className="cursor-pointer">
+          <Image
+            src="https://i.imgur.com/6MQCnLK.png"
+            alt="Play video"
+            width={560}
+            height={315}
+            className="object-contain"
+          />
+           <div className="absolute inset-0 flex items-center justify-center">
+                <svg className="h-16 w-16 text-white opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path>
+                </svg>
+            </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 
 export default function LandingPage({ onStart }: LandingPageProps) {
   return (
@@ -220,15 +256,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <div className="my-8 text-center">
               <h3 className="text-xl font-bold text-primary">Lady Soraya tem um recado para você</h3>
               <p className="text-sm text-foreground/70">(Aperte o play e escute)</p>
-              <div className="mt-4 rounded-lg overflow-hidden shadow-lg inline-block">
-                <video
-                  controls
-                  className="object-cover"
-                >
-                  <source src="https://i.imgur.com/SsEhu1f.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
+              <VideoPlayer />
             </div>
 
              <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>

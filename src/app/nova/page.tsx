@@ -44,34 +44,46 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
-      {heroImage && (
-         <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover -z-10 opacity-10"
-            data-ai-hint={heroImage.imageHint}
-          />
-      )}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
-      
-      <div className="w-full h-full overflow-y-auto">
-        <LandingPage onStart={() => setStep("step1")} />
-      </div>
-      
-      {step !== "landing" && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 p-4 pt-12 sm:items-center sm:pt-4 overflow-y-auto">
-           <div className="relative w-full max-w-2xl">
-            {renderStep()}
-            <Button variant="ghost" size="icon" onClick={handleCloseModal} className="absolute top-4 right-4 rounded-full bg-background/50 text-foreground hover:bg-background/80">
-              <X className="h-5 w-5" />
-              <span className="sr-only">Fechar</span>
-            </Button>
-           </div>
+    <>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);` }} />
+        <link rel="preload" href="https://scripts.converteai.net/82b0f5b7-3ef8-4fad-9a6a-1e700b3d750b/players/690f41a0230c7d2caf630448/v4/player.js" as="script" />
+        <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script" />
+        <link rel="preload" href="https://cdn.converteai.net/82b0f5b7-3ef8-4fad-9a6a-1e700b3d750b/690f41783cf93344c37b137e/main.m3u8" as="fetch" />
+        <link rel="dns-prefetch" href="https://cdn.converteai.net" />
+        <link rel="dns-prefetch" href="https://scripts.converteai.net" />
+        <link rel="dns-prefetch" href="https://images.converteai.net" />
+        <link rel="dns-prefetch" href="https://api.vturb.com.br" />
+      </head>
+      <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
+        {heroImage && (
+           <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover -z-10 opacity-10"
+              data-ai-hint={heroImage.imageHint}
+            />
+        )}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        
+        <div className="w-full h-full overflow-y-auto">
+          <LandingPage onStart={() => setStep("step1")} />
         </div>
-      )}
+        
+        {step !== "landing" && (
+          <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 p-4 pt-12 sm:items-center sm:pt-4 overflow-y-auto">
+             <div className="relative w-full max-w-2xl">
+              {renderStep()}
+              <Button variant="ghost" size="icon" onClick={handleCloseModal} className="absolute top-4 right-4 rounded-full bg-background/50 text-foreground hover:bg-background/80">
+                <X className="h-5 w-5" />
+                <span className="sr-only">Fechar</span>
+              </Button>
+             </div>
+          </div>
+        )}
 
-    </main>
+      </main>
+    </>
   );
 }

@@ -27,9 +27,6 @@ const formSchema = z.object({
   name: z.string().min(2, {
     message: "Seu nome deve ter pelo menos 2 caracteres.",
   }),
-  desire: z.string().min(5, {
-    message: "Por favor, escreva uma frase um pouco mais longa.",
-  }),
   targetName: z.string().min(2, {
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
@@ -76,7 +73,6 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      desire: "",
       targetName: "",
       terms1: false,
       terms2: false,
@@ -168,22 +164,6 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
           />
            <FormField
             control={form.control}
-            name="desire"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Escreva uma frase curta que representa o que você deseja atrair.</FormLabel>
-                <FormControl>
-                  <Input placeholder="Digite sua frase aqui..." {...field} />
-                </FormControl>
-                <FormDescription>
-                  (Ex: “Quero viver um amor de verdade.”)
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-           <FormField
-            control={form.control}
             name="targetName"
             render={({ field }) => (
               <FormItem>
@@ -204,5 +184,3 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
     </MagicContainer>
   );
 }
-
-    

@@ -220,10 +220,10 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <div className="my-8 text-center">
               <h3 className="text-xl font-bold text-primary">Lady Soraya tem um recado para você</h3>
               <p className="text-sm text-foreground/70">(Aperte o play e escute)</p>
-              <div className="mt-4 aspect-video w-full rounded-lg overflow-hidden shadow-lg">
+              <div className="mt-4 rounded-lg overflow-hidden shadow-lg inline-block">
                 <video
                   controls
-                  className="w-full h-full object-cover"
+                  className="object-cover"
                   poster="https://i.imgur.com/6MQCnLK.png"
                 >
                   <source src="https://i.imgur.com/SsEhu1f.mp4" type="video/mp4" />

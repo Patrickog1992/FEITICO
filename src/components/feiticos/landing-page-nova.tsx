@@ -38,7 +38,7 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 const VturbVideoPlayer = () => {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://scripts.converteai.net/82b0f5b7-3ef8-4fad-9a6a-1e700b3d750b/players/690f41a0230c7d2caf630448/v4/player.js";
+    script.src = "https://scripts.converteai.net/82b0f5b7-3ef8-4fad-9a6a-1e700b3d750b/players/690f41a0230c7d2caf630448/v4/player.js?autoplay=false";
     script.async = true;
     document.head.appendChild(script);
 

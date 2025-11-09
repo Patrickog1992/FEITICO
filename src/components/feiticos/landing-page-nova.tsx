@@ -45,11 +45,19 @@ const VturbVideoPlayer = () => {
     return () => {
       const scripts = document.head.getElementsByTagName('script');
       for (let i = 0; i < scripts.length; i++) {
-        if (scripts[i].src === script.src) {
-          document.head.removeChild(scripts[i]);
-          break;
+        const s = scripts[i];
+        if (s.src.includes('converteai.net')) {
+            const parent = s.parentNode;
+            if(parent){
+                parent.removeChild(s);
+            }
         }
       }
+       // Clean up player instance if Vturb SDK provides a method
+       const playerElement = document.getElementById('vid-690f41a0230c7d2caf630448');
+       if (playerElement) {
+         playerElement.innerHTML = "";
+       }
     };
   }, []);
 
@@ -59,8 +67,16 @@ const VturbVideoPlayer = () => {
   });
 };
 
+
 const VideoPlayer = () => {
     const [showVideo, setShowVideo] = useState(false);
+
+    useEffect(() => {
+        // Reset state on component unmount or re-render if needed
+        return () => {
+            setShowVideo(false);
+        }
+    }, []);
 
     if (showVideo) {
         return <VturbVideoPlayer />;
@@ -103,7 +119,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       
       <main>
         <Section className="text-center">
-          <SectionTitle>A Sacerdotisa do amor revela: 💘 O feitiço proibido do amor que faz ele se comprometer de uma vez por todas</SectionTitle>
+          <SectionTitle>A Sacerdotisa do amor revela: 💘 O feitiço proibido do amor que faz ele ficar preso a você de uma vez por todas</SectionTitle>
           <Image
             src="https://www.secretlovespells.com/hosted/images/a4/38766aa00344bc8c6032fb72ec7f42/desert-mystic-book-1-.png"
             alt="Livro místico no deserto"
@@ -251,7 +267,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 className="mx-auto mb-4"
             />
             <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
-            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500 font-bold">Apenas R$37,37</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
+            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. Apenas R$37,37 — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas <span className="text-green-500">R$ 37,37</span> hoje, você pode lançar o feitiço que fará ele te amar eternamente. ✨</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>

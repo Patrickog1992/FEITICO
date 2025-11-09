@@ -29,15 +29,9 @@ const formSchema = z.object({
   targetName: z.string().min(2, {
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
-  terms1: z.boolean().refine((val) => val === true, {
-    message: "Você deve concordar com os termos para continuar.",
-  }),
-  terms2: z.boolean().refine((val) => val === true, {
-    message: "Você deve concordar com os termos para continuar.",
-  }),
-  terms3: z.boolean().refine((val) => val === true, {
-    message: "Você deve concordar com os termos para continuar.",
-  }),
+  terms1: z.boolean().optional(),
+  terms2: z.boolean().optional(),
+  terms3: z.boolean().optional(),
 });
 
 const Timer = () => {

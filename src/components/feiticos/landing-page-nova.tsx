@@ -35,71 +35,15 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
   </p>
 );
 
-const VturbVideoPlayer = () => {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://scripts.converteai.net/82b0f5b7-3ef8-4fad-9a6a-1e700b3d750b/players/690f41a0230c7d2caf630448/v4/player.js?autoplay=false";
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      const scripts = document.head.getElementsByTagName('script');
-      for (let i = 0; i < scripts.length; i++) {
-        const s = scripts[i];
-        if (s.src.includes('converteai.net')) {
-            const parent = s.parentNode;
-            if(parent){
-                parent.removeChild(s);
-            }
-        }
-      }
-       // Clean up player instance if Vturb SDK provides a method
-       const playerElement = document.getElementById('vid-690f41a0230c7d2caf630448');
-       if (playerElement) {
-         playerElement.innerHTML = "";
-       }
-    };
-  }, []);
-
-  return React.createElement('vturb-smartplayer', {
-    id: 'vid-690f41a0230c7d2caf630448',
-    style: { display: 'block', margin: '0 auto', width: '100%', maxWidth: '400px' }
-  });
-};
-
-
-const VideoPlayer = () => {
-    const [showVideo, setShowVideo] = useState(false);
-
-    useEffect(() => {
-        // Reset state on component unmount or re-render if needed
-        return () => {
-            setShowVideo(false);
-        }
-    }, []);
-
-    if (showVideo) {
-        return <VturbVideoPlayer />;
-    }
-
+const AudioPlayer = () => {
     return (
-        <div className="relative cursor-pointer" onClick={() => setShowVideo(true)}>
-            <Image
-                src="https://i.imgur.com/2hnUgvP.png"
-                alt="Play Video"
-                width={400}
-                height={225}
-                className="mx-auto"
-                style={{ maxWidth: '400px', width: '100%' }}
-            />
-             <div className="absolute inset-0 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="rgba(255,255,255,0.7)">
-                    <path d="M8 5v14l11-7z" />
-                </svg>
-            </div>
+        <div className="flex justify-center items-center my-4">
+            <audio controls src="https://ia803108.us.archive.org/19/items/lady_20251110/Lady.mp3" className="w-full max-w-md">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
         </div>
     );
-};
+}
 
 
 export default function LandingPage({ onStart }: LandingPageProps) {
@@ -268,7 +212,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             />
             <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
             <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500">Apenas R$37,37</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
-            <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas <span className="text-green-500">R$ 37,37</span> hoje, você pode lançar o feitiço que fará ele te amar eternamente. ✨</Paragraph>
+            <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas R$ 37,37 hoje, você pode lançar o feitiço que fará ele te amar eternamente. ✨</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>
             </div>
@@ -289,7 +233,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <div className="my-8 text-center">
               <h3 className="text-xl font-bold text-primary">Lady Soraya tem um recado para você</h3>
               <p className="text-sm text-foreground/70">(Aperte o play e escute)</p>
-              <VideoPlayer />
+              <AudioPlayer />
             </div>
 
              <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>

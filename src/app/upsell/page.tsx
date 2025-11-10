@@ -96,8 +96,23 @@ export default function UpsellPage() {
               </div>
             ))}
           </main>
+          
+          <footer className="text-center mt-16">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6">Ou aproveite a oferta especial!</h2>
+            <Button 
+                asChild 
+                size="lg" 
+                className="h-auto w-full max-w-2xl animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 text-lg font-bold p-6 whitespace-normal"
+            >
+              <Link href="https://pay.kirvano.com/7c33f1b6-cffb-4007-b68d-6717b2baa76f">
+                APROVEITE ESSA PROMOÇÃO OS 5 POR APENAS R$ 47,00
+              </Link>
+            </Button>
+          </footer>
+
         </div>
       </div>
     </div>
   );
 }
+

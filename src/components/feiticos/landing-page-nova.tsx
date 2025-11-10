@@ -1,11 +1,12 @@
 
 "use client";
 
-import { Sparkles, Check, Heart, LockIcon } from "lucide-react";
+import { Sparkles, Check, Heart, LockIcon, Play, Pause } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Testimonials from "./testimonials";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Slider } from "@/components/ui/slider";
 
 type LandingPageProps = {
   onStart: () => void;
@@ -36,14 +37,77 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 const AudioPlayer = () => {
+    const audioRef = useRef<HTMLAudioElement>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [duration, setDuration] = useState(0);
+    const [currentTime, setCurrentTime] = useState(0);
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
+        const setAudioData = () => {
+            setDuration(audio.duration);
+            setCurrentTime(audio.currentTime);
+        };
+
+        const setAudioTime = () => setCurrentTime(audio.currentTime);
+
+        audio.addEventListener("loadeddata", setAudioData);
+        audio.addEventListener("timeupdate", setAudioTime);
+
+        return () => {
+            audio.removeEventListener("loadeddata", setAudioData);
+            audio.removeEventListener("timeupdate", setAudioTime);
+        };
+    }, []);
+
+    const togglePlayPause = () => {
+        const audio = audioRef.current;
+        if (!audio) return;
+        if (isPlaying) {
+            audio.pause();
+        } else {
+            audio.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    const handleSliderChange = (value: number[]) => {
+        const audio = audioRef.current;
+        if (!audio) return;
+        audio.currentTime = value[0];
+        setCurrentTime(value[0]);
+    };
+    
+    const formatTime = (timeInSeconds: number) => {
+        const minutes = Math.floor(timeInSeconds / 60);
+        const seconds = Math.floor(timeInSeconds % 60);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    };
+
     return (
-        <div className="flex justify-center items-center my-4">
-            <audio controls src="https://ia803108.us.archive.org/19/items/lady_20251110/Lady.mp3" className="w-full max-w-md">
-                Seu navegador não suporta o elemento de áudio.
-            </audio>
+        <div className="w-full max-w-md mx-auto my-4 p-4 bg-muted/50 rounded-lg">
+            <audio ref={audioRef} src="https://ia803108.us.archive.org/19/items/lady_20251110/Lady.mp3" preload="metadata" onEnded={() => setIsPlaying(false)} />
+            <div className="flex items-center gap-4">
+                <Button onClick={togglePlayPause} size="icon" className="rounded-full bg-primary hover:bg-primary/90">
+                    {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6 ml-1" />}
+                </Button>
+                <div className="flex-grow flex items-center gap-2">
+                    <Slider
+                        value={[currentTime]}
+                        max={duration || 0}
+                        onValueChange={handleSliderChange}
+                        className="w-full"
+                    />
+                </div>
+                <span className="text-sm text-foreground/70 font-mono w-12 text-right">
+                    {formatTime(currentTime)}
+                </span>
+            </div>
         </div>
     );
-}
+};
 
 
 export default function LandingPage({ onStart }: LandingPageProps) {
@@ -211,8 +275,8 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 className="mx-auto mb-4"
             />
             <Paragraph>Agora você pode lançar um poderoso feitiço de amor no homem que é o seu destino. Não importa se ele está distante... Se ele está com outra... Ou se vocês não se veem há anos. Porque o feitiço de Lady Soraya alinha as energias dele às suas... e faz com que o amor que você sente se torne óbvio pra ele também. Porque simplesmente não fará sentido pra ele estar com outra mulher.</Paragraph>
-            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500">Apenas R$37,37</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
-            <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas R$ 37,37 hoje, você pode lançar o feitiço que fará ele te amar eternamente. ✨</Paragraph>
+            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-primary">Apenas R$37,37</span> — um número sagrado — para as 3737 mulheres escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que seja mãe solo... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
+            <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas <span className="text-green-500">R$ 37,37</span> hoje, você pode lançar o feitiço que fará ele te amar eternamente. ✨</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas mulheres no mundo já sentiram uma ligação assim.</p>
             </div>

@@ -1,17 +1,54 @@
 
 "use client";
 
+import { useState } from "react";
 import PreLandingQuiz from "@/components/feiticos/pre-landing-quiz";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { useRouter } from "next/navigation";
+import LandingPage from "@/components/feiticos/landing-page";
+import RitualQuiz from "@/components/feiticos/ritual-quiz";
+import ConfirmationPage from "@/components/feiticos/confirmation-page";
+import Step1Modal from "@/components/feiticos/step1-modal";
+import { X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+type PageStep = "quiz" | "landing";
+type ModalStep = "landing" | "step1" | "quiz" | "confirmation";
 
 export default function QuizzPage() {
-  const router = useRouter();
+  const [pageStep, setPageStep] = useState<PageStep>("quiz");
+  const [modalStep, setModalStep] = useState<ModalStep>("landing");
+  const [quizData, setQuizData] = useState<object | null>(null);
+
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-background');
 
   const handleQuizComplete = () => {
-    router.push('/quizz-landing');
+    setPageStep("landing");
+  };
+
+  const handleCloseModal = () => setModalStep("landing");
+
+  const renderModalStep = () => {
+    switch (modalStep) {
+      case "landing":
+        // This case is handled by the main landing page component, modal is closed
+        return null;
+      case "step1":
+        return <Step1Modal onComplete={() => setModalStep("quiz")} />;
+      case "quiz":
+        return (
+          <RitualQuiz
+            onComplete={(data) => {
+              setQuizData(data);
+              setModalStep("confirmation");
+            }}
+          />
+        );
+      case "confirmation":
+        return <ConfirmationPage onReset={() => setModalStep("landing")} />;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -27,9 +64,29 @@ export default function QuizzPage() {
       )}
       <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
       
-      <div className="w-full max-w-2xl">
-        <PreLandingQuiz onComplete={handleQuizComplete} />
-      </div>
+      {pageStep === "quiz" ? (
+        <div className="w-full max-w-2xl">
+          <PreLandingQuiz onComplete={handleQuizComplete} />
+        </div>
+      ) : (
+        <>
+          <div className="w-full h-full overflow-y-auto">
+            <LandingPage onStart={() => setModalStep("step1")} />
+          </div>
+          
+          {modalStep !== "landing" && (
+            <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 p-4 pt-12 sm:items-center sm:pt-4 overflow-y-auto">
+               <div className="relative w-full max-w-2xl">
+                {renderModalStep()}
+                <Button variant="ghost" size="icon" onClick={handleCloseModal} className="absolute top-4 right-4 rounded-full bg-background/50 text-foreground hover:bg-background/80">
+                  <X className="h-5 w-5" />
+                  <span className="sr-only">Fechar</span>
+                </Button>
+               </div>
+            </div>
+          )}
+        </>
+      )}
     </main>
   );
 }

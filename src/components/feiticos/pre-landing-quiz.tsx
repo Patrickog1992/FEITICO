@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { MagicContainer } from "./magic-container";
 import { Button } from "@/components/ui/button";
 import {
@@ -55,6 +55,15 @@ export default function PreLandingQuiz({ onComplete }: PreLandingQuizProps) {
   const [currentSelection, setCurrentSelection] = useState<string | null>(null);
 
   const isFinalStep = step === questions.length;
+
+  useEffect(() => {
+    if (currentSelection) {
+      const timer = setTimeout(() => {
+        handleNext();
+      }, 300); 
+      return () => clearTimeout(timer);
+    }
+  }, [currentSelection]);
 
   const handleNext = () => {
     if (currentSelection) {
@@ -118,12 +127,6 @@ export default function PreLandingQuiz({ onComplete }: PreLandingQuizProps) {
           </div>
         ))}
       </RadioGroup>
-
-      <div className="mt-8 flex justify-end">
-        <Button onClick={handleNext} disabled={!currentSelection} size="lg">
-          Próximo
-        </Button>
-      </div>
     </MagicContainer>
   );
 }

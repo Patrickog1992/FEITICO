@@ -30,13 +30,13 @@ const formSchema = z.object({
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
   terms1: z.literal(true, {
-    errorMap: () => ({ message: "Você deve aceitar este termo para continuar." }),
+    errorMap: () => ({ message: "Por favor concorde com as condições de Lady Soraya" }),
   }),
   terms2: z.literal(true, {
-    errorMap: () => ({ message: "Você deve aceitar este termo para continuar." }),
+    errorMap: () => ({ message: "Por favor concorde com as condições de Lady Soraya" }),
   }),
   terms3: z.literal(true, {
-    errorMap: () => ({ message: "Você deve aceitar este termo para continuar." }),
+    errorMap: () => ({ message: "Por favor concorde com as condições de Lady Soraya" }),
   }),
 });
 

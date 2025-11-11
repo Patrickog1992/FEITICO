@@ -2,12 +2,12 @@
 "use client";
 
 import { useState } from "react";
-import LandingPage from "@/components/feiticos/landing-page";
+import LandingPage from "@/components/feiticos/landing-page-lp";
 import RitualQuiz from "@/components/feiticos/ritual-quiz";
 import ConfirmationPage from "@/components/feiticos/confirmation-page";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import Step1Modal from "@/components/feiticos/step1-modal";
+import Step1Modal from "@/components/feiticos/step1-modal-lp";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 

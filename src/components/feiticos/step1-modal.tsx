@@ -29,9 +29,15 @@ const formSchema = z.object({
   targetName: z.string().min(2, {
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
-  terms1: z.boolean().optional(),
-  terms2: z.boolean().optional(),
-  terms3: z.boolean().optional(),
+  terms1: z.literal(true, {
+    errorMap: () => ({ message: "Você deve aceitar este termo para continuar." }),
+  }),
+  terms2: z.literal(true, {
+    errorMap: () => ({ message: "Você deve aceitar este termo para continuar." }),
+  }),
+  terms3: z.literal(true, {
+    errorMap: () => ({ message: "Você deve aceitar este termo para continuar." }),
+  }),
 });
 
 const Timer = () => {
@@ -177,3 +183,5 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
     </MagicContainer>
   );
 }
+
+    

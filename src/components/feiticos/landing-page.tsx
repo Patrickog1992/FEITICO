@@ -48,7 +48,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
       
       <main>
         <Section className="text-center">
-          <SectionTitle>A Sacerdotisa do amor revela: 💘 O feitiço proibido do amor que faz ele ficar preso a você de uma vez por todas</SectionTitle>
+          <SectionTitle>A Sacerdotisa do amor revela: 💘 O feitiço proibido do amor que faz ele se comprometer a você de uma vez por todas</SectionTitle>
           <Image
             src="https://www.secretlovespells.com/hosted/images/a4/38766aa00344bc8c6032fb72ec7f42/desert-mystic-book-1-.png"
             alt="Livro místico no deserto"
@@ -285,3 +285,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

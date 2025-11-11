@@ -86,9 +86,10 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
 
   return (
     <MagicContainer>
-      <h2 className="mb-2 text-center font-headline text-xl font-semibold">
+      <h2 className="mb-1 text-center font-headline text-xl font-semibold">
         Etapa 1: Concorde com as Condições de Lady Soraya
       </h2>
+      <p className="mb-2 text-center text-sm text-muted-foreground">(Marque todas as opções abaixo)</p>
       <Timer />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

@@ -17,7 +17,7 @@ export default function DynamicDateBanner() {
   }
 
   return (
-    <div className="bg-yellow-400 text-black text-center p-3 font-bold animate-pulse w-full max-w-4xl mx-auto rounded-lg mb-4">
+    <div className="bg-yellow-400 text-black text-center p-3 font-bold w-full max-w-4xl mx-auto rounded-lg mb-4">
       ATENÇÃO: No dia <strong className="bg-white text-yellow-500 px-2 rounded">{currentDate}</strong>, as energias cósmicas estão mais abertas — e o feitiço de Lady Soraya será até 3x mais forte, aproveite!
     </div>
   );

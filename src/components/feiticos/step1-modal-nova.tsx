@@ -29,15 +29,9 @@ const formSchema = z.object({
   targetName: z.string().min(2, {
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
-  terms1: z.literal(true, {
-    errorMap: () => ({ message: "Por favor concorde com as condições de Lady Soraya" }),
-  }),
-  terms2: z.literal(true, {
-    errorMap: () => ({ message: "Por favor concorde com as condições de Lady Soraya" }),
-  }),
-  terms3: z.literal(true, {
-    errorMap: () => ({ message: "Por favor concorde com as condições de Lady Soraya" }),
-  }),
+  terms1: z.boolean(),
+  terms2: z.boolean(),
+  terms3: z.boolean(),
 });
 
 const Timer = () => {
@@ -184,5 +178,3 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
     </MagicContainer>
   );
 }
-
-    

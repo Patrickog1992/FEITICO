@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Testimonials from "./testimonials";
 import React, { useState, useEffect, useRef } from "react";
 import { Slider } from "@/components/ui/slider";
+import DynamicDateBanner from "./dynamic-date-banner";
 
 type LandingPageProps = {
   onStart: () => void;
@@ -113,6 +114,7 @@ const AudioPlayer = () => {
 export default function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="w-full max-w-4xl mx-auto">
+      <DynamicDateBanner />
        <header className="text-center my-8 md:my-12">
         <p className="text-xl md:text-2xl text-accent font-semibold">Feitiço proibido para deixar qualquer homem obcecado !</p>
         <div className="bg-destructive text-primary-foreground p-6 rounded-lg mt-4">

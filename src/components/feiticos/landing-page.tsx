@@ -5,6 +5,7 @@ import { Sparkles, Check, LockIcon } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Testimonials from "./testimonials";
+import DynamicDateBanner from "./dynamic-date-banner";
 
 type LandingPageProps = {
   onStart: () => void;
@@ -37,6 +38,7 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 export default function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="w-full max-w-4xl mx-auto">
+      <DynamicDateBanner />
       <header className="text-center my-8 md:my-12 bg-primary text-primary-foreground p-6 rounded-lg">
         <h1 className="text-4xl md:text-5xl font-bold font-headline">
         Último desejo de Lady Soraya

@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { MagicContainer } from "./magic-container";
+import VelaInterativa from "./vela-interativa";
 
 type Step1ModalProps = {
   onComplete: () => void;
@@ -29,9 +30,9 @@ const formSchema = z.object({
   targetName: z.string().min(2, {
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
-  terms1: z.boolean(),
-  terms2: z.boolean(),
-  terms3: z.boolean(),
+  terms1: z.boolean().optional(),
+  terms2: z.boolean().optional(),
+  terms3: z.boolean().optional(),
 });
 
 const Timer = () => {
@@ -143,6 +144,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
               )}
             />
           </div>
+          <VelaInterativa />
           <FormField
             control={form.control}
             name="name"

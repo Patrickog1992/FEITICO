@@ -11,6 +11,7 @@ import Step1Modal from "@/components/feiticos/step1-modal";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import SocialProof from "@/components/feiticos/social-proof";
+import FacebookPixel from "@/components/analytics/facebook-pixel";
 
 type Step = "landing" | "step1" | "quiz" | "confirmation";
 
@@ -45,33 +46,36 @@ export default function Home() {
   };
 
   return (
-    <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
-      <SocialProof />
-      {heroImage && (
-         <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            fill
-            className="object-cover -z-10 opacity-10"
-            data-ai-hint={heroImage.imageHint}
-          />
-      )}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
-      
-      {step === "landing" && <LandingPage onStart={() => setStep("step1")} />}
-      
-      {step !== "landing" && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 p-4 pt-12 sm:items-center sm:pt-4 overflow-y-auto">
-           <div className="relative w-full max-w-2xl">
-            {renderStep()}
-            <Button variant="ghost" size="icon" onClick={handleCloseModal} className="absolute top-4 right-4 rounded-full bg-background/50 text-foreground hover:bg-background/80">
-              <X className="h-5 w-5" />
-              <span className="sr-only">Fechar</span>
-            </Button>
-           </div>
-        </div>
-      )}
+    <>
+      <FacebookPixel />
+      <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
+        <SocialProof />
+        {heroImage && (
+           <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover -z-10 opacity-10"
+              data-ai-hint={heroImage.imageHint}
+            />
+        )}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        
+        {step === "landing" && <LandingPage onStart={() => setStep("step1")} />}
+        
+        {step !== "landing" && (
+          <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/80 p-4 pt-12 sm:items-center sm:pt-4 overflow-y-auto">
+             <div className="relative w-full max-w-2xl">
+              {renderStep()}
+              <Button variant="ghost" size="icon" onClick={handleCloseModal} className="absolute top-4 right-4 rounded-full bg-background/50 text-foreground hover:bg-background/80">
+                <X className="h-5 w-5" />
+                <span className="sr-only">Fechar</span>
+              </Button>
+             </div>
+          </div>
+        )}
 
-    </main>
+      </main>
+    </>
   );
 }

@@ -42,7 +42,6 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     <div className="w-full max-w-4xl mx-auto">
       <DynamicDateBanner />
        <header className="text-center my-8 md:my-12">
-        <p className="text-xl md:text-2xl text-accent font-semibold">Feitiço proibido para deixar qualquer homem obcecado !</p>
         <div className="bg-destructive text-primary-foreground p-6 rounded-lg mt-4">
             <h1 className="text-4xl md:text-5xl font-bold font-headline">
             Último desejo de Lady Soraya
@@ -296,5 +295,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    

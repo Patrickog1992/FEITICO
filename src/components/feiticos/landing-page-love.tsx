@@ -77,9 +77,10 @@ export default function LandingPage({ onStart }: LandingPageProps) {
 
         <Section>
             <SectionTitle>Veja exatamente o que vai acontecer:</SectionTitle>
-            <Paragraph>Um desejo ardente vai deixar o sangue da pessoa em fogo só de ouvir o seu nome.</Paragraph>
-            <Paragraph>A mente será dominada por pensamentos de amor por você a cada momento do dia.</Paragraph>
-            <Paragraph>E ficará tão obcecado que vai mandar mensagens aleatórias só pra saber como você está.</Paragraph>
+            <Paragraph>Um desejo ardente acende o coração da pessoa destinada a você — mesmo se vocês não se falam há anos.</Paragraph>
+            <Paragraph>A mente dela será tomada por pensamentos sobre você.</Paragraph>
+            <Paragraph>Mensagens, sinais, aproximações… começam espontaneamente.</Paragraph>
+             <Paragraph>Se for um novo amor: a pessoa ideal cruza seu caminho “por acaso”, como se o universo empurrasse vocês dois.</Paragraph>
             <Paragraph className="italic">Parece inacreditável, não é? Eu também pensei o mesmo. Mas agora eu sei a verdade. Mesmo sendo cética... Esse feitiço funcionou pra mim. Muito melhor do que eu jamais imaginei. Porque hoje, eu vivo o relacionamento dos meus sonhos.</Paragraph>
         </Section>
 

@@ -213,7 +213,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={400}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Mas lembre-se: Este feitiço é poderoso e permanente. Por isso, só está disponível para mulheres que concordam com os seguintes termos:</Paragraph>
+            <Paragraph>Mas lembre-se: Este feitiço é poderoso e permanente. Por isso, só está disponível para pessoas que concordam com os seguintes termos:</Paragraph>
             <div className="my-6 text-left max-w-md mx-auto space-y-2">
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Acredito que o amor verdadeiro é possível.</p>
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Não revelarei a ninguém que lancei o feitiço (isso causa “quebra do encanto”).</p>
@@ -290,3 +290,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

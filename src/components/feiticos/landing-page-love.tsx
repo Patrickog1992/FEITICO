@@ -290,6 +290,11 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                     <h3 className="font-bold text-lg">Como faço para lançar o feitiço?</h3>
                     <Paragraph>Clique no botão “Lançar Feitiço Agora”. Responda um breve quiz (para personalizar o ritual). Depois, complete o formulário seguro. E, em 24 horas, Lady Soraya lançará o feitiço em seu nome.</Paragraph>
                 </div>
+                <div>
+                    <h3 className="font-bold text-lg">O feitiço funciona mesmo se eu não tiver ninguém em mente?</h3>
+                    <Paragraph>Sim. Nesse caso, Lady Soraya realiza o ritual de “chamada amorosa”, que atrai exatamente a alma que combina com você.</Paragraph>
+                    <Paragraph>Esse amor pode ser alguém totalmente novo, que surge de forma natural nos próximos dias — como se o universo empurrasse vocês dois um para o outro.</Paragraph>
+                </div>
             </div>
         </Section>
         <Section className="text-center">
@@ -311,3 +316,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

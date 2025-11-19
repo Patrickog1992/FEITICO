@@ -37,80 +37,6 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
   </p>
 );
 
-const AudioPlayer = () => {
-    const audioRef = useRef<HTMLAudioElement>(null);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [duration, setDuration] = useState(0);
-    const [currentTime, setCurrentTime] = useState(0);
-
-    useEffect(() => {
-        const audio = audioRef.current;
-        if (!audio) return;
-
-        const setAudioData = () => {
-            setDuration(audio.duration);
-            setCurrentTime(audio.currentTime);
-        };
-
-        const setAudioTime = () => setCurrentTime(audio.currentTime);
-
-        audio.addEventListener("loadeddata", setAudioData);
-        audio.addEventListener("timeupdate", setAudioTime);
-
-        return () => {
-            audio.removeEventListener("loadeddata", setAudioData);
-            audio.removeEventListener("timeupdate", setAudioTime);
-        };
-    }, []);
-
-    const togglePlayPause = () => {
-        const audio = audioRef.current;
-        if (!audio) return;
-        if (isPlaying) {
-            audio.pause();
-        } else {
-            audio.play();
-        }
-        setIsPlaying(!isPlaying);
-    };
-
-    const handleSliderChange = (value: number[]) => {
-        const audio = audioRef.current;
-        if (!audio) return;
-        audio.currentTime = value[0];
-        setCurrentTime(value[0]);
-    };
-    
-    const formatTime = (timeInSeconds: number) => {
-        const minutes = Math.floor(timeInSeconds / 60);
-        const seconds = Math.floor(timeInSeconds % 60);
-        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    };
-
-    return (
-        <div className="w-full max-w-md mx-auto my-4 p-4 bg-muted/50 rounded-lg">
-            <audio ref={audioRef} src="https://ia803108.us.archive.org/19/items/lady_20251110/Lady.mp3" preload="metadata" onEnded={() => setIsPlaying(false)} />
-            <div className="flex items-center gap-4">
-                <Button onClick={togglePlayPause} size="icon" className="rounded-full bg-primary hover:bg-primary/90">
-                    {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6 ml-1" />}
-                </Button>
-                <div className="flex-grow flex items-center gap-2">
-                    <Slider
-                        value={[currentTime]}
-                        max={duration || 0}
-                        onValueChange={handleSliderChange}
-                        className="w-full"
-                    />
-                </div>
-                <span className="text-sm text-foreground/70 font-mono w-12 text-right">
-                    {formatTime(currentTime)}
-                </span>
-            </div>
-        </div>
-    );
-};
-
-
 export default function LandingPage({ onStart }: LandingPageProps) {
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -209,7 +135,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         
         <Section>
             <Image
-                src="https://wwwsrc/components/feiticos/landing-page-nova.tsx.secretlovespells.com/hosted/images/02/e2a81ecfba4765a0da90d23f96523a/Lady-Sorayas-home.png"
+                src="https://www.secretlovespells.com/hosted/images/02/e2a81ecfba4765a0da90d23f96523a/Lady-Sorayas-home.png"
                 alt="Casa de Lady Soraya"
                 width={700}
                 height={400}
@@ -370,3 +296,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

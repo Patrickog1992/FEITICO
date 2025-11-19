@@ -217,6 +217,11 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               <br/><br/>
               Agora você pode lançar um poderoso feitiço de amor na pessoa que é o seu destino — mesmo que esse destino seja alguém do passado ou alguém totalmente novo que ainda não chegou.
             </Paragraph>
+            <Paragraph>
+              E mesmo que você não tenha ninguém específico em mente, o feitiço também funciona: 
+              <br/>
+              <span className="font-bold">Ele atrai a pessoa certa um novo amor predestinado que combina exatamente com a sua energia.</span>
+            </Paragraph>
             <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500">Apenas R$37,37</span> — um número sagrado — para as 3737 pessoas escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que esteja sofrendo sozinho... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas <span className="text-green-500">R$ 37,37</span> hoje, você pode lançar o feitiço que fará qualquer pessoa te amar eternamente. ✨</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">

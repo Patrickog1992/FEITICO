@@ -209,7 +209,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         
         <Section>
             <Image
-                src="https://www.secretlovespells.com/hosted/images/02/e2a81ecfba4765a0da90d23f96523a/Lady-Sorayas-home.png"
+                src="https://wwwsrc/components/feiticos/landing-page-nova.tsx.secretlovespells.com/hosted/images/02/e2a81ecfba4765a0da90d23f96523a/Lady-Sorayas-home.png"
                 alt="Casa de Lady Soraya"
                 width={700}
                 height={400}
@@ -296,12 +296,6 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                  <p className="flex items-start"><Check className="h-6 w-6 text-green-500 mr-2 shrink-0"/> Entendo que, uma vez lançado, não há retorno.</p>
             </div>
             
-            <div className="my-8 text-center">
-              <h3 className="text-xl font-bold text-primary">Lady Soraya tem um recado para você</h3>
-              <p className="text-sm text-foreground/70">(Aperte o play e escute)</p>
-              <AudioPlayer />
-            </div>
-
              <Paragraph>Se você concorda... 👉 Clique no botão abaixo:</Paragraph>
              <Button
                 onClick={onStart}
@@ -376,6 +370,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    
-    

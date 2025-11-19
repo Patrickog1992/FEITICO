@@ -15,9 +15,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { MagicContainer } from "./magic-container";
 import VelaInterativa from "./vela-interativa";
+import { Textarea } from "../ui/textarea";
 
 type Step1ModalProps = {
   onComplete: () => void;
@@ -30,9 +30,9 @@ const formSchema = z.object({
   targetName: z.string().min(2, {
     message: "O nome dele deve ter pelo menos 2 caracteres.",
   }),
-  terms1: z.boolean().optional(),
-  terms2: z.boolean().optional(),
-  terms3: z.boolean().optional(),
+  behavior: z.string().min(10, {
+    message: "Descreva o comportamento com pelo menos 10 caracteres.",
+  }),
 });
 
 const Timer = () => {
@@ -68,9 +68,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
     defaultValues: {
       name: "",
       targetName: "",
-      terms1: false,
-      terms2: false,
-      terms3: false,
+      behavior: "",
     },
   });
 
@@ -82,68 +80,13 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
   return (
     <MagicContainer>
       <h2 className="mb-1 text-center font-headline text-xl font-semibold">
-        Etapa 1: Concorde com as Condições de Lady Soraya
+        Etapa 1: Detalhes para o Feitiço
       </h2>
-      <p className="mb-2 text-center text-sm text-muted-foreground">(Marque todas as opções abaixo)</p>
+      <p className="mb-2 text-center text-sm text-muted-foreground">Preencha os campos para Lady Soraya</p>
       <Timer />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-4">
-             <FormField
-              control={form.control}
-              name="terms1"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel>Eu entendo que é necessária fé para que este feitiço funcione.</FormLabel>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="terms2"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel>Eu não contarei a ninguém sobre o feitiço (isso causará o rompimento do encantamento).</FormLabel>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="terms3"
-              render={({ field }) => (
-                <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                  <FormControl>
-                    <Checkbox
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel>Eu entendo que, uma vez lançado, este feitiço não pode ser desfeito.</FormLabel>
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-          </div>
+          
           <VelaInterativa />
           <FormField
             control={form.control}
@@ -166,6 +109,22 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
                 <FormLabel>Nome dele</FormLabel>
                 <FormControl>
                   <Input placeholder="Digite aqui o nome do homem desejado" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="behavior"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Sobre o feitiço</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Digite aqui o comportamento exato que a pessoa tenha com você"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

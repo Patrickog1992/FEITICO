@@ -163,9 +163,12 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             />
             <Paragraph>“Um amor recíproco, profundo... algo de outro mundo.”</Paragraph>
             <Paragraph>“Mas este não é um feitiço comum.”</Paragraph>
+            <Paragraph>“Este ritual foi criado para alinhar duas almas que nasceram uma para a outra.”</Paragraph>
+            <Paragraph>“Se a sua alma já reconheceu alguém do passado, o feitiço traz essa pessoa de volta.”</Paragraph>
+            <Paragraph>“Mas se o seu amor verdadeiro ainda não chegou, o feitiço coloca no seu caminho alguém totalmente novo… porém destinado a você.”</Paragraph>
             <Paragraph>“Este feitiço desperta a devoção, e não a ilusão.”</Paragraph>
-            <Paragraph>“Quando eu o lançar, ele perceberá — de corpo e alma — que você é o amor da vida dele.”</Paragraph>
-            <Paragraph>“E nunca mais conseguirá imaginar ser feliz com outra mulher.”</Paragraph>
+            <Paragraph>“Quando eu o lançar, a pessoa que é sua por destino — seja alguém que já esteve na sua vida ou alguém novo — perceberá de corpo e alma que você é o amor dela.”</Paragraph>
+            <Paragraph>“E nunca mais conseguirá imaginar ser feliz ao lado de outra pessoa.”</Paragraph>
             <Paragraph>“Mas preciso te avisar...”</Paragraph>
             <Paragraph>“Uma vez lançado, ele é permanente.”</Paragraph>
             <Paragraph>Respirei fundo. E disse: Sim.</Paragraph>

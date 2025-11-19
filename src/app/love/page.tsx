@@ -2,7 +2,7 @@
 "use client";
 
 import { useState } from "react";
-import LandingPage from "@/components/feiticos/landing-page-lp";
+import LandingPage from "@/components/feiticos/landing-page-love";
 import RitualQuiz from "@/components/feiticos/ritual-quiz";
 import ConfirmationPage from "@/components/feiticos/confirmation-page";
 import Image from "next/image";

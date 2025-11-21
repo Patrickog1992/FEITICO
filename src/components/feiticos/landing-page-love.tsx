@@ -259,7 +259,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <Paragraph>Depois de concluir tudo...</Paragraph>
                 <p className="text-xl font-bold my-4 text-primary">✨ Seu feitiço será lançado dentro de 24 horas. ✨</p>
                 <Paragraph>E, em apenas alguns dias... Você vai olhar para este momento e sorrir,</Paragraph>
-                <Paragraph>Porque este foi o momento em que sua vida amorosa mudou para sempre.</Paragraph>
+                <Paragraph>Porque este foi o momento em que sua life amorosa mudou para sempre.</Paragraph>
                 <Paragraph>O dia em que você assumiu o controle. O dia em que o outro finally percebeu...</Paragraph>
                 <p className="text-2xl font-bold my-4 text-primary">💖 Vocês são destinados um ao outro. 💖</p>
                 <Button
@@ -278,14 +278,14 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section className="text-center">
           <SectionTitle>Garantia de Satisfação</SectionTitle>
           <Image
-            src="https://i.imgur.com/Wmv041Z.png"
+            src="https://i.imgur.com/WNTUqfZ.png"
             alt="Selo de Garantia"
             width={100}
             height={100}
             className="mx-auto mb-4"
           />
           <Paragraph>Lady Soraya confia tanto na experiência que criou uma garantia total:</Paragraph>
-          <Paragraph>Se você sentir que o feitiço não funcionou em sua vida amorosa, basta enviar um e-mail no contato@ladysoraya.com.br dentro do prazo de 7 dias após a compra.</Paragraph>
+          <Paragraph>Se você sentir que o feitiço não funcionou em sua vida amorosa, basta enviar um e-mail no contato@ladysoraya.com.br dentro do prazo de 24 horas após a compra.</Paragraph>
           <Paragraph className="font-bold">👉 Você será 100% reembolsado, sem perguntas.</Paragraph>
           <Paragraph>Sem burocracia. Sem complicação. Sem risco pra você.</Paragraph>
         </Section>

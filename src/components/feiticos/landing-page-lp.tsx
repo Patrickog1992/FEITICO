@@ -52,7 +52,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section className="text-center">
             <h2 className="font-headline text-3xl font-bold text-center text-primary mb-6">A Sacerdotisa do Amor revela:<br/>💘 O feitiço proibido do amor que faz a pessoa amada se comprometer de uma vez por todas</h2>
           <Image
-            src="https://www.secretlovespells.com/hosted/images/a4/38766aa00344bc8c6032fb72ec7f42/desert-mystic-book-1-.png"
+            src="https://i.imgur.com/FxiYsRl.jpeg"
             alt="Livro místico no deserto"
             width={700}
             height={400}
@@ -85,7 +85,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
 
         <Section className="text-center">
             <Image
-                src="https://www.secretlovespells.com/hosted/images/77/1a351a3f2b4ce3b49e33bf65cf429b/man-and-woman.png"
+                src="https://i.imgur.com/2o8Kpgj.jpeg"
                 alt="Homem e mulher apaixonados"
                 width={700}
                 height={400}
@@ -100,7 +100,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section>
              <Paragraph>Tudo começou com fogo e paixão. Ele me viu olhando pra ele de longe, no bar de vinhos favorito dele. Quando se aproximou, borboletas tomaram conta do meu estômago. Os ombros largos, os braços fortes, a voz suave... era impossível resistir. Só o som da voz dele fazia meu coração derreter.</Paragraph>
              <Image
-                src="https://www.secretlovespells.com/hosted/images/a7/c271e3495441dd95139f14d4d997c6/couple-having-dinner-1-.png"
+                src="https://i.imgur.com/A6UzkcN.jpeg"
                 alt="Casal jantando"
                 width={700}
                 height={400}
@@ -109,7 +109,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               <Paragraph>Meus amigos me avisaram: “Ele é encrenca.” Mas eu ignorei. As primeiras semanas foram um furacão de romance, amor e desejo. Parecia cena de filme. Havia faísca em cada toque. Ele me mandava mensagens o tempo todo, me fazia rir, me fazia me sentir única. E o olhar dele me dizia que éramos destinados um ao outro. Até que aconteceu... de novo. Como em todos os outros relacionamentos anteriores... Senti a mudança. Ele começou a se afastar. As mensagens de hora em hora viraram “umas duas por dia”. Os convites pra me ver viraram “estou ocupado”. E, de repente, o amor virou distância e silêncio. O olhar apaixonado virou um olhar vazio e frio.</Paragraph>
              <Paragraph>Antes que eu pudesse entender o que estava acontecendo...</Paragraph>
              <Image
-                src="https://www.secretlovespells.com/hosted/images/ff/660639e77c4b298e7d8a043416ae7d/upset-woman-1-.png"
+                src="https://i.imgur.com/mB5bADi.jpeg"
                 alt="Mulher chateada"
                 width={700}
                 height={400}
@@ -120,7 +120,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
 
         <Section className="text-center">
             <Image
-                src="https://www.secretlovespells.com/hosted/images/0d/ff23da7dbf4a96b3f587f761fe3c61/Lady-Soraya.png"
+                src="https://i.imgur.com/E2JblYn.jpeg"
                 alt="Lady Soraya"
                 width={400}
                 height={400}
@@ -133,7 +133,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         
         <Section>
             <Image
-                src="https://www.secretlovespells.com/hosted/images/02/e2a81ecfba4765a0da90d23f96523a/Lady-Sorayas-home.png"
+                src="https://i.imgur.com/0kAi4NR.jpeg"
                 alt="Casa de Lady Soraya"
                 width={700}
                 height={400}
@@ -141,7 +141,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             />
             <Paragraph>A viagem foi longa. Mas, ao chegar, parecia que eu tinha atravessado um portal para outro mundo. A casa era de barro antigo, com o teto gasto e uma porta coberta por símbolos estranhos. Parei por um instante, respirei fundo... e bati.</Paragraph>
             <Image
-                src="https://www.secretlovespells.com/hosted/images/ab/dde032ed884b2393b31a79596a56d6/door.png"
+                src="https://i.imgur.com/t5lBzeb.jpeg"
                 alt="Porta se abrindo"
                 width={400}
                 height={400}
@@ -154,7 +154,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <Paragraph>“Com sua permissão...”</Paragraph>
             <Paragraph>“Eu quero lançar um feitiço que fará ele DEVOTAR-SE a você.”</Paragraph>
             <Image
-                src="https://www.secretlovespells.com/hosted/images/fc/834cd32ba3475fbe1d598f437a30b3/Spell-being-casted-1-.png"
+                src="https://i.imgur.com/3lh5nwV.jpeg"
                 alt="Feitiço sendo lançado"
                 width={700}
                 height={400}
@@ -174,7 +174,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section className="text-center">
             <Paragraph>Os dois dias mais longos da minha vida. Na primeira noite, nada. Na segunda, nada. Já achava que tinha sido um erro...</Paragraph>
              <Image
-                src="https://www.secretlovespells.com/hosted/images/cf/f8b404cf9349b0bded5609587a2576/worried-in-bed.png"
+                src="https://i.imgur.com/z43budv.jpeg"
                 alt="Mulher preocupada na cama"
                 width={700}
                 height={400}
@@ -194,7 +194,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm">
             <Paragraph className="font-bold text-xl">Agora é a sua vez.</Paragraph>
             <Image
-                src="https://www.secretlovespells.com/hosted/images/4f/26ca3aff39432ca350f54f0eb64bf1/love-hert-1-.png"
+                src="https://i.imgur.com/G6zb4jR.jpeg"
                 alt="Coração de amor"
                 width={100}
                 height={100}
@@ -207,7 +207,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <p className="text-2xl font-bold text-primary">Pouquíssimas pessoas no mundo já sentiram uma ligação assim.</p>
             </div>
              <Image
-                src="https://www.secretlovespells.com/hosted/images/50/d38d8157b4432497d7d8d9ef7ea0da/romantic-couple-at-park.png"
+                src="https://i.imgur.com/rGTHQev.jpeg"
                 alt="Casal romântico no parque"
                 width={700}
                 height={400}
@@ -290,3 +290,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

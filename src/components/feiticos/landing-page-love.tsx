@@ -260,7 +260,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <p className="text-xl font-bold my-4 text-primary">✨ Seu feitiço será lançado dentro de 24 horas. ✨</p>
                 <Paragraph>E, em apenas alguns dias... Você vai olhar para este momento e sorrir,</Paragraph>
                 <Paragraph>Porque este foi o momento em que sua vida amorosa mudou para sempre.</Paragraph>
-                <Paragraph>O dia em que você assumiu o controle. O dia em que o outro finalmente percebeu...</Paragraph>
+                <Paragraph>O dia em que você assumiu o controle. O dia em que o outro finally percebeu...</Paragraph>
                 <p className="text-2xl font-bold my-4 text-primary">💖 Vocês são destinados um ao outro. 💖</p>
                 <Button
                     onClick={onStart}

@@ -268,8 +268,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 </div>
                 <div>
                     <h3 className="font-bold text-lg">Em quanto tempo funciona?</h3>
-                    <Paragraph>Algumas mulheres sentem os efeitos no mesmo dia. Outras, em poucos dias. Mas o resultado sempre vem.</Paragraph>
-                </div>
+                    <Paragraph>Algumas mulheres sentem os efeitos no mesmo dia. Outras, em poucos dias. Mas o resultado sempre vem.</Paragraph>                </div>
                  <div>
                     <h3 className="font-bold text-lg">Como faço para lançar o feitiço?</h3>
                     <Paragraph>Clique no botão “Lançar Feitiço Agora”. Responda um breve quiz (para personalizar o ritual). Depois, complete o formulário seguro. E, em 24 horas, Lady Soraya lançará o feitiço em seu nome.</Paragraph>

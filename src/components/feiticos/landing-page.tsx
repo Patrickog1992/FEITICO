@@ -251,6 +251,25 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         
         <Testimonials />
 
+        <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-inner">
+            <SectionTitle>Garantia de Satisfação</SectionTitle>
+            <Image
+                src="https://i.imgur.com/Wmv041Z.png"
+                alt="Selo de Garantia de Satisfação"
+                width={100}
+                height={100}
+                className="mx-auto mb-6"
+            />
+            <Paragraph>Lady Soraya confia tanto na experiência que criou uma garantia simples:</Paragraph>
+            <Paragraph>Se você seguir todo o processo corretamente e sentir que o conteúdo não ajudou em nada na sua vida amorosa, basta enviar um e-mail no contato@ladysoraya.com.br dentro do prazo de 7 dias após a compra.</Paragraph>
+            <Paragraph className="font-bold">👉 Você será 100% reembolsado, sem perguntas.</Paragraph>
+            <Paragraph className="text-sm text-foreground/70 mt-4">
+                Sem burocracia.<br/>
+                Sem complicação.<br/>
+                Sem risco pra você.
+            </Paragraph>
+        </Section>
+
         <Section>
             <SectionTitle>Perguntas Frequentes</SectionTitle>
             <div className="space-y-4 max-w-2xl mx-auto">
@@ -287,5 +306,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    
 
     

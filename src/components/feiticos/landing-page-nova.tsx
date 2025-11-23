@@ -128,7 +128,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 className="rounded-full shadow-lg mx-auto"
             />
             <Paragraph className="mt-4 font-bold text-xl text-primary">Uma sacerdotisa dos “artes arcanas”, chamada Lady Soraya.</Paragraph>
-            <Paragraph>Vivia isolada no deserto, a horas dali. Todos os moradores locais sabiam sobre ela. Lady Soraya nasceu em um dos covens mais poderosos do deserto da Arábia, especializado em magia vermelha — a magia do amor, da paixão e do romance. Mas, ao envelhecer, ela se afastou das irmãs do coven... Enquanto elas mergulhavam nas artes sombrias, Soraya se dedicava ao amor verdadeiro. Uma noite, ao ver um sacrifício proibido, ela fugiu sob o véu da noite. E há mais de 30 anos, vive naquela mesma região... Ajudando as pessoas a encontrarem o amor verdadeiro. Normalmente, eu teria rido dessa história. Sou uma mulher racional. Mas... eu estava sem opções. Pedi o endereço dela. E decidi ir no dia seguinte.</Paragraph>
+            <Paragraph>Vivia isolada no deserto, a horas dali. Todos os moradores locais sabiam sobre ela. Lady Soraya nasceu em um dos covens mais poderosos do deserto da Arábia, especializado em magia vermelha — a magia do amor, da paixão e do romance. Mas, ao envelhecer, ela se afastou das irmãs do coven... Enquanto elas mergulhavam nas artes sombrias, Soraya se dedicava ao amor verdadeiro. Uma noite, ao ver um sacrifício proibido, ela fugiu sob o véu da noite. E há mais de 30 anos, vive naquela mesma região... Ajudando as pessoas a encontrarem o amor verdadeiro. Normalmente, eu teria rido dessa história. Sou uma mulher racional. Mas... eu estaba sem opções. Pedi o endereço dela. E decidi ir no dia seguinte.</Paragraph>
             <Paragraph>Aquele seria o dia que mudaria minha vida amorosa pra sempre.</Paragraph>
         </Section>
         
@@ -148,7 +148,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={400}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>A porta se abriu. E lá estava ela. Linda, misteriosa, com um olhar que parecia ter séculos de sabedoria. “Minha querida, eu já estava te esperando”, ela disse com voz calma. “Eu senti a sua dor desde que chegou à cidade.” “Meu nome é Lady Soraya.” “Diga-me, o que está te afligindo?” Contei tudo. Sobre o Andre. Sobre como sentia que ele era o homem da minha vida... E sobre como me sentia perdida, impotente e cansada. Ela ouviu atentamente. Depois sorriu:</Paragraph>
+            <Paragraph>A porta se abriu. E lá estaba ela. Linda, misteriosa, com um olhar que parecia ter séculos de sabedoria. “Minha querida, eu já estaba te esperando”, ela disse com voz calma. “Eu senti a sua dor desde que chegou à cidade.” “Meu nome é Lady Soraya.” “Diga-me, o que está te afligindo?” Contei tudo. Sobre o Andre. Sobre como sentia que ele era o homem da minha vida... E sobre como me sentia perdida, impotente e cansada. Ela ouviu atentamente. Depois sorriu:</Paragraph>
             <Paragraph>“Você veio ao lugar certo, minha querida.”</Paragraph>
             <Paragraph>“Desde jovem, dedico minha vida à magia do amor.”</Paragraph>
             <Paragraph>“E aprendi a diferença entre o amor passageiro e o amor eterno.”</Paragraph>
@@ -225,7 +225,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
              <Button
                 onClick={onStart}
                 size="lg"
-                className="mt-8 animate-button-glow bg-accent text-accent-foreground hover:bg-accent/90 font-bold w-full max-w-md"
+                className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md"
             >
                 LANÇAR FEITIÇO AGORA
             </Button>
@@ -249,7 +249,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <Button
                     onClick={onStart}
                     size="lg"
-                    className="mt-8 animate-button-glow bg-accent text-accent-foreground hover:bg-accent/90 font-bold w-full max-w-md"
+                    className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md"
                 >
                     QUERO AGORA
                 </Button>
@@ -296,7 +296,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <Button
                 onClick={onStart}
                 size="lg"
-                className="mt-4 animate-button-glow bg-accent text-accent-foreground hover:bg-accent/90 font-bold w-full max-w-md"
+                className="mt-4 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md"
             >
                 QUERO AGORA
             </Button>
@@ -309,9 +309,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    
-
-    
-
-    

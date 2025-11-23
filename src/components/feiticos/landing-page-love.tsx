@@ -245,7 +245,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
              <Button
                 onClick={onStart}
                 size="lg"
-                className="mt-8 animate-button-glow bg-accent text-accent-foreground hover:bg-accent/90 font-bold w-full max-w-md"
+                className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md"
             >
                 LANÇAR FEITIÇO AGORA
             </Button>
@@ -265,7 +265,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <Button
                     onClick={onStart}
                     size="lg"
-                    className="mt-8 animate-button-glow bg-accent text-accent-foreground hover:bg-accent/90 font-bold w-full max-w-md"
+                    className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md"
                 >
                     QUERO AGORA
                 </Button>
@@ -318,7 +318,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <Button
                 onClick={onStart}
                 size="lg"
-                className="mt-4 animate-button-glow bg-accent text-accent-foreground hover:bg-accent/90 font-bold w-full max-w-md"
+                className="mt-4 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md"
             >
                 QUERO AGORA
             </Button>
@@ -331,9 +331,3 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
-
-    
-
-    
-
-    

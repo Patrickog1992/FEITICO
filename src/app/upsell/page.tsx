@@ -88,7 +88,7 @@ export default function UpsellPage() {
                   <p className="line-through text-red-500">DE {offer.priceFrom}</p>
                   <p className="text-2xl font-bold text-green-500">por {offer.priceTo}</p>
                 </div>
-                <Button asChild size="lg" className="w-full max-w-xs animate-button-glow-success bg-success text-success-foreground hover:bg-success/90">
+                <Button asChild size="lg" className="w-full max-w-xs bg-success text-success-foreground hover:bg-success/90 animate-button-glow-success">
                   <Link href={offer.link}>
                     COMPRAR AGORA
                   </Link>
@@ -102,7 +102,7 @@ export default function UpsellPage() {
             <Button 
                 asChild 
                 size="lg" 
-                className="h-auto w-full max-w-2xl animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 text-lg font-bold p-6 whitespace-normal"
+                className="h-auto w-full max-w-2xl text-lg font-bold p-6 whitespace-normal bg-success text-success-foreground hover:bg-success/90 animate-button-glow-success"
             >
               <Link href="https://pay.kirvano.com/7c33f1b6-cffb-4007-b68d-6717b2baa76f">
                 APROVEITE ESSA PROMOÇÃO OS 5 POR APENAS R$ 37,37

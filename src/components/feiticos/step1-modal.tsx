@@ -52,9 +52,9 @@ const Timer = () => {
   const seconds = timeLeft % 60;
 
   return (
-    <div className="text-center my-4">
-      <p className="text-lg">Isto vai expirar em...</p>
-      <p className="text-2xl font-bold text-red-500">
+    <div className="text-center my-2 sm:my-4">
+      <p className="text-sm sm:text-lg">Isto vai expirar em...</p>
+      <p className="text-xl sm:text-2xl font-bold text-red-500">
         {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
       </p>
     </div>
@@ -80,15 +80,15 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
   }
 
   return (
-    <MagicContainer>
-      <h2 className="mb-1 text-center font-headline text-xl font-semibold">
+    <MagicContainer className="p-4 sm:p-6">
+      <h2 className="mb-1 text-center font-headline text-lg sm:text-xl font-semibold">
         Etapa 1: Concorde com as Condições de Lady Soraya
       </h2>
-      <p className="mb-2 text-center text-sm text-muted-foreground">(Marque todas as opções abaixo)</p>
+      <p className="mb-2 text-center text-xs sm:text-sm text-muted-foreground">(Marque todas as opções abaixo)</p>
       <Timer />
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 sm:space-y-6">
+          <div className="space-y-3 sm:space-y-4">
              <FormField
               control={form.control}
               name="terms1"
@@ -101,7 +101,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>Eu entendo que é necessária fé para que este feitiço funcione.</FormLabel>
+                    <FormLabel className="text-xs sm:text-sm">Eu entendo que é necessária fé para que este feitiço funcione.</FormLabel>
                     <FormMessage />
                   </div>
                 </FormItem>
@@ -119,7 +119,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>Eu não contarei a ninguém sobre o feitiço (isso causará o rompimento do encantamento).</FormLabel>
+                    <FormLabel className="text-xs sm:text-sm">Eu não contarei a ninguém sobre o feitiço (isso causará o rompimento do encantamento).</FormLabel>
                     <FormMessage />
                   </div>
                 </FormItem>
@@ -137,7 +137,7 @@ export default function Step1Modal({ onComplete }: Step1ModalProps) {
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel>Eu entendo que, uma vez lançado, este feitiço não pode ser desfeito.</FormLabel>
+                    <FormLabel className="text-xs sm:text-sm">Eu entendo que, uma vez lançado, este feitiço não pode ser desfeito.</FormLabel>
                     <FormMessage />
                   </div>
                 </FormItem>

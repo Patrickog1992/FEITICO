@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -7,11 +8,11 @@ export default function VelaInterativa() {
   const [isLit, setIsLit] = useState(false);
 
   return (
-    <div className="flex flex-col items-center justify-center my-6 cursor-pointer" onClick={() => setIsLit(!isLit)}>
+    <div className="flex flex-col items-center justify-center my-2 sm:my-6 cursor-pointer" onClick={() => setIsLit(!isLit)}>
         <svg
             viewBox="0 0 100 150"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-24 h-36"
+            className="w-16 h-24 sm:w-24 sm:h-36"
         >
             <defs>
                 <style>
@@ -79,7 +80,7 @@ export default function VelaInterativa() {
                 </g>
             )}
         </svg>
-      <p className="text-sm text-muted-foreground mt-2">{isLit ? 'A chama está acesa!' : 'Clique na vela para acender a chama da paixão'}</p>
+      <p className="text-xs sm:text-sm text-muted-foreground mt-2 text-center">{isLit ? 'A chama está acesa!' : 'Clique na vela para acender a chama da paixão'}</p>
     </div>
   );
 }

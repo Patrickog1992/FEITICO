@@ -79,6 +79,16 @@ export default function Testimonials() {
       </h2>
       <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
       
+      <div className="w-full max-w-2xl mx-auto mb-8">
+        <video
+          src="https://i.imgur.com/SAVgmMc.mp4"
+          className="rounded-lg shadow-xl w-full"
+          controls
+          playsInline
+          poster="https://i.imgur.com/UnCTnGG.jpeg"
+        />
+      </div>
+
       <Carousel
         plugins={[plugin.current]}
         className="w-full"

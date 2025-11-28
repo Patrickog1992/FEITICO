@@ -81,11 +81,11 @@ export default function Testimonials() {
       
       <div className="w-full max-w-2xl mx-auto mb-8">
         <video
-          src="https://i.imgur.com/SAVgmMc.mp4"
+          src="https://i.imgur.com/jLsCPpd.mp4"
           className="rounded-lg shadow-xl w-full"
           controls
           playsInline
-          poster="https://i.imgur.com/UnCTnGG.jpeg"
+          poster="https://i.imgur.com/2C7K44C.jpeg"
         />
       </div>
 

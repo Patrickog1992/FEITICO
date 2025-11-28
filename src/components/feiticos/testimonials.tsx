@@ -85,6 +85,7 @@ export default function Testimonials() {
           className="rounded-lg shadow-xl w-full"
           controls
           playsInline
+          poster="https://i.imgur.com/UnCTnGG.jpeg"
         />
       </div>
       

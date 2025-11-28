@@ -78,6 +78,15 @@ export default function Testimonials() {
         Algumas mulheres que Lady Soraya ajudou
       </h2>
       <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
+
+      <div className="w-full max-w-2xl mx-auto mb-8">
+        <video
+          src="https://i.imgur.com/SAVgmMc.mp4"
+          className="rounded-lg shadow-xl w-full"
+          controls
+          playsInline
+        />
+      </div>
       
       <Carousel
         plugins={[plugin.current]}

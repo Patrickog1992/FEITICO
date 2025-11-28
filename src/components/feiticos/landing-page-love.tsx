@@ -294,6 +294,20 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             <SectionTitle>Perguntas Frequentes</SectionTitle>
             <div className="space-y-4 max-w-2xl mx-auto">
                 <div>
+                    <h3 className="font-bold text-lg">🔮 Como você receberá o seu feitiço</h3>
+                    <Paragraph>Após a confirmação do seu pedido, Lady Soraya realizará pessoalmente o seu feitiço de amor, seguindo o nome e as informações que você fornecer no formulário.</Paragraph>
+                    <Paragraph>Cada ritual é feito de forma individual e personalizada, respeitando a energia de quem solicita.</Paragraph>
+                    <Paragraph>Além disso…</Paragraph>
+                    <Paragraph>✨ Uma versão especial do feitiço será enviada diretamente para o seu e-mail cadastrado, para que você tenha acesso imediato e possa acompanhar o processo.</Paragraph>
+                    <Paragraph>Esse material contém:</Paragraph>
+                    <ul className="list-disc list-inside text-lg text-foreground/80 mb-4 leading-relaxed">
+                        <li>A oração do ritual</li>
+                        <li>As instruções completas</li>
+                        <li>E a ativação espiritual do feitiço</li>
+                    </ul>
+                    <Paragraph>Tudo de forma discreta, segura e confidencial.</Paragraph>
+                </div>
+                <div>
                     <h3 className="font-bold text-lg">O que torna o feitiço de Lady Soraya diferente?</h3>
                     <Paragraph>Outros feitiços tentam forçar o amor. Mas Lady Soraya alinha as energias do homem com a vibração natural do amor e da atração. Assim, ele escolhe te amar — de forma pura e verdadeira.</Paragraph>
                 </div>
@@ -331,3 +345,5 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    

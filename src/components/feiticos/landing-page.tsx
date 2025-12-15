@@ -203,11 +203,11 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             
             <div className="my-6 text-left text-foreground/90 p-4 border border-primary/20 rounded-lg bg-primary/5 space-y-2">
                 <p className="text-lg font-semibold text-center mb-4 text-primary">Somente hoje, ao lançar o feitiço de Lady Soraya, você receberá gratuitamente:</p>
-                <p><strong>BÔNUS 1 (valor R$97) <span className="text-green-500">✔️</span> Ritual de Proteção Amorosa</strong> — protege o feitiço contra inveja, energias negativas e interferência de terceiros, garantindo que o amor permaneça firme e blindado.</p>
-                <p><strong>BÔNUS 2 (valor R$67) <span className="text-green-500">✔️</span> Oração da Conexão Imediata</strong> — ativa sinais rápidos como mensagens, pensamentos recorrentes e aproximações espontâneas da pessoa destinada a você.</p>
-                <p><strong>BÔNUS 3 (valor R$127) <span className="text-green-500">✔️</span> Ritual da Lua do Amor</strong> — potencializa o feitiço principal em noites especiais, multiplicando a força da paixão, do desejo e da união emocional.</p>
-                <p><strong>BÔNUS 4 (valor R$97) <span className="text-green-500">✔️</span> Chamada Amorosa (para novos amores)</strong> — atrai a pessoa predestinada quando você não tem ninguém específico em mente, alinhando o universo ao seu favor.</p>
-                <p><strong>BÔNUS 5 (valor R$77) <span className="text-green-500">✔️</span> Mensagem de Ativação Personalizada</strong> — prepara sua energia emocional e espiritual para receber o amor, evitando bloqueios e acelerando os resultados do ritual.</p>
+                <p><strong>BÔNUS 1 (R$97) <span className="text-green-500">✔️</span> Ritual de Proteção Amorosa</strong> — protege o feitiço contra inveja, energias negativas e interferência de terceiros, garantindo que o amor permaneça firme e blindado.</p>
+                <p><strong>BÔNUS 2 (R$67) <span className="text-green-500">✔️</span> Oração da Conexão Imediata</strong> — ativa sinais rápidos como mensagens, pensamentos recorrentes e aproximações espontâneas da pessoa destinada a você.</p>
+                <p><strong>BÔNUS 3 (R$127) <span className="text-green-500">✔️</span> Ritual da Lua do Amor</strong> — potencializa o feitiço principal em noites especiais, multiplicando a força da paixão, do desejo e da união emocional.</p>
+                <p><strong>BÔNUS 4 (R$97) <span className="text-green-500">✔️</span> Chamada Amorosa (para novos amores)</strong> — atrai a pessoa predestinada quando você não tem ninguém específico em mente, alinhando o universo ao seu favor.</p>
+                <p><strong>BÔNUS 5 (R$77) <span className="text-green-500">✔️</span> Mensagem de Ativação Personalizada</strong> — prepara sua energia emocional e espiritual para receber o amor, evitando bloqueios e acelerando os resultados do ritual.</p>
                 <p className="text-center font-bold mt-4">🎁 Valor total dos bônus: <span className="line-through">R$ 465</span> <br/>👉 Hoje: <span className="text-green-500">incluídos gratuitamente no seu ritual</span></p>
                 <p className="text-center text-sm text-foreground/70 mt-4">Esses bônus só são entregues enquanto Lady Soraya ainda busca ajudar as 3737 pessoas escolhidas. Quando esse número for alcançado, os rituais bônus serão retirados permanentemente.</p>
             </div>
@@ -329,6 +329,8 @@ export default function LandingPage({ onStart }: LandingPageProps) {
     </div>
   );
 }
+
+    
 
     
 

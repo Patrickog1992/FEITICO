@@ -5,24 +5,16 @@ import { useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Flame } from "lucide-react";
 
-const names = ["Ana", "Maria", "Juliana", "Beatriz", "Sofia", "Clara", "Mariana", "Larissa"];
-const cities = ["de São Paulo", "do Rio de Janeiro", "de Belo Horizonte", "de Salvador", "de Brasília", "de Curitiba", "de Manaus", "de Recife"];
-
-const getRandomItem = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
-
 export default function RitualFogoSocialProof() {
   const { toast } = useToast();
 
   useEffect(() => {
     const showRandomToast = () => {
-      const name = getRandomItem(names);
-      const city = getRandomItem(cities);
-      
       toast({
         description: (
           <div className="flex items-center gap-2">
             <Flame className="h-2.5 w-2.5 text-primary" />
-            <p className="text-[10px]">{name} {city} acabou de receber o ritual da chama.</p>
+            <p className="text-[10px]">tal pessoa de tal lugar recebeu o ritual da chama</p>
           </div>
         ),
         duration: 5000,

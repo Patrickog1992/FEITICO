@@ -310,9 +310,9 @@ export default function RitualDoFogoPage() {
                     size="lg"
                     className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md text-lg h-auto py-3"
                 >
-                   Acenda a Chama – Garanta Seu Ritual Agora
+                   ACENDA A CHAMA
                 </Button>
-                 <SectionTitle className="text-destructive mt-8">Mas Você Precisa Agir Agora</SectionTitle>
+                <SectionTitle className="text-destructive mt-8">Mas Você Precisa Agir Agora</SectionTitle>
             </Section>
 
             <Section className="text-center">
@@ -342,7 +342,7 @@ export default function RitualDoFogoPage() {
                     size="lg"
                     className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md text-lg h-auto py-3"
                 >
-                   Sim, Estou Pronta – Acender a Chama Agora
+                   EU QUERO, ESTOU PRONTA
                 </Button>
             </Section>
 
@@ -360,7 +360,7 @@ export default function RitualDoFogoPage() {
                     size="lg"
                     className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md text-lg h-auto py-3"
                 >
-                   Garantir Meu Ritual – Estou Pronta
+                   GARANTIR O RITUAL
                 </Button>
             </Section>
 
@@ -398,7 +398,7 @@ export default function RitualDoFogoPage() {
                     size="lg"
                     className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md text-lg h-auto py-3"
                 >
-                   Tenho Certeza – Acender a Chama Agora
+                   QUERO AGORA
                 </Button>
               </div>
             </Section>

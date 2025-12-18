@@ -4,9 +4,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Testimonials from "@/components/feiticos/testimonials-lp";
 import AltarEspiritual from "@/components/feiticos/altar-espiritual";
 import RitualFogoBanner from "@/components/feiticos/ritual-fogo-banner";
+import TestimonialsRitualFogo from "@/components/feiticos/testimonials-ritual-fogo";
 
 const Section: React.FC<{
   children: React.ReactNode;
@@ -201,7 +201,7 @@ export default function RitualDoFogoPage() {
             <Section>
                 <h2 className="font-headline text-3xl font-bold text-center text-primary mb-2">Histórias Reais de Mulheres Que Usaram a Chama</h2>
                 <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
-                <Testimonials />
+                <TestimonialsRitualFogo />
             </Section>
 
             <Section>
@@ -420,7 +420,3 @@ export default function RitualDoFogoPage() {
     </div>
   );
 }
-
-    
-
-    

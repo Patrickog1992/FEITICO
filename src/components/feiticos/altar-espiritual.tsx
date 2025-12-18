@@ -73,10 +73,10 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
       case "form":
         return (
           <>
-            <h2 className="text-center text-2xl font-headline font-bold text-yellow-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            <h2 className="text-center text-2xl font-headline font-bold text-gray-800">
               O Altar do Vínculo Eterno
             </h2>
-            <p className="text-center text-yellow-100/80 mb-6">Sele os nomes no pergaminho para iniciar o ritual.</p>
+            <p className="text-center text-gray-600 mb-6">Sele os nomes para iniciar o ritual.</p>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <FormField
@@ -88,15 +88,15 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                         <Input 
                           placeholder="Seu nome" 
                           {...field} 
-                          className="bg-transparent text-center text-lg font-headline text-white placeholder:text-yellow-100/50 border-0 border-b-2 border-yellow-400/50 focus:border-yellow-300 focus-visible:ring-0 focus-visible:ring-offset-0"
+                          className="bg-gray-100 text-center text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary"
                         />
                       </FormControl>
-                      <FormMessage className="text-red-400" />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
                 <div className="relative flex justify-center items-center">
-                    <Sparkles className="h-8 w-8 text-yellow-300 animate-pulse" />
+                    <Sparkles className="h-8 w-8 text-primary animate-pulse" />
                 </div>
                 <FormField
                   control={form.control}
@@ -107,14 +107,14 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                         <Input 
                           placeholder="Nome da pessoa amada" 
                           {...field} 
-                          className="bg-transparent text-center text-lg font-headline text-white placeholder:text-yellow-100/50 border-0 border-b-2 border-yellow-400/50 focus:border-yellow-300 focus-visible:ring-0 focus-visible:ring-offset-0"
+                          className="bg-gray-100 text-center text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary"
                         />
                       </FormControl>
-                      <FormMessage className="text-red-400" />
+                      <FormMessage className="text-red-500" />
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full font-bold bg-gradient-to-r from-red-600 to-orange-500 text-white hover:from-red-700 hover:to-orange-600 animate-button-glow-success text-lg h-12">
+                <Button type="submit" size="lg" className="w-full font-bold bg-primary text-primary-foreground hover:bg-primary/90 text-lg h-12">
                   Vincular Almas
                 </Button>
               </form>
@@ -125,8 +125,8 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
         const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
         return (
           <div className="flex flex-col items-center justify-center text-center h-64">
-            <Wand2 className="h-20 w-20 text-yellow-300 animate-pulse mb-6" />
-            <p className="text-xl font-headline text-yellow-200 transition-all duration-500 animate-in fade-in">
+            <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
+            <p className="text-xl font-headline text-gray-700 transition-all duration-500 animate-in fade-in">
               {currentMessage}
             </p>
           </div>
@@ -134,12 +134,12 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
       case "final":
         return (
             <div className="flex flex-col items-center justify-center text-center h-64">
-                <Sparkles className="h-20 w-20 text-green-400 mb-4"/>
-                <h3 className="text-2xl font-bold font-headline text-green-300 mb-2">Conexão Detectada!</h3>
-                <p className="text-lg text-white mb-6">
-                    <span className="font-bold text-yellow-200">{targetName}</span> está vulnerável à chama hoje.
+                <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
+                <h3 className="text-2xl font-bold font-headline text-gray-800 mb-2">Conexão Detectada!</h3>
+                <p className="text-lg text-gray-700 mb-6">
+                    <span className="font-bold text-primary">{targetName}</span> está vulnerável à chama hoje.
                 </p>
-                <p className="text-md text-yellow-100/80 mb-6">O ritual está 50% concluído. Finalize o pagamento para selar o vínculo.</p>
+                <p className="text-md text-gray-600 mb-6">O ritual está 50% concluído. Finalize o pagamento para selar o vínculo.</p>
                 <Button 
                     onClick={() => window.location.href = checkoutUrl}
                     size="lg" 
@@ -153,23 +153,13 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-white p-4 animate-in fade-in-0">
-      <div className={cn(
-        "relative w-full max-w-md mx-auto rounded-lg p-8",
-        "bg-pergaminho bg-cover bg-center shadow-2xl shadow-yellow-500/20"
-      )}>
-         <style jsx>{`
-          .bg-pergaminho {
-            background-image: url('https://i.imgur.com/vMvqx4C.jpg');
-            border: 10px solid transparent;
-            border-image: url('https://i.imgur.com/i9pD3J2.png') 30 stretch;
-          }
-        `}</style>
-
+      <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl">
+        
         <Button
           variant="ghost"
           size="icon"
           onClick={onClose}
-          className="absolute top-2 right-2 rounded-full text-yellow-100/70 hover:text-white hover:bg-white/10"
+          className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
         >
           <X className="h-5 w-5" />
           <span className="sr-only">Fechar</span>

@@ -77,7 +77,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
             <h2 className="text-center text-2xl font-headline font-bold text-gray-800">
               Prepare o Ritual
             </h2>
-            <p className="text-center text-gray-600 mb-6">A Sacerdotisa Lady Soraya precisa dos nomes para vincular a alma dele à sua.</p>
+            <p className="text-center text-gray-600 mb-6">A Sacerdotisa Lady Soraya precisa dos nomes para vincular a alma de vocês dois.</p>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
@@ -93,7 +93,6 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                           autoComplete="off"
                         />
                       </FormControl>
-                      <p className="text-xs text-center text-gray-500">Ex: Maria Oliveira</p>
                       <FormMessage className="text-red-500 text-center" />
                     </FormItem>
                   )}
@@ -112,7 +111,6 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                           autoComplete="off"
                         />
                       </FormControl>
-                      <p className="text-xs text-center text-gray-500">Ex: João da Silva</p>
                       <FormMessage className="text-red-500 text-center" />
                     </FormItem>
                   )}
@@ -146,7 +144,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                 <p className="text-lg text-gray-700 mb-6">
                     <span className="font-bold text-primary">{targetName}</span> está vulnerável ao feitiço hoje. O vínculo espiritual foi mapeado com sucesso.
                 </p>
-                <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Lady Soraya aguarda apenas a sua confirmação para encontrar o nome de vocês ao amor agora.</p>
+                <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Lady Soraya aguarda apenas a sua confirmação para unir as duas almas.</p>
                 <Button 
                     onClick={() => window.location.href = checkoutUrl}
                     size="lg" 

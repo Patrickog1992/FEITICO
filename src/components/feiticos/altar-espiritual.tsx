@@ -90,6 +90,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                           placeholder="Seu nome" 
                           {...field} 
                           className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
+                          autoComplete="off"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />
@@ -109,6 +110,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                           placeholder="Nome da pessoa amada" 
                           {...field} 
                           className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
+                          autoComplete="off"
                         />
                       </FormControl>
                       <FormMessage className="text-red-500" />

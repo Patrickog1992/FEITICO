@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import RitualFogoBanner from "@/components/feiticos/ritual-fogo-banner";
 import TestimonialsRitualFogo from "@/components/feiticos/testimonials-ritual-fogo";
+import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proof";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -215,6 +216,7 @@ export default function RitualDoFogoPage() {
 
   return (
     <div className="bg-background text-foreground min-h-screen">
+      <RitualFogoSocialProof />
        {!showAltar && (
         <>
           <div className="w-full max-w-4xl mx-auto pt-8">
@@ -368,7 +370,7 @@ export default function RitualDoFogoPage() {
             </Section>
             
             <Section>
-                <h2 className="font-headline text-3xl font-bold text-center text-primary mb-2">Histórias Reais de Mulheres Que Usaram a Chama</h2>
+                <SectionTitle>Histórias Reais de Mulheres Que Usaram a Chama</SectionTitle>
                 <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
                 <TestimonialsRitualFogo />
             </Section>

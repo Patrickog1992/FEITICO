@@ -23,8 +23,8 @@ type AltarEspiritualProps = {
 };
 
 const formSchema = z.object({
-  requesterName: z.string().min(2, { message: "Seu nome completo é necessário." }),
-  targetName: z.string().min(2, { message: "O nome completo dele é necessário." }),
+  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
+  targetName: z.string().min(2, { message: "O nome de quem você deseja é necessário." }),
 });
 
 const loadingMessages = [
@@ -87,7 +87,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                     <FormItem>
                       <FormControl>
                         <Input 
-                          placeholder="Seu Nome Completo" 
+                          placeholder="Seu nome" 
                           {...field} 
                           className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
                           autoComplete="off"
@@ -105,7 +105,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                     <FormItem>
                       <FormControl>
                         <Input 
-                          placeholder="Nome Completo DELE" 
+                          placeholder="Nome de quem você deseja" 
                           {...field} 
                           className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
                           autoComplete="off"

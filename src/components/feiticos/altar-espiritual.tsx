@@ -1,0 +1,182 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { X, Sparkles, Wand2 } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+type AltarEspiritualProps = {
+  onClose: () => void;
+  checkoutUrl: string;
+};
+
+const formSchema = z.object({
+  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
+  targetName: z.string().min(2, { message: "O nome da pessoa amada é necessário." }),
+});
+
+const loadingMessages = [
+  "Invocando a Sacerdotisa Azara...",
+  "Analisando as energias cósmicas...",
+  "Conectando à alma de {TARGET_NAME}...",
+  "Tecendo os fios do destino...",
+  "Alinhando os corações...",
+];
+
+export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritualProps) {
+  const [step, setStep] = useState<"form" | "loading" | "final">("form");
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const [targetName, setTargetName] = useState("");
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      requesterName: "",
+      targetName: "",
+    },
+  });
+
+  useEffect(() => {
+    if (step === "loading") {
+      const interval = setInterval(() => {
+        setLoadingMessageIndex((prevIndex) => {
+          if (prevIndex < loadingMessages.length - 1) {
+            return prevIndex + 1;
+          }
+          clearInterval(interval);
+          setStep("final");
+          return prevIndex;
+        });
+      }, 1500);
+      return () => clearInterval(interval);
+    }
+  }, [step]);
+  
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    setTargetName(values.targetName);
+    setStep("loading");
+  }
+
+  const renderContent = () => {
+    switch (step) {
+      case "form":
+        return (
+          <>
+            <h2 className="text-center text-2xl font-headline font-bold text-yellow-200 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+              O Altar do Vínculo Eterno
+            </h2>
+            <p className="text-center text-yellow-100/80 mb-6">Sele os nomes no pergaminho para iniciar o ritual.</p>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                <FormField
+                  control={form.control}
+                  name="requesterName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input 
+                          placeholder="Seu nome" 
+                          {...field} 
+                          className="bg-transparent text-center text-lg font-headline text-white placeholder:text-yellow-100/50 border-0 border-b-2 border-yellow-400/50 focus:border-yellow-300 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-400" />
+                    </FormItem>
+                  )}
+                />
+                <div className="relative flex justify-center items-center">
+                    <Sparkles className="h-8 w-8 text-yellow-300 animate-pulse" />
+                </div>
+                <FormField
+                  control={form.control}
+                  name="targetName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input 
+                          placeholder="Nome da pessoa amada" 
+                          {...field} 
+                          className="bg-transparent text-center text-lg font-headline text-white placeholder:text-yellow-100/50 border-0 border-b-2 border-yellow-400/50 focus:border-yellow-300 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-400" />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" size="lg" className="w-full font-bold bg-gradient-to-r from-red-600 to-orange-500 text-white hover:from-red-700 hover:to-orange-600 animate-button-glow-success text-lg h-12">
+                  Vincular Almas
+                </Button>
+              </form>
+            </Form>
+          </>
+        );
+      case "loading":
+        const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
+        return (
+          <div className="flex flex-col items-center justify-center text-center h-64">
+            <Wand2 className="h-20 w-20 text-yellow-300 animate-pulse mb-6" />
+            <p className="text-xl font-headline text-yellow-200 transition-all duration-500 animate-in fade-in">
+              {currentMessage}
+            </p>
+          </div>
+        );
+      case "final":
+        return (
+            <div className="flex flex-col items-center justify-center text-center h-64">
+                <Sparkles className="h-20 w-20 text-green-400 mb-4"/>
+                <h3 className="text-2xl font-bold font-headline text-green-300 mb-2">Conexão Detectada!</h3>
+                <p className="text-lg text-white mb-6">
+                    <span className="font-bold text-yellow-200">{targetName}</span> está vulnerável à chama hoje.
+                </p>
+                <p className="text-md text-yellow-100/80 mb-6">O ritual está 50% concluído. Finalize o pagamento para selar o vínculo.</p>
+                <Button 
+                    onClick={() => window.location.href = checkoutUrl}
+                    size="lg" 
+                    className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
+                    Finalizar Ritual no Checkout
+                </Button>
+            </div>
+        );
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in-0">
+      <div className={cn(
+        "relative w-full max-w-md mx-auto rounded-lg p-8",
+        "bg-pergaminho bg-cover bg-center shadow-2xl shadow-yellow-500/20"
+      )}>
+         <style jsx>{`
+          .bg-pergaminho {
+            background-image: url('https://i.imgur.com/vMvqx4C.jpg');
+            border: 10px solid transparent;
+            border-image: url('https://i.imgur.com/i9pD3J2.png') 30 stretch;
+          }
+        `}</style>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onClose}
+          className="absolute top-2 right-2 rounded-full text-yellow-100/70 hover:text-white hover:bg-white/10"
+        >
+          <X className="h-5 w-5" />
+          <span className="sr-only">Fechar</span>
+        </Button>
+        
+        {renderContent()}
+      </div>
+    </div>
+  );
+}

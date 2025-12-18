@@ -115,7 +115,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full font-bold bg-primary text-primary-foreground hover:bg-primary/90 text-lg h-12">
+                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
                   Vincular Almas
                 </Button>
               </form>

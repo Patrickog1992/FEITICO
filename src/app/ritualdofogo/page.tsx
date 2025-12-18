@@ -148,7 +148,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                     onClick={() => window.location.href = checkoutUrl}
                     size="lg" 
                     className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
-                    FINALIZAR RITUAL NO CHECKOUT
+                    FINALIZAR RITUAL AGORA
                 </Button>
             </div>
         );

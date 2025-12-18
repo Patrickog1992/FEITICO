@@ -22,7 +22,7 @@ export default function RitualFogoSocialProof() {
         description: (
           <div className="flex items-center gap-2">
             <Flame className="h-2.5 w-2.5 text-primary" />
-            <p className="text-[10px]">{name} {city} recebeu o ritual da chama</p>
+            <p className="text-[10px]">{name} {city} recebeu o <span className="uppercase font-bold text-destructive">Ritual da Chama</span></p>
           </div>
         ),
         duration: 5000,

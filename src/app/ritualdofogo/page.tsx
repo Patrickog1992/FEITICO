@@ -1,13 +1,181 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import AltarEspiritual from "@/components/feiticos/altar-espiritual";
 import RitualFogoBanner from "@/components/feiticos/ritual-fogo-banner";
 import TestimonialsRitualFogo from "@/components/feiticos/testimonials-ritual-fogo";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { X, Sparkles, Wand2, LockIcon } from "lucide-react";
 
+// AltarEspiritual Logic - Inlined for isolation
+
+const formSchema = z.object({
+  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
+  targetName: z.string().min(2, { message: "O nome de quem você deseja é necessário." }),
+});
+
+const loadingMessages = [
+  "Invocando a Sacerdotisa Azara...",
+  "Analisando as energias cósmicas...",
+  "Conectando à alma de {TARGET_NAME}...",
+  "Tecendo os fios do destino...",
+  "Alinhando os corações...",
+];
+
+const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
+  const [step, setStep] = useState<"form" | "loading" | "final">("form");
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const [targetName, setTargetName] = useState("");
+  
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      requesterName: "",
+      targetName: "",
+    },
+  });
+
+  useEffect(() => {
+    if (step === "loading") {
+      const interval = setInterval(() => {
+        setLoadingMessageIndex((prevIndex) => {
+          if (prevIndex < loadingMessages.length - 1) {
+            return prevIndex + 1;
+          }
+          clearInterval(interval);
+          setStep("final");
+          return prevIndex;
+        });
+      }, 1500);
+      return () => clearInterval(interval);
+    }
+  }, [step]);
+  
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    setTargetName(values.targetName);
+    setStep("loading");
+  }
+
+  const renderContent = () => {
+    switch (step) {
+      case "form":
+        return (
+          <>
+            <h2 className="text-center text-2xl font-headline font-bold text-gray-800">
+              Prepare o Ritual do Fogo
+            </h2>
+            <p className="text-center text-gray-600 mb-6">A Sacerdotisa Azara precisa dos nomes para selar o destino de vocês na chama.</p>
+            <Form {...form}>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <FormField
+                  control={form.control}
+                  name="requesterName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input 
+                          placeholder="Seu nome" 
+                          {...field} 
+                          className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
+                          autoComplete="off"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500 text-center" />
+                    </FormItem>
+                  )}
+                />
+                
+                <FormField
+                  control={form.control}
+                  name="targetName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input 
+                          placeholder="Nome de quem você deseja" 
+                          {...field} 
+                          className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
+                          autoComplete="off"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500 text-center" />
+                    </FormItem>
+                  )}
+                />
+                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
+                  Vincular Almas Agora
+                </Button>
+                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                    <LockIcon className="h-3 w-3" />
+                    <span>Seus dados estão 100% protegidos e privados.</span>
+                </div>
+              </form>
+            </Form>
+          </>
+        );
+      case "loading":
+        const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
+        return (
+          <div className="flex flex-col items-center justify-center text-center h-64">
+            <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
+            <p className="text-xl font-headline text-gray-700 transition-all duration-500 animate-in fade-in">
+              {currentMessage}
+            </p>
+          </div>
+        );
+      case "final":
+        return (
+            <div className="flex flex-col items-center justify-center text-center h-64">
+                <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
+                <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO DETECTADA!</h3>
+                <p className="text-lg text-gray-700 mb-6">
+                    <span className="font-bold text-primary">{targetName}</span> está vulnerável à chama hoje.
+                </p>
+                <p className="text-md text-gray-600 mb-6">O ritual já começou. A Sacerdotisa Azara aguarda sua confirmação para finalizar.</p>
+                <Button 
+                    onClick={() => window.location.href = checkoutUrl}
+                    size="lg" 
+                    className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
+                    FINALIZAR RITUAL NO CHECKOUT
+                </Button>
+            </div>
+        );
+    }
+  };
+
+  return (
+     <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 animate-in fade-in-50">
+        <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl animate-in fade-in-50 slide-in-from-bottom-10">
+        <Button
+            variant="ghost"
+            size="icon"
+            onClick={onClose}
+            className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+        >
+            <X className="h-5 w-5" />
+            <span className="sr-only">Fechar</span>
+        </Button>
+        
+        {renderContent()}
+        </div>
+    </div>
+  );
+};
+
+
+// Page components
 const Section: React.FC<{
   children: React.ReactNode;
   className?: string;
@@ -416,7 +584,7 @@ export default function RitualDoFogoPage() {
           </main>
         </>
       )}
-      {showAltar && <AltarEspiritual onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/9e2a7067-9ff4-4612-9f68-0b355238ae45" />}
+      {showAltar && <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/9e2a7067-9ff4-4612-9f68-0b355238ae45" />}
     </div>
   );
 }

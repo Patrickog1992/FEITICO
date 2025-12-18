@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { X, Sparkles, Wand2, LockIcon } from "lucide-react";
+import { X, Sparkles, Wand2, LockIcon, Flame } from "lucide-react";
 
 // AltarEspiritual Logic - Inlined for isolation
 
@@ -73,6 +73,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
       case "form":
         return (
           <>
+            <Flame className="h-16 w-16 text-primary mb-4 mx-auto animate-pulse" />
             <h2 className="text-center text-2xl font-headline font-bold text-gray-800">
               Prepare o Ritual do Fogo
             </h2>

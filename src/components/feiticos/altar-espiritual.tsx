@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -135,16 +136,16 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
         return (
             <div className="flex flex-col items-center justify-center text-center h-64">
                 <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
-                <h3 className="text-2xl font-bold font-headline text-gray-800 mb-2">Conexão Detectada!</h3>
+                <h3 className="text-2xl font-bold font-headline text-gray-800 mb-2">CONEXÃO DETECTADA!</h3>
                 <p className="text-lg text-gray-700 mb-6">
-                    <span className="font-bold text-primary">{targetName}</span> está vulnerável à chama hoje.
+                    <span className="font-bold text-primary">{targetName}</span> está vulnerável ao feitiço hoje. O vínculo espiritual foi mapeado com sucesso.
                 </p>
-                <p className="text-md text-gray-600 mb-6">O ritual está 50% concluído. Finalize o pagamento para selar o vínculo.</p>
+                <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Lady Soraya aguarda apenas a sua confirmação para encontrar o nome de vocês ao amor agora.</p>
                 <Button 
                     onClick={() => window.location.href = checkoutUrl}
                     size="lg" 
                     className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
-                    Finalizar Ritual no Checkout
+                    FINALIZAR O RITUAL
                 </Button>
             </div>
         );

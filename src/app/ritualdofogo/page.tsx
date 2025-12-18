@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Testimonials from "@/components/feiticos/testimonials-lp";
 import AltarEspiritual from "@/components/feiticos/altar-espiritual";
+import RitualFogoBanner from "@/components/feiticos/ritual-fogo-banner";
 
 const Section: React.FC<{
   children: React.ReactNode;
@@ -47,6 +48,9 @@ export default function RitualDoFogoPage() {
     <div className="bg-background text-foreground min-h-screen">
        {!showAltar && (
         <>
+          <div className="w-full max-w-4xl mx-auto pt-8">
+            <RitualFogoBanner />
+          </div>
           <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold font-headline text-primary uppercase">
               Sussurre o nome dele nesta chama sagrada… e em até 5 noites ele vai ficar totalmente obcecado por você
@@ -354,7 +358,7 @@ export default function RitualDoFogoPage() {
                 height={100}
                 className="mx-auto mb-4"
               />
-                <SectionTitle className="!text-green-600 uppercase">O Risco É 100% Meu</SectionTitle>
+                <SectionTitle className="!text-green-600 uppercase">O RISCO É 100% MEU</SectionTitle>
                 <Paragraph>Você tem 7 dias completos para ver os resultados.</Paragraph>
                 <Paragraph>Se ele não estiver queimando de obsessão por você…</Paragraph>
                 <Paragraph>Se ele não voltar rastejando, implorando pelo seu perdão…</Paragraph>

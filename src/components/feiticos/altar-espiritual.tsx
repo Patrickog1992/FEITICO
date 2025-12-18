@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { X, Sparkles, Wand2 } from "lucide-react";
+import { X, Sparkles, Wand2, LockIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type AltarEspiritualProps = {
@@ -23,8 +23,8 @@ type AltarEspiritualProps = {
 };
 
 const formSchema = z.object({
-  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
-  targetName: z.string().min(2, { message: "O nome da pessoa amada é necessário." }),
+  requesterName: z.string().min(2, { message: "Seu nome completo é necessário." }),
+  targetName: z.string().min(2, { message: "O nome completo dele é necessário." }),
 });
 
 const loadingMessages = [
@@ -75,11 +75,11 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
         return (
           <>
             <h2 className="text-center text-2xl font-headline font-bold text-gray-800">
-              O Altar do Vínculo Eterno
+              Prepare o Ritual
             </h2>
-            <p className="text-center text-gray-600 mb-6">Sele os nomes para iniciar o ritual.</p>
+            <p className="text-center text-gray-600 mb-6">A Sacerdotisa Lady Soraya precisa dos nomes para vincular a alma dele à sua.</p>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                 <FormField
                   control={form.control}
                   name="requesterName"
@@ -87,19 +87,18 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                     <FormItem>
                       <FormControl>
                         <Input 
-                          placeholder="Seu nome" 
+                          placeholder="Seu Nome Completo" 
                           {...field} 
                           className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
                           autoComplete="off"
                         />
                       </FormControl>
-                      <FormMessage className="text-red-500" />
+                      <p className="text-xs text-center text-gray-500">Ex: Maria Oliveira</p>
+                      <FormMessage className="text-red-500 text-center" />
                     </FormItem>
                   )}
                 />
-                <div className="relative flex justify-center items-center">
-                    <Sparkles className="h-8 w-8 text-primary animate-pulse" />
-                </div>
+                
                 <FormField
                   control={form.control}
                   name="targetName"
@@ -107,19 +106,24 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
                     <FormItem>
                       <FormControl>
                         <Input 
-                          placeholder="Nome da pessoa amada" 
+                          placeholder="Nome Completo DELE" 
                           {...field} 
                           className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
                           autoComplete="off"
                         />
                       </FormControl>
-                      <FormMessage className="text-red-500" />
+                      <p className="text-xs text-center text-gray-500">Ex: João da Silva</p>
+                      <FormMessage className="text-red-500 text-center" />
                     </FormItem>
                   )}
                 />
-                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
-                  Vincular Almas
+                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
+                  Vincular Almas Agora
                 </Button>
+                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                    <LockIcon className="h-3 w-3" />
+                    <span>Seus dados estão 100% protegidos e privados.</span>
+                </div>
               </form>
             </Form>
           </>

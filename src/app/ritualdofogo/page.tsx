@@ -347,8 +347,15 @@ export default function RitualDoFogoPage() {
             </Section>
 
             <Section className="text-center border-2 border-green-500 rounded-lg p-6 bg-green-500/10">
-                <SectionTitle className="!text-green-600">O Risco É 100% Meu</SectionTitle>
-                <Paragraph>Você tem 60 dias completos para ver os resultados.</Paragraph>
+              <Image
+                src="https://i.imgur.com/WNTUqfZ.png"
+                alt="Selo de Garantia"
+                width={100}
+                height={100}
+                className="mx-auto mb-4"
+              />
+                <SectionTitle className="!text-green-600 uppercase">O Risco É 100% Meu</SectionTitle>
+                <Paragraph>Você tem 7 dias completos para ver os resultados.</Paragraph>
                 <Paragraph>Se ele não estiver queimando de obsessão por você…</Paragraph>
                 <Paragraph>Se ele não voltar rastejando, implorando pelo seu perdão…</Paragraph>
                 <Paragraph>Se você não ficar completamente chocada com o nível de desespero dele por você…</Paragraph>
@@ -409,5 +416,7 @@ export default function RitualDoFogoPage() {
     </div>
   );
 }
+
+    
 
     

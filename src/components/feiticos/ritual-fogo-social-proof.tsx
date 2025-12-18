@@ -21,8 +21,8 @@ export default function RitualFogoSocialProof() {
       toast({
         description: (
           <div className="flex items-center gap-2">
-            <Flame className="h-3 w-3 text-primary" />
-            <p className="text-[11px]">{name} {city} acabou de receber o ritual da chama.</p>
+            <Flame className="h-2.5 w-2.5 text-primary" />
+            <p className="text-[10px]">{name} {city} acabou de receber o ritual da chama.</p>
           </div>
         ),
         duration: 5000,

@@ -587,7 +587,7 @@ export default function RitualDoFogoPage() {
           </main>
         </>
       )}
-      {showAltar && <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/9e2a7067-9ff4-4612-9f68-0b355238ae45" />}
+      {showAltar && <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/562d86be-b4f9-49fc-b88f-bf16e2fdb785" />}
     </div>
   );
 }

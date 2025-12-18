@@ -193,8 +193,12 @@ export default function RitualDoFogoPage() {
               <Paragraph className="font-bold">Eles não se cansam de você.</Paragraph>
               <Paragraph className="text-center font-bold text-destructive border-2 border-destructive p-4 rounded-lg">Se você não está pronta para ele te desejar a cada segundo de todos os dias… não faça isso.</Paragraph>
             </Section>
-
-            <Testimonials />
+            
+            <Section>
+                <SectionTitle>Histórias Reais de Mulheres Que Usaram a Chama</SectionTitle>
+                <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
+                <Testimonials />
+            </Section>
 
             <Section>
                 <SectionTitle>A História Proibida Que Tentaram Enterrar</SectionTitle>
@@ -405,3 +409,5 @@ export default function RitualDoFogoPage() {
     </div>
   );
 }
+
+    

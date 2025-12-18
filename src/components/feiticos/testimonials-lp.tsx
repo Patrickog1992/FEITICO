@@ -73,13 +73,6 @@ export default function Testimonials() {
   }
 
   return (
-    <section className="w-full max-w-4xl mx-auto my-8 md:my-16 px-4">
-      <h2 className="font-headline text-3xl font-bold text-center text-primary mb-2">
-        Veja algumas almas gêmeas que a Lady Soraya ajudou
-      </h2>
-      <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
-      
-
       <Carousel
         plugins={[plugin.current]}
         className="w-full"
@@ -128,6 +121,7 @@ export default function Testimonials() {
           ))}
         </CarouselContent>
       </Carousel>
-    </section>
   );
 }
+
+    

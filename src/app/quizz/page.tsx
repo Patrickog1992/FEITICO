@@ -24,9 +24,11 @@ export default function QuizzPage() {
       <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
         <SocialProof />
         
-        <div className="w-full h-full overflow-y-auto">
-          <LandingPage onStart={handleStartRitual} />
-        </div>
+        {!showAltar && (
+          <div className="w-full h-full overflow-y-auto">
+            <LandingPage onStart={handleStartRitual} />
+          </div>
+        )}
         
         {showAltar && <AltarEspiritual onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/9e2a7067-9ff4-4612-9f68-0b355238ae45" />}
       </main>

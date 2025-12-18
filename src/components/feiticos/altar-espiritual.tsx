@@ -159,21 +159,18 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white p-4 animate-in fade-in-0">
-      <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl">
-        
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={onClose}
-          className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-        >
-          <X className="h-5 w-5" />
-          <span className="sr-only">Fechar</span>
-        </Button>
-        
-        {renderContent()}
-      </div>
+    <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl animate-in fade-in-50 slide-in-from-bottom-10">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={onClose}
+        className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+      >
+        <X className="h-5 w-5" />
+        <span className="sr-only">Fechar</span>
+      </Button>
+      
+      {renderContent()}
     </div>
   );
 }

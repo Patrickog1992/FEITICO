@@ -24,9 +24,11 @@ export default function Home() {
       <main className="relative flex min-h-screen w-full flex-col items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
         <SocialProof />
         
-        <div className="w-full h-full overflow-y-auto">
-          <LandingPage onStart={handleStartRitual} />
-        </div>
+        {!showAltar && (
+          <div className="w-full h-full overflow-y-auto">
+            <LandingPage onStart={handleStartRitual} />
+          </div>
+        )}
         
         {showAltar && <AltarEspiritual onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/5fbfabed-b287-43fb-9640-735dfb2a99f3" />}
 

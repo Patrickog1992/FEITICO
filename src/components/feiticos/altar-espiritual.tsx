@@ -152,7 +152,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in-0">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white p-4 animate-in fade-in-0">
       <div className={cn(
         "relative w-full max-w-md mx-auto rounded-lg p-8",
         "bg-pergaminho bg-cover bg-center shadow-2xl shadow-yellow-500/20"

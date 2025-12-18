@@ -50,13 +50,6 @@ export default function UpsellPage() {
   return (
     <div className="bg-background text-foreground min-h-screen">
        <div className="relative isolate overflow-hidden">
-        <Image
-            src="https://images.unsplash.com/photo-1679837577464-11def9613750?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxteXN0aWNhbCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzYxNTg5NzM0fDA&ixlib=rb-4.1.0&q=80&w=1080"
-            alt="Mystical background"
-            fill
-            className="object-cover -z-10 opacity-10"
-        />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-transparent" />
 
         <div className="container mx-auto px-4 py-12 sm:py-16">
           <header className="text-center mb-12">

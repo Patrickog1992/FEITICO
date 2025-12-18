@@ -136,7 +136,7 @@ export default function AltarEspiritual({ onClose, checkoutUrl }: AltarEspiritua
         return (
             <div className="flex flex-col items-center justify-center text-center h-64">
                 <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
-                <h3 className="text-2xl font-bold font-headline text-gray-800 mb-2">CONEXÃO DETECTADA!</h3>
+                <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO DETECTADA!</h3>
                 <p className="text-lg text-gray-700 mb-6">
                     <span className="font-bold text-primary">{targetName}</span> está vulnerável ao feitiço hoje. O vínculo espiritual foi mapeado com sucesso.
                 </p>

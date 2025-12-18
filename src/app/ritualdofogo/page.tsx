@@ -195,7 +195,7 @@ export default function RitualDoFogoPage() {
             </Section>
             
             <Section>
-                <SectionTitle>Histórias Reais de Mulheres Que Usaram a Chama</SectionTitle>
+                <h2 className="font-headline text-3xl font-bold text-center text-primary mb-2">Histórias Reais de Mulheres Que Usaram a Chama</h2>
                 <p className="text-lg text-foreground/80 mb-8 text-center">Veja o que elas estão dizendo...</p>
                 <Testimonials />
             </Section>
@@ -312,6 +312,7 @@ export default function RitualDoFogoPage() {
                 >
                    Acenda a Chama – Garanta Seu Ritual Agora
                 </Button>
+                 <SectionTitle className="text-destructive mt-8">Mas Você Precisa Agir Agora</SectionTitle>
             </Section>
 
             <Section className="text-center">
@@ -322,7 +323,6 @@ export default function RitualDoFogoPage() {
                     height={400}
                     className="rounded-lg shadow-lg mx-auto mb-6"
                 />
-                <SectionTitle className="text-destructive">Mas Você Precisa Agir Agora</SectionTitle>
                 <Paragraph>A Sacerdotisa Azara só consegue realizar um número limitado de rituais por semana. A energia dela não é infinita. Quando as vagas acabam, acabam — até ela se recuperar.</Paragraph>
                 <Paragraph>Se você fechar esta página e voltar amanhã, sua vaga pode já ter sido tomada.</Paragraph>
                 <Paragraph className="font-bold">Cada noite que você espera é mais uma noite em que ele se afasta.</Paragraph>
@@ -409,5 +409,3 @@ export default function RitualDoFogoPage() {
     </div>
   );
 }
-
-    

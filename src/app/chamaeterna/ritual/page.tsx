@@ -113,15 +113,15 @@ export default function RitualPage() {
                     </div>
                 </div>
                 
-                <div className={cn(!allChecked && "opacity-30 pointer-events-none")}>
-                    <div className="text-center my-4">
-                        <p className="text-sm font-bold text-primary animate-pulse">Clique no altar para a SACERDOTISA chamar o nome dele</p>
-                    </div>
-                    
-                    <AltarInterativo flameOn={flameOn} onClick={() => setFlameOn(true)} />
+                <div className="text-center my-4">
+                    <p className="text-sm font-bold text-primary animate-pulse">Clique no altar para a SACERDOTISA chamar o nome dele</p>
+                </div>
+                
+                <AltarInterativo flameOn={flameOn} onClick={() => setFlameOn(true)} />
 
+                <div className={cn(!allChecked && "opacity-30 pointer-events-none")}>
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
                             <FormField
                             control={form.control}
                             name="requesterName"
@@ -162,5 +162,3 @@ export default function RitualPage() {
         </div>
     );
 }
-
-    

@@ -28,50 +28,50 @@ const AltarInterativo = () => {
 
     return (
         <div className="flex flex-col items-center justify-center cursor-pointer group" onClick={() => setIsLit(!isLit)}>
-            <div className="relative w-40 h-40">
+            <div className="relative w-40 h-64">
                 {/* Chama */}
                 {isLit && (
-                    <div className="absolute inset-x-0 -top-16 flex items-center justify-center">
+                    <div className="absolute inset-x-0 -top-28 flex items-center justify-center">
                         <svg
-                            viewBox="0 0 100 100"
+                            viewBox="0 0 100 120"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-24 h-24 sm:w-28 sm:h-28"
+                            className="w-40 h-48 sm:w-44 sm:h-52"
                         >
                             <defs>
                                 <style>
                                 {`
-                                @keyframes flicker {
+                                @keyframes flicker-altar {
                                     0%, 100% { transform: scaleY(1) scaleX(1) translateY(0) rotate(0); opacity: 1; }
-                                    50% { transform: scaleY(0.95) scaleX(1.05) translateY(2px) rotate(-1deg); opacity: 0.9; }
+                                    50% { transform: scaleY(0.95) scaleX(1.05) translateY(5px) rotate(-1.5deg); opacity: 0.9; }
                                 }
-                                @keyframes glow {
-                                    0%, 100% { filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.9)); }
-                                    50% { filter: drop-shadow(0 0 18px hsl(var(--primary))); }
+                                @keyframes glow-altar {
+                                    0%, 100% { filter: drop-shadow(0 0 15px hsl(var(--primary) / 0.9)); }
+                                    50% { filter: drop-shadow(0 0 30px hsl(var(--primary))); }
                                 }
-                                .flame {
+                                .flame-altar {
                                     transform-origin: 50% 100%;
-                                    animation: flicker 1.5s ease-in-out infinite;
+                                    animation: flicker-altar 1.5s ease-in-out infinite;
                                 }
-                                .glow {
-                                animation: glow 1.5s ease-in-out infinite;
+                                .glow-altar {
+                                    animation: glow-altar 1.5s ease-in-out infinite;
                                 }
                                 `}
                                 </style>
-                                <linearGradient id="flameGradient" x1="50%" y1="0%" x2="50%" y2="100%">
+                                <linearGradient id="flameGradientAltar" x1="50%" y1="0%" x2="50%" y2="100%">
                                     <stop offset="0%" stopColor="hsl(50 100% 85%)" />
                                     <stop offset="60%" stopColor="hsl(35 100% 60%)" />
                                     <stop offset="100%" stopColor="hsl(10 100% 50% / 0.7)" />
                                 </linearGradient>
                             </defs>
-                             <g className="flame glow">
+                             <g className="flame-altar glow-altar">
                                 <path
-                                    d="M50 100 C 50 100, 20 85, 30 50 S 50 20, 50 0 S 70 20, 70 50 S 50 100, 50 100 Z"
-                                    fill="url(#flameGradient)"
+                                    d="M50 120 C 50 120, 10 100, 25 60 S 50 20, 50 0 S 75 20, 75 60 S 50 120, 50 120 Z"
+                                    fill="url(#flameGradientAltar)"
                                 />
                                  <path
-                                    d="M50 100 C 50 100, 35 88, 40 60 S 50 40, 50 20 S 60 40, 60 60 S 50 100, 50 100 Z"
+                                    d="M50 120 C 50 120, 30 105, 40 70 S 50 45, 50 25 S 60 45, 60 70 S 50 120, 50 120 Z"
                                      fill="hsl(55, 100%, 95%)"
-                                     transform="scale(0.7) translate(21, 38)"
+                                     transform="scale(0.7) translate(21, 45)"
                                 />
                             </g>
                         </svg>
@@ -148,7 +148,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 <p className="text-gray-600 text-sm sm:text-base">Marque todas as opções abaixo para liberar o feitiço</p>
             </div>
             
-            <div className="space-y-3 my-4 mt-8">
+            <div className="space-y-3 my-8">
                 <div className="flex items-start space-x-2">
                     <Checkbox id="cond1" checked={checkboxes.cond1} onCheckedChange={() => handleCheckboxChange('cond1')} className="mt-1" />
                     <label htmlFor="cond1" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -169,7 +169,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 </div>
             </div>
             
-            <div className="my-16 mt-24">
+            <div className="my-24">
                 <AltarInterativo />
             </div>
             
@@ -704,5 +704,3 @@ export default function ChamaEternaPage() {
     </div>
   );
 }
-
-    

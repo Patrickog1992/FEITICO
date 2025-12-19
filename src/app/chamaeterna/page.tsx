@@ -148,7 +148,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 <p className="text-gray-600 text-sm sm:text-base">Marque todas as opções abaixo para liberar o feitiço</p>
             </div>
             
-            <div className="space-y-3 my-4 mt-12">
+            <div className="space-y-3 my-4 mt-8">
                 <div className="flex items-start space-x-2">
                     <Checkbox id="cond1" checked={checkboxes.cond1} onCheckedChange={() => handleCheckboxChange('cond1')} className="mt-1" />
                     <label htmlFor="cond1" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
@@ -169,7 +169,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 </div>
             </div>
             
-            <div className="my-16">
+            <div className="my-16 mt-20">
                 <AltarInterativo />
             </div>
             

@@ -27,7 +27,7 @@ const AltarInterativo = () => {
     const [isLit, setIsLit] = useState(false);
 
     return (
-        <div className="flex flex-col items-center justify-center cursor-pointer group mt-8" onClick={() => setIsLit(!isLit)}>
+        <div className="flex flex-col items-center justify-center cursor-pointer group" onClick={() => setIsLit(!isLit)}>
             <div className="relative w-48 h-64">
                 {/* Chama */}
                 {isLit && (
@@ -172,7 +172,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
             <AltarInterativo />
             
             <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-8">
                 <FormField
                 control={form.control}
                 name="requesterName"
@@ -702,4 +702,3 @@ export default function ChamaEternaPage() {
     </div>
   );
 }
-

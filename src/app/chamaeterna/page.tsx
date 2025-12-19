@@ -28,7 +28,7 @@ const AltarInterativo = () => {
 
     return (
         <div className="flex flex-col items-center justify-center cursor-pointer group" onClick={() => setIsLit(!isLit)}>
-            <div className="relative w-40 h-24">
+            <div className="relative w-40 h-40">
                 {/* Chama */}
                 {isLit && (
                     <div className="absolute inset-x-0 -top-16 flex items-center justify-center">
@@ -169,7 +169,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 </div>
             </div>
             
-            <div className="my-16 mt-20">
+            <div className="my-16 mt-24">
                 <AltarInterativo />
             </div>
             
@@ -704,3 +704,5 @@ export default function ChamaEternaPage() {
     </div>
   );
 }
+
+    

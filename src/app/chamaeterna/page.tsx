@@ -1,12 +1,12 @@
 
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import RitualFogoBanner from "@/components/feiticos/ritual-fogo-banner";
 import TestimonialsRitualFogo from "@/components/feiticos/testimonials-ritual-fogo";
 import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proof";
+import { useRouter } from "next/navigation";
 
 // ====================================================================
 // PÁGINA PRINCIPAL
@@ -39,9 +39,10 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 export default function ChamaEternaPage() {
+  const router = useRouter();
 
   const handleStartRitual = () => {
-    // Ação do botão foi removida temporariamente
+    router.push('/chamaeterna/ritual');
   };
 
   return (
@@ -418,3 +419,5 @@ export default function ChamaEternaPage() {
     </div>
   );
 }
+
+    

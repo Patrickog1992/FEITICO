@@ -38,46 +38,47 @@ const AltarInterativo = () => {
 
                  {/* Chama */}
                 {isLit && (
-                    <div className="absolute inset-0 flex items-center justify-center bottom-10">
+                    <div className="absolute inset-0 flex items-center justify-center bottom-12">
                         <svg
-                            viewBox="0 0 100 150"
+                            viewBox="0 0 100 100"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-16 h-24 sm:w-20 sm:h-32"
+                            className="w-24 h-24 sm:w-28 sm:h-28"
                         >
                             <defs>
                                 <style>
                                 {`
                                 @keyframes flicker {
-                                    0%, 100% { transform: scaleY(1) translateY(0); opacity: 1; }
-                                    50% { transform: scaleY(0.95) translateY(2px); opacity: 0.9; }
+                                    0%, 100% { transform: scaleY(1) scaleX(1) translateY(0) rotate(0); opacity: 1; }
+                                    50% { transform: scaleY(0.95) scaleX(1.05) translateY(2px) rotate(-1deg); opacity: 0.9; }
                                 }
                                 @keyframes glow {
-                                    0%, 100% { filter: drop-shadow(0 0 5px hsl(var(--primary) / 0.8)); }
-                                    50% { filter: drop-shadow(0 0 12px hsl(var(--primary))); }
+                                    0%, 100% { filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.9)); }
+                                    50% { filter: drop-shadow(0 0 18px hsl(var(--primary))); }
                                 }
                                 .flame {
                                     transform-origin: 50% 100%;
-                                    animation: flicker 2s ease-in-out infinite;
+                                    animation: flicker 1.5s ease-in-out infinite;
                                 }
                                 .glow {
-                                animation: glow 2s ease-in-out infinite;
+                                animation: glow 1.5s ease-in-out infinite;
                                 }
                                 `}
                                 </style>
                                 <linearGradient id="flameGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-                                    <stop offset="0%" stopColor="hsl(45 100% 80%)" />
-                                    <stop offset="80%" stopColor="hsl(35 100% 60%)" />
-                                    <stop offset="100%" stopColor="hsl(15 100% 50% / 0.5)" />
+                                    <stop offset="0%" stopColor="hsl(50 100% 85%)" />
+                                    <stop offset="60%" stopColor="hsl(35 100% 60%)" />
+                                    <stop offset="100%" stopColor="hsl(10 100% 50% / 0.7)" />
                                 </linearGradient>
                             </defs>
                              <g className="flame glow">
                                 <path
-                                    d="M50,45 C 60,35 60,20 50,10 C 40,20 40,35 50,45 Z"
+                                    d="M50 100 C 50 100, 20 85, 30 50 S 50 20, 50 0 S 70 20, 70 50 S 50 100, 50 100 Z"
                                     fill="url(#flameGradient)"
                                 />
-                                <path
-                                    d="M50,42 C 55,35 55,28 50,20 C 45,28 45,35 50,42 Z"
-                                    className="fill-white"
+                                 <path
+                                    d="M50 100 C 50 100, 35 88, 40 60 S 50 40, 50 20 S 60 40, 60 60 S 50 100, 50 100 Z"
+                                     fill="hsl(55, 100%, 95%)"
+                                     transform="scale(0.7) translate(21, 38)"
                                 />
                             </g>
                         </svg>
@@ -138,13 +139,13 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
     }
 
     return (
-        <div className="w-full max-w-md mx-auto rounded-lg p-6 bg-white border shadow-2xl my-8 animate-in fade-in-50">
+        <div className="w-full max-w-md mx-auto rounded-lg p-4 sm:p-6 bg-white border shadow-2xl my-4 sm:my-8 animate-in fade-in-50">
             <div className="text-center mb-4">
                 <p className="font-semibold text-destructive">Expira em: {formatTime(timeLeft)}</p>
-                <h2 className="text-2xl font-headline font-bold text-gray-800 mt-2">
+                <h2 className="text-xl sm:text-2xl font-headline font-bold text-gray-800 mt-2">
                     Concorde com as condições da Sacerdotisa Azara
                 </h2>
-                <p className="text-gray-600">Marque todas as opções abaixo para liberar o feitiço</p>
+                <p className="text-gray-600 text-sm sm:text-base">Marque todas as opções abaixo para liberar o feitiço</p>
             </div>
             
             <div className="space-y-3 my-4">

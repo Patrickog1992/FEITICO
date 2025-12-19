@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -28,17 +29,9 @@ const AltarInterativo = () => {
     return (
         <div className="flex flex-col items-center justify-center my-2 sm:my-4 cursor-pointer group" onClick={() => setIsLit(!isLit)}>
             <div className="relative w-40 h-24">
-                {/* Altar Base */}
-                <svg viewBox="0 0 160 80" className="w-full h-full">
-                    <path d="M10 30 L150 30 L140 80 L20 80 Z" className="fill-gray-400 stroke-gray-500 stroke-width-2" />
-                    <path d="M5 20 L155 20 L150 30 L10 30 Z" className="fill-gray-500 stroke-gray-600 stroke-width-2" />
-                    <rect x="30" y="35" width="100" height="10" rx="2" className="fill-gray-600/50" />
-                     <rect x="50" y="50" width="60" height="10" rx="2" className="fill-gray-600/50" />
-                </svg>
-
-                 {/* Chama */}
+                {/* Chama */}
                 {isLit && (
-                    <div className="absolute inset-0 flex items-center justify-center bottom-12">
+                    <div className="absolute inset-x-0 -top-16 flex items-center justify-center">
                         <svg
                             viewBox="0 0 100 100"
                             xmlns="http://www.w3.org/2000/svg"
@@ -84,6 +77,13 @@ const AltarInterativo = () => {
                         </svg>
                     </div>
                 )}
+                 {/* Altar Base */}
+                <svg viewBox="0 0 160 80" className="w-full h-full absolute bottom-0 left-0">
+                    <path d="M10 30 L150 30 L140 80 L20 80 Z" className="fill-gray-400 stroke-gray-500 stroke-width-2" />
+                    <path d="M5 20 L155 20 L150 30 L10 30 Z" className="fill-gray-500 stroke-gray-600 stroke-width-2" />
+                    <rect x="30" y="35" width="100" height="10" rx="2" className="fill-gray-600/50" />
+                     <rect x="50" y="50" width="60" height="10" rx="2" className="fill-gray-600/50" />
+                </svg>
             </div>
              <p className="text-xs sm:text-sm text-muted-foreground mt-2 text-center group-hover:text-primary transition-colors">
                 {isLit ? 'A chama da fé está acesa!' : 'Clique no altar para acender a chama'}

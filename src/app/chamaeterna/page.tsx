@@ -27,7 +27,7 @@ const AltarInterativo = () => {
     const [isLit, setIsLit] = useState(false);
 
     return (
-        <div className="flex flex-col items-center justify-center my-2 sm:my-4 cursor-pointer group" onClick={() => setIsLit(!isLit)}>
+        <div className="flex flex-col items-center justify-center my-4 sm:my-8 mt-12 cursor-pointer group" onClick={() => setIsLit(!isLit)}>
             <div className="relative w-40 h-24">
                 {/* Chama */}
                 {isLit && (

@@ -169,7 +169,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 </div>
             </div>
             
-            <div className="my-24">
+            <div className="h-64 flex items-center justify-center">
                 <AltarInterativo />
             </div>
             

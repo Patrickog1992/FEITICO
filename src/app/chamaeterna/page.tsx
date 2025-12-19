@@ -15,165 +15,213 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { X, Sparkles, Wand2, LockIcon, Flame } from "lucide-react";
+import { Checkbox } from "@/components/ui/checkbox";
+import { X, Sparkles, Wand2, LockIcon, Flame, ShieldCheck } from "lucide-react";
+import VelaInterativa from "@/components/feiticos/vela-interativa";
 
-// AltarEspiritual Logic - Inlined for isolation
+const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
+    const [step, setStep] = useState<'form' | 'loading' | 'final'>('form');
+    const [timeLeft, setTimeLeft] = useState(90); // 90 seconds = 1:30
+    const [checkboxes, setCheckboxes] = useState({
+        cond1: false,
+        cond2: false,
+        cond3: false,
+    });
+    const [targetName, setTargetName] = useState("");
 
-const formSchema = z.object({
-  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
-  targetName: z.string().min(2, { message: "O nome de quem você deseja é necessário." }),
-});
+    const allChecked = Object.values(checkboxes).every(Boolean);
 
-const loadingMessages = [
-  "Invocando a Sacerdotisa Azara...",
-  "Analisando as energias cósmicas...",
-  "Conectando à alma de {TARGET_NAME}...",
-  "Tecendo os fios do destino...",
-  "Alinhando os corações...",
-];
+    const formSchema = z.object({
+        requesterName: z.string().min(2, { message: "Seu primeiro nome é obrigatório." }),
+        targetName: z.string().min(2, { message: "O nome da pessoa amada é obrigatório." }),
+    });
 
-const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
-  const [step, setStep] = useState<"form" | "loading" | "final">("form");
-  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
-  const [targetName, setTargetName] = useState("");
-  
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      requesterName: "",
-      targetName: "",
-    },
-  });
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: {
+            requesterName: "",
+            targetName: "",
+        },
+    });
+    
+    // Countdown Timer Logic
+    useEffect(() => {
+        if (step !== 'form' || timeLeft <= 0) return;
 
-  useEffect(() => {
-    if (step === "loading") {
-      const interval = setInterval(() => {
-        setLoadingMessageIndex((prevIndex) => {
-          if (prevIndex < loadingMessages.length - 1) {
-            return prevIndex + 1;
-          }
-          clearInterval(interval);
-          setStep("final");
-          return prevIndex;
-        });
-      }, 1500);
-      return () => clearInterval(interval);
+        const timer = setInterval(() => {
+            setTimeLeft((prev) => prev - 1);
+        }, 1000);
+
+        return () => clearInterval(timer);
+    }, [step, timeLeft]);
+
+    const formatTime = (seconds: number) => {
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${minutes.toString().padStart(1, '0')}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const handleCheckboxChange = (id: keyof typeof checkboxes) => {
+        setCheckboxes((prev) => ({ ...prev, [id]: !prev[id] }));
+    };
+
+    const loadingMessages = [
+        "Invocando a Sacerdotisa Azara...",
+        "Analisando as energias cósmicas...",
+        "Conectando à alma de {TARGET_NAME}...",
+        "Tecendo os fios do destino...",
+        "Alinhando os corações...",
+    ];
+    
+    const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+
+    useEffect(() => {
+        if (step === "loading") {
+            const interval = setInterval(() => {
+                setLoadingMessageIndex((prevIndex) => {
+                if (prevIndex < loadingMessages.length - 1) {
+                    return prevIndex + 1;
+                }
+                clearInterval(interval);
+                setStep("final");
+                return prevIndex;
+                });
+            }, 1500);
+            return () => clearInterval(interval);
+        }
+    }, [step]);
+    
+    function onSubmit(values: z.infer<typeof formSchema>) {
+        setTargetName(values.targetName);
+        setStep("loading");
     }
-  }, [step]);
-  
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    setTargetName(values.targetName);
-    setStep("loading");
-  }
 
-  const renderContent = () => {
-    switch (step) {
-      case "form":
-        return (
-          <>
-            <Flame className="h-16 w-16 text-primary mb-4 mx-auto animate-pulse" />
-            <h2 className="text-center text-2xl font-headline font-bold text-gray-800">
-              Prepare o Ritual do Fogo
-            </h2>
-            <p className="text-center text-gray-600 mb-6">A Sacerdotisa Azara precisa dos nomes para selar o destino de vocês na chama.</p>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="requesterName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input 
-                          placeholder="Seu nome" 
-                          {...field} 
-                          className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
-                          autoComplete="off"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-500 text-center" />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="targetName"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input 
-                          placeholder="Nome de quem você deseja" 
-                          {...field} 
-                          className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3"
-                          autoComplete="off"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-500 text-center" />
-                    </FormItem>
-                  )}
-                />
-                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
-                  Vincular Almas Agora
-                </Button>
-                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
-                    <LockIcon className="h-3 w-3" />
-                    <span>Seus dados estão 100% protegidos e privados.</span>
+    const renderContent = () => {
+        switch (step) {
+        case "form":
+            return (
+            <>
+                <div className="text-center mb-4">
+                    <p className="font-semibold text-destructive">Expira em: {formatTime(timeLeft)}</p>
+                    <h2 className="text-2xl font-headline font-bold text-gray-800 mt-2">
+                        Concorde com as condições da Sacerdotisa Azara
+                    </h2>
+                    <p className="text-gray-600">Marque todas as opções abaixo para liberar o feitiço</p>
                 </div>
-              </form>
-            </Form>
-          </>
-        );
-      case "loading":
-        const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
-        return (
-          <div className="flex flex-col items-center justify-center text-center h-64">
-            <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
-            <p className="text-xl font-headline text-gray-700 transition-all duration-500 animate-in fade-in">
-              {currentMessage}
-            </p>
-          </div>
-        );
-      case "final":
-        return (
-            <div className="flex flex-col items-center justify-center text-center h-64">
-                <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
-                <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO DETECTADA!</h3>
-                <p className="text-lg text-gray-700 mb-6">
-                    <span className="font-bold text-primary">{targetName}</span> está vulnerável à chama hoje.
-                </p>
-                <p className="text-md text-gray-600 mb-6">O ritual já começou. A Sacerdotisa Azara aguarda sua confirmação para finalizar.</p>
-                <Button 
-                    onClick={() => window.location.href = checkoutUrl}
-                    size="lg" 
-                    className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
-                    FINALIZAR RITUAL AGORA
-                </Button>
-            </div>
-        );
-    }
-  };
+                
+                <div className="space-y-3 my-4">
+                    <div className="flex items-start space-x-2">
+                        <Checkbox id="cond1" checked={checkboxes.cond1} onCheckedChange={() => handleCheckboxChange('cond1')} className="mt-1" />
+                        <label htmlFor="cond1" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                            Eu entendo que é necessária fé para que este feitiço funcione.
+                        </label>
+                    </div>
+                     <div className="flex items-start space-x-2">
+                        <Checkbox id="cond2" checked={checkboxes.cond2} onCheckedChange={() => handleCheckboxChange('cond2')} className="mt-1" />
+                        <label htmlFor="cond2" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                             Eu não contarei a ninguém sobre o feitiço (isso causará o rompimento do encantamento).
+                        </label>
+                    </div>
+                     <div className="flex items-start space-x-2">
+                        <Checkbox id="cond3" checked={checkboxes.cond3} onCheckedChange={() => handleCheckboxChange('cond3')} className="mt-1"/>
+                        <label htmlFor="cond3" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                            Eu entendo que, uma vez lançado, este feitiço não pode ser desfeito.
+                        </label>
+                    </div>
+                </div>
 
-  return (
-     <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 animate-in fade-in-50">
-        <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl animate-in fade-in-50 slide-in-from-bottom-10">
-        <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-        >
-            <X className="h-5 w-5" />
-            <span className="sr-only">Fechar</span>
-        </Button>
-        
-        {renderContent()}
+                <VelaInterativa />
+                
+                <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <FormField
+                    control={form.control}
+                    name="requesterName"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel className="text-sm font-semibold">Seu primeiro nome</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Digite aqui seu nome" {...field} autoComplete="off" />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <FormField
+                    control={form.control}
+                    name="targetName"
+                    render={({ field }) => (
+                        <FormItem>
+                             <FormLabel className="text-sm font-semibold">Nome da pessoa amada</FormLabel>
+                            <FormControl>
+                                <Input placeholder="Digite aqui o nome da pessoa desejada" {...field} autoComplete="off" />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                    />
+                    <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 text-lg py-3 h-auto disabled:bg-gray-400" disabled={!allChecked}>
+                    👉 QUERO O FEITIÇO AGORA
+                    </Button>
+                </form>
+                </Form>
+                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500 mt-2">
+                    <ShieldCheck className="h-3 w-3" />
+                    <span>Dados criptografados e sigilosos</span>
+                </div>
+            </>
+            );
+        case "loading":
+            const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
+            return (
+            <div className="flex flex-col items-center justify-center text-center h-64">
+                <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
+                <p className="text-xl font-headline text-gray-700 transition-all duration-500 animate-in fade-in">
+                {currentMessage}
+                </p>
+            </div>
+            );
+        case "final":
+            return (
+                <div className="flex flex-col items-center justify-center text-center h-64">
+                    <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
+                    <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO DETECTADA!</h3>
+                    <p className="text-lg text-gray-700 mb-6">
+                        <span className="font-bold text-primary">{targetName}</span> está vulnerável à chama hoje.
+                    </p>
+                    <p className="text-md text-gray-600 mb-6">O ritual já começou. A Sacerdotisa Azara aguarda sua confirmação para finalizar.</p>
+                    <Button 
+                        onClick={() => window.location.href = checkoutUrl}
+                        size="lg" 
+                        className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">
+                        FINALIZAR RITUAL AGORA
+                    </Button>
+                </div>
+            );
+        }
+    };
+
+    return (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 animate-in fade-in-50">
+            <div className="relative w-full max-w-md mx-auto rounded-lg p-6 bg-white border shadow-2xl animate-in fade-in-50 slide-in-from-bottom-10">
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={onClose}
+                    className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100 z-10"
+                >
+                    <X className="h-5 w-5" />
+                    <span className="sr-only">Fechar</span>
+                </Button>
+            
+                {renderContent()}
+            </div>
         </div>
-    </div>
-  );
+    );
 };
 
 
@@ -587,9 +635,7 @@ export default function ChamaEternaPage() {
           </main>
         </>
       )}
-      {showAltar && <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/562d86be-b4f9-49fc-b88f-bf16e2fdb785" />}
+      {showAltar && <AltarDaFe onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/562d86be-b4f9-49fc-b88f-bf16e2fdb785" />}
     </div>
   );
 }
-
-    

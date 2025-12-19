@@ -1,12 +1,207 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import RitualFogoBanner from "@/components/feiticos/ritual-fogo-banner";
 import TestimonialsRitualFogo from "@/components/feiticos/testimonials-ritual-fogo";
 import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proof";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { X, Lock, Flame } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+// ====================================================================
+// NOVO COMPONENTE DO ALTAR FEITO DO ZERO
+// ====================================================================
+
+const formSchema = z.object({
+  requesterName: z.string().min(2, { message: "Seu nome é obrigatório." }),
+  targetName: z.string().min(2, { message: "O nome da pessoa amada é obrigatório." }),
+  consent1: z.literal<boolean>(true, { errorMap: () => ({ message: "Você deve marcar esta opção." }) }),
+  consent2: z.literal<boolean>(true, { errorMap: () => ({ message: "Você deve marcar esta opção." }) }),
+  consent3: z.literal<boolean>(true, { errorMap: () => ({ message: "Você deve marcar esta opção." }) }),
+});
+
+const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
+  const [timeLeft, setTimeLeft] = useState(90);
+  const [flameClicked, setFlameClicked] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      requesterName: "",
+      targetName: "",
+      consent1: false,
+      consent2: false,
+      consent3: false,
+    },
+  });
+  
+  // Lógica do cronômetro
+  useEffect(() => {
+    if (timeLeft === 0) return;
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [timeLeft]);
+  
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
+  };
+
+  const onSubmit = (values: z.infer<typeof formSchema>) => {
+    if(!flameClicked) {
+      form.setError("root", { type: "manual", message: "Você precisa clicar no altar para a Sacerdotisa chamar o nome." });
+      return;
+    }
+    setIsSubmitting(true);
+    // Simula um pequeno delay antes de redirecionar
+    setTimeout(() => {
+      window.location.href = checkoutUrl;
+    }, 1000);
+  };
+
+  const consents = [
+    { name: "consent1", label: "Eu entendo que é necessária fé para que este feitiço funcione." },
+    { name: "consent2", label: "Eu não contarei a ninguém sobre o feitiço (isso causará o rompimento do encantamento)." },
+    { name: "consent3", label: "Eu entendo que, uma vez lançado, este feitiço não pode ser desfeito." },
+  ] as const;
+
+  const AltarInterativo = () => (
+    <div className="relative w-full h-40 flex flex-col items-center justify-end my-4 cursor-pointer" onClick={() => setFlameClicked(true)}>
+        {/* Chama */}
+        <div className={cn(
+            "absolute -top-12 w-24 h-24 transition-all duration-700 ease-in-out",
+            flameClicked ? "scale-[2.5]" : "scale-100"
+        )}>
+            <svg viewBox="0 0 100 125" className="fill-orange-500">
+              <path d="M50 0 C-20 60, 20 90, 50 100 C80 90, 120 60, 50 0 Z" />
+            </svg>
+        </div>
+        {/* Altar */}
+        <div className="w-48 h-16 bg-stone-700 border-b-8 border-stone-800 rounded-t-lg shadow-lg flex items-center justify-center">
+            <div className="w-40 h-8 bg-stone-600 rounded-t-md"></div>
+        </div>
+        <p className="text-xs text-center text-stone-500 mt-2">
+            Clique no altar para a SACERDOTISA chamar o nome dele
+        </p>
+    </div>
+);
+
+  return (
+    <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 animate-in fade-in-50">
+      <div className="relative w-full max-w-md mx-auto rounded-xl p-6 bg-white border shadow-2xl animate-in fade-in-50 slide-in-from-bottom-10">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={onClose}
+          className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+        >
+          <X className="h-5 w-5" />
+          <span className="sr-only">Fechar</span>
+        </Button>
+
+        <div className="text-center mb-4">
+            <p className="font-semibold">Expira em: <span className="text-red-600 font-bold">{formatTime(timeLeft)}</span></p>
+        </div>
+
+        <h2 className="text-center text-xl font-headline font-bold text-gray-800">
+          Concorde com as condições da Sacerdotisa Azara
+        </h2>
+        <p className="text-center text-gray-600 text-sm mb-4">Marque todas as opções abaixo para liberar o feitiço</p>
+
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <div className="space-y-3">
+              {consents.map(consent => (
+                <FormField
+                  key={consent.name}
+                  control={form.control}
+                  name={consent.name}
+                  render={({ field }) => (
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                      <FormControl>
+                        <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                      </FormControl>
+                      <div className="space-y-1 leading-none">
+                        <label htmlFor={consent.name} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                         {consent.label}
+                        </label>
+                         <FormMessage className="text-xs" />
+                      </div>
+                    </FormItem>
+                  )}
+                />
+              ))}
+            </div>
+
+            <AltarInterativo />
+            {form.formState.errors.root && (
+                <p className="text-sm font-medium text-destructive text-center">{form.formState.errors.root.message}</p>
+            )}
+
+            <FormField
+              control={form.control}
+              name="requesterName"
+              render={({ field }) => (
+                <FormItem>
+                  <label className="text-sm font-medium">Seu primeiro nome</label>
+                  <FormControl>
+                    <Input placeholder="Digite aqui seu nome" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="targetName"
+              render={({ field }) => (
+                <FormItem>
+                  <label className="text-sm font-medium">Nome da pessoa amada</label>
+                  <FormControl>
+                    <Input placeholder="Digite aqui o nome da pessoa desejada" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 text-lg py-3 h-auto" disabled={isSubmitting}>
+              👉 QUERO O FEITIÇO AGORA
+            </Button>
+            <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                <Lock className="h-3 w-3" />
+                <span>Dados criptografados e sigilosos</span>
+            </div>
+          </form>
+        </Form>
+      </div>
+    </div>
+  );
+};
+
+
+// ====================================================================
+// PÁGINA PRINCIPAL
+// ====================================================================
 
 // Page components
 const Section: React.FC<{
@@ -35,11 +230,15 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 export default function ChamaEternaPage() {
+  const [showAltar, setShowAltar] = useState(false);
 
   const handleStartRitual = () => {
-    // A lógica será refeita aqui.
-    console.log("Botão clicado, lógica a ser implementada.");
+    setShowAltar(true);
   };
+
+  const handleCloseAltar = () => {
+    setShowAltar(false);
+  }
 
   return (
     <div className="bg-background text-foreground min-h-screen">
@@ -412,6 +611,9 @@ export default function ChamaEternaPage() {
             </Section>
         </main>
       </>
+      {showAltar && <AltarDaFe onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/562d86be-b4f9-49fc-b88f-bf16e2fdb785" />}
     </div>
   );
 }
+
+    

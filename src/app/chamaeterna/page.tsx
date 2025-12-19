@@ -37,7 +37,6 @@ const formSchema = z.object({
 const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
   const [timeLeft, setTimeLeft] = useState(90);
   const [flameClicked, setFlameClicked] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -51,7 +50,6 @@ const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl:
     },
   });
   
-  // Lógica do cronômetro
   useEffect(() => {
     if (timeLeft === 0) return;
     const timer = setInterval(() => {
@@ -72,7 +70,6 @@ const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl:
       return;
     }
     setIsSubmitting(true);
-    // Simula um pequeno delay antes de redirecionar
     setTimeout(() => {
       window.location.href = checkoutUrl;
     }, 1000);
@@ -85,7 +82,7 @@ const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl:
   ] as const;
 
   const AltarInterativo = () => (
-    <div className="relative w-full h-40 flex flex-col items-center justify-end my-4 cursor-pointer" onClick={() => setFlameClicked(true)}>
+    <div className="relative w-full h-40 flex flex-col items-center justify-end my-8 cursor-pointer" onClick={() => setFlameClicked(true)}>
         {/* Chama */}
         <div className={cn(
             "absolute -top-12 w-24 h-24 transition-all duration-700 ease-in-out",
@@ -129,7 +126,7 @@ const AltarDaFe = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl:
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <div className="space-y-3">
+            <div className="space-y-3 mt-8">
               {consents.map(consent => (
                 <FormField
                   key={consent.name}

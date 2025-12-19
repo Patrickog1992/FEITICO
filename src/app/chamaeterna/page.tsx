@@ -27,15 +27,15 @@ const AltarInterativo = () => {
     const [isLit, setIsLit] = useState(false);
 
     return (
-        <div className="flex flex-col items-center justify-center cursor-pointer group" onClick={() => setIsLit(!isLit)}>
-            <div className="relative w-40 h-64">
+        <div className="flex flex-col items-center justify-center cursor-pointer group mt-8" onClick={() => setIsLit(!isLit)}>
+            <div className="relative w-48 h-64">
                 {/* Chama */}
                 {isLit && (
                     <div className="absolute inset-x-0 -top-28 flex items-center justify-center">
                         <svg
                             viewBox="0 0 100 120"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-40 h-48 sm:w-44 sm:h-52"
+                            className="w-48 h-56"
                         >
                             <defs>
                                 <style>
@@ -169,9 +169,7 @@ const AltarDaFe = ({ onRitualStart, checkoutUrl }: { onRitualStart: (targetName:
                 </div>
             </div>
             
-            <div className="h-64 flex items-center justify-center">
-                <AltarInterativo />
-            </div>
+            <AltarInterativo />
             
             <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -704,3 +702,4 @@ export default function ChamaEternaPage() {
     </div>
   );
 }
+

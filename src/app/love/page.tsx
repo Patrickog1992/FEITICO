@@ -5,7 +5,7 @@ import { useState } from "react";
 import LandingPage from "@/components/feiticos/landing-page-love";
 import SocialProof from "@/components/feiticos/social-proof";
 import FacebookPixel from "@/components/analytics/facebook-pixel";
-import AltarEspiritual from "@/components/feiticos/altar-espiritual";
+import AltarEspiritualLove from "@/components/feiticos/altar-espiritual-love";
 
 export default function Home() {
   const [showAltar, setShowAltar] = useState(false);
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
         )}
         
-        {showAltar && <AltarEspiritual onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/5fbfabed-b287-43fb-9640-735dfb2a99f3" />}
+        {showAltar && <AltarEspiritualLove onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/5fbfabed-b287-43fb-9640-735dfb2a99f3" />}
 
       </main>
     </>

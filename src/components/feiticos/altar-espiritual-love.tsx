@@ -101,12 +101,12 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
             <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
             <p className="text-center text-gray-600 mb-6">Escolha o caminho do seu coração para que a Lady Soraya possa guiar o ritual.</p>
             <div className="space-y-4">
-                <Button onClick={() => setStep("formBringBack")} size="lg" className="w-full h-auto py-3 text-lg justify-start">
-                    <Heart className="mr-4"/>
+                <Button onClick={() => setStep("formBringBack")} size="lg" className="w-full h-auto py-3 text-lg justify-start whitespace-normal">
+                    <Heart className="mr-4 flex-shrink-0"/>
                     Quero trazer um amor de volta
                 </Button>
-                <Button onClick={() => setStep("formNewLove")} size="lg" className="w-full h-auto py-3 text-lg justify-start">
-                    <UserPlus className="mr-4"/>
+                <Button onClick={() => setStep("formNewLove")} size="lg" className="w-full h-auto py-3 text-lg justify-start whitespace-normal">
+                    <UserPlus className="mr-4 flex-shrink-0"/>
                     Quero atrair um novo amor
                 </Button>
             </div>

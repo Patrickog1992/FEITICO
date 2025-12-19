@@ -72,8 +72,14 @@ export default function RitualPage() {
     const [checkbox2, setCheckbox2] = useState(false);
     const [checkbox3, setCheckbox3] = useState(false);
     const [flameOn, setFlameOn] = useState(false);
+    const [altarMessage, setAltarMessage] = useState("Clique no altar para a SACERDOTISA chamar o nome dele");
     
     const allChecked = useMemo(() => checkbox1 && checkbox2 && checkbox3, [checkbox1, checkbox2, checkbox3]);
+
+    const handleAltarClick = () => {
+        setFlameOn(true);
+        setAltarMessage("A CHAMA ESTÁ ARDENDO");
+    }
     
     const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
@@ -114,10 +120,10 @@ export default function RitualPage() {
                 </div>
                 
                 <div className="text-center my-4">
-                    <p className="text-sm font-bold text-primary animate-pulse">Clique no altar para a SACERDOTISA chamar o nome dele</p>
+                     <p className={cn("text-sm font-bold", flameOn ? "text-destructive" : "text-primary")}>{altarMessage}</p>
                 </div>
                 
-                <AltarInterativo flameOn={flameOn} onClick={() => setFlameOn(true)} />
+                <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
 
                 <div className={cn(!allChecked && "opacity-30 pointer-events-none")}>
                     <Form {...form}>

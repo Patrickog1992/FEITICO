@@ -74,8 +74,6 @@ export default function RitualPage() {
     const [flameOn, setFlameOn] = useState(false);
     const [altarMessage, setAltarMessage] = useState("Clique no altar para a SACERDOTISA chamar o nome dele");
     
-    const allChecked = useMemo(() => checkbox1 && checkbox2 && checkbox3, [checkbox1, checkbox2, checkbox3]);
-
     const handleAltarClick = () => {
         setFlameOn(true);
         setAltarMessage("A CHAMA ESTÁ ARDENDO");
@@ -125,7 +123,7 @@ export default function RitualPage() {
                 
                 <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
 
-                <div className={cn(!allChecked && "opacity-30 pointer-events-none")}>
+                <div>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
                             <FormField

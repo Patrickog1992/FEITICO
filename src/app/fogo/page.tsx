@@ -568,7 +568,6 @@ export default function FogoPage() {
           
           <Section>
               <SectionTitle>Histórias reais de pessoas que usaram a chama</SectionTitle>
-              <p className="text-lg text-foreground/80 mb-8 text-center">(aqui vai ter depoimentos que deram certo)</p>
               <Testimonials />
           </Section>
 

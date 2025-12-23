@@ -221,6 +221,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
     useEffect(() => {
         if (step === "loading") {
         const currentMessages = targetName ? loadingMessagesBringBack : loadingMessagesNewLove;
+        setLoadingMessages(currentMessages);
         const interval = setInterval(() => {
             setLoadingMessageIndex((prevIndex) => {
             if (prevIndex < currentMessages.length - 1) {
@@ -317,8 +318,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
           </>
         );
       case "loading":
-        const currentMessages = targetName ? loadingMessagesBringBack : loadingMessagesNewLove;
-        const currentMessage = currentMessages[loadingMessageIndex];
+        const currentMessage = loadingMessages[loadingMessageIndex]?.replace('{TARGET_NAME}', targetName) || loadingMessages[0];
         return (
           <div className="flex flex-col items-center justify-center text-center h-64">
             <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
@@ -785,8 +785,10 @@ ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
           </Section>
         </main>
 
-        {showAltar && <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/562d86be-b4f9-49fc-b88f-bf16e2fdb785" />}
+        {showAltar && <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d" />}
       </div>
     </>
   );
 }
+
+    

@@ -40,7 +40,7 @@ export function Toaster() {
           </Toast>
         )
       })}
-      <ToastViewport className="max-w-[350px] top-4 right-4" />
+      <ToastViewport className="max-w-[350px]" />
     </ToastProvider>
   )
 }

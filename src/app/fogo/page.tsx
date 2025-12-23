@@ -307,14 +307,19 @@ ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
             <Paragraph>Não são velas de loja barata nem pensamentos positivos.</Paragraph>
             <Paragraph>É um ritual de fogo antigo que remonta a mais de 3.000 anos, às sacerdotisas zoroastristas da Pérsia.</Paragraph>
             <Paragraph>Elas sabiam algo que foi escondido das pessoas por séculos:</Paragraph>
-            <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado. E quando é aceso, ele queima por uma única pessoa — e apenas uma.</Paragraph>
-            <Paragraph>Rainhas e reis usavam isso para manter seus amores leais. Tão leais que abandonavam amantes, largavam guerras pela metade e atravessavam reinos inteiros apenas para estar perto de quem incendiou sua alma novamente.</Paragraph>
+            <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado.
+E quando é aceso, ele queima por uma única pessoa — e apenas uma.</Paragraph>
+            <Paragraph>Rainhas e reis usavam isso para manter seus amores leais.
+Tão leais que abandonavam amantes, largavam guerras pela metade
+e atravessavam reinos inteiros apenas para estar perto de quem incendiou sua alma novamente.</Paragraph>
             <Paragraph>Os sacerdotes odiavam isso.</Paragraph>
             <Paragraph>Chamavam de perigoso.</Paragraph>
             <Paragraph>Tentaram enterrar esse conhecimento.</Paragraph>
             <Paragraph>Mas os sussurros nunca cessaram.</Paragraph>
             <Paragraph>Porque toda pessoa que usava sabia a verdade:</Paragraph>
-            <Paragraph className="font-bold text-center text-xl">Uma vez que o nome entra na chama sagrada, a alma fica ligada a você. E esse fogo nunca se apaga.</Paragraph>
+            <Paragraph className="font-bold text-center text-xl">Uma vez que o nome entra na chama sagrada,
+a alma fica ligada a você.</Paragraph>
+            <Paragraph className="font-bold text-center text-xl">E esse fogo nunca se apaga.</Paragraph>
           </Section>
 
           <Section>

@@ -1,0 +1,232 @@
+
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { X, Sparkles, Wand2, LockIcon, Flame, Heart, UserPlus } from "lucide-react";
+import FacebookPixel from "@/components/analytics/facebook-pixel";
+import Link from 'next/link';
+
+// ====================================================================
+// ALTAR DO FOGO MODAL
+// ====================================================================
+
+const formSchemaBringBack = z.object({
+  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
+  targetName: z.string().min(2, { message: "O nome de quem você deseja é necessário." }),
+});
+
+const formSchemaNewLove = z.object({
+  requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
+});
+
+const loadingMessagesBringBack = [
+  "Invocando a Sacerdotisa Azara...",
+  "Analisando as energias cósmicas...",
+  "Conectando à alma de {TARGET_NAME}...",
+  "Tecendo os fios do destino...",
+  "Alinhando os corações...",
+];
+
+const loadingMessagesNewLove = [
+    "Invocando a Sacerdotisa Azara...",
+    "Limpando seus caminhos astrais...",
+    "Alinhando o universo ao seu favor...",
+    "Abrindo seu coração para o amor verdadeiro...",
+    "Atraindo a alma gêmea destinada a você...",
+];
+
+const AltarDoFogo = () => {
+  const [step, setStep] = useState<"choice" | "formBringBack" | "formNewLove" | "loading" | "final">("choice");
+  const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
+  const [targetName, setTargetName] = useState("");
+  const [requesterName, setRequesterName] = useState("");
+  const [loadingMessages, setLoadingMessages] = useState<string[]>([]);
+  
+  const checkoutUrl = "https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d";
+
+  const formBringBack = useForm<z.infer<typeof formSchemaBringBack>>({
+    resolver: zodResolver(formSchemaBringBack),
+    defaultValues: { requesterName: "", targetName: "" },
+  });
+
+  const formNewLove = useForm<z.infer<typeof formSchemaNewLove>>({
+    resolver: zodResolver(formSchemaNewLove),
+    defaultValues: { requesterName: "" },
+  });
+
+  useEffect(() => {
+    if (step === "loading") {
+      const interval = setInterval(() => {
+        setLoadingMessageIndex((prevIndex) => {
+          if (prevIndex < loadingMessages.length - 1) {
+            return prevIndex + 1;
+          }
+          clearInterval(interval);
+          setStep("final");
+          return prevIndex;
+        });
+      }, 1500);
+      return () => clearInterval(interval);
+    }
+  }, [step, loadingMessages.length]);
+  
+  function onSubmitBringBack(values: z.infer<typeof formSchemaBringBack>) {
+    setTargetName(values.targetName);
+    setRequesterName(values.requesterName);
+    setLoadingMessages(loadingMessagesBringBack);
+    setStep("loading");
+  }
+
+  function onSubmitNewLove(values: z.infer<typeof formSchemaNewLove>) {
+    setTargetName("");
+    setRequesterName(values.requesterName);
+    setLoadingMessages(loadingMessagesNewLove);
+    setStep("loading");
+  }
+  const renderContent = () => {
+    switch (step) {
+      case "choice":
+        return (
+          <>
+            <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
+            <p className="text-center text-gray-600 mb-6">Escolha o caminho do seu coração para que a Sacerdotisa Azara possa guiar o ritual.</p>
+            <div className="space-y-4">
+                <Button onClick={() => setStep("formBringBack")} size="lg" className="w-full h-auto py-3 text-lg justify-start whitespace-normal">
+                    <Heart className="mr-4 flex-shrink-0"/>
+                    Quero trazer um amor de volta
+                </Button>
+                <Button onClick={() => setStep("formNewLove")} size="lg" className="w-full h-auto py-3 text-lg justify-start whitespace-normal">
+                    <UserPlus className="mr-4 flex-shrink-0"/>
+                    Quero atrair um novo amor
+                </Button>
+            </div>
+          </>
+        );
+
+      case "formBringBack":
+        return (
+          <>
+            <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual da União</h2>
+            <p className="text-center text-gray-600 mb-6">A Sacerdotisa Azara precisa dos nomes para vincular a alma de vocês dois.</p>
+            <Form {...formBringBack}>
+              <form onSubmit={formBringBack.handleSubmit(onSubmitBringBack)} className="space-y-4">
+                <FormField control={formBringBack.control} name="requesterName" render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Seu nome" {...field} className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3" autoComplete="off" />
+                      </FormControl>
+                      <FormMessage className="text-red-500 text-center" />
+                    </FormItem>
+                )}/>
+                <FormField control={formBringBack.control} name="targetName" render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Nome de quem você deseja" {...field} className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3" autoComplete="off" />
+                      </FormControl>
+                      <FormMessage className="text-red-500 text-center" />
+                    </FormItem>
+                )}/>
+                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">Vincular Almas Agora</Button>
+                <div className="flex items-center justify-center gap-2 text-xs text-gray-500"><LockIcon className="h-3 w-3" /><span>Seus dados estão 100% protegidos e privados.</span></div>
+              </form>
+            </Form>
+          </>
+        );
+
+    case "formNewLove":
+        return (
+          <>
+            <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual da Atração</h2>
+            <p className="text-center text-gray-600 mb-6">Informe seu nome para que a Sacerdotisa Azara possa abrir seus caminhos para o amor.</p>
+            <Form {...formNewLove}>
+              <form onSubmit={formNewLove.handleSubmit(onSubmitNewLove)} className="space-y-4">
+                <FormField control={formNewLove.control} name="requesterName" render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <Input placeholder="Seu nome" {...field} className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3" autoComplete="off" />
+                      </FormControl>
+                      <FormMessage className="text-red-500 text-center" />
+                    </FormItem>
+                )}/>
+                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">Abrir Meus Caminhos</Button>
+                <div className="flex items-center justify-center gap-2 text-xs text-gray-500"><LockIcon className="h-3 w-3" /><span>Seus dados estão 100% protegidos e privados.</span></div>
+              </form>
+            </Form>
+          </>
+        );
+
+      case "loading":
+        const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
+        return (
+          <div className="flex flex-col items-center justify-center text-center h-64">
+            <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
+            <p className="text-xl font-headline text-gray-700 transition-all duration-500 animate-in fade-in">{currentMessage}</p>
+          </div>
+        );
+
+      case "final":
+        return (
+            <div className="flex flex-col items-center justify-center text-center h-64">
+                <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
+                <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO ESTABELECIDA!</h3>
+                {targetName ? (
+                     <p className="text-lg text-gray-700 mb-6">
+                        <span className="font-bold text-primary">{targetName}</span> está espiritualmente vulnerável. O vínculo foi mapeado com sucesso.
+                    </p>
+                ) : (
+                    <p className="text-lg text-gray-700 mb-6">
+                        Seu campo energético está aberto. O universo está pronto para trazer seu novo amor.
+                    </p>
+                )}
+                <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
+                <Button onClick={() => window.location.href = checkoutUrl} size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">FINALIZAR O RITUAL</Button>
+            </div>
+        );
+    }
+  };
+
+  return (
+    <div className="w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl">
+        <div className="relative">
+            <Link href="/fogo" className="absolute -top-4 -right-4">
+                <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                >
+                    <X className="h-5 w-5" />
+                    <span className="sr-only">Fechar</span>
+                </Button>
+            </Link>
+            {renderContent()}
+        </div>
+    </div>
+  );
+}
+
+
+export default function AltarPage() {
+    return (
+        <>
+            <FacebookPixel />
+            <main className="bg-background text-foreground min-h-screen flex items-center justify-center p-4">
+                <AltarDoFogo />
+            </main>
+        </>
+    )
+}
+
+    

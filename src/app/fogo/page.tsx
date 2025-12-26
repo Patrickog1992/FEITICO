@@ -355,19 +355,8 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
       };
 
       return (
-        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 animate-in fade-in-50">
-            <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl animate-in fade-in-50 slide-in-from-bottom-10">
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={onClose}
-                    className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
-                >
-                    <X className="h-5 w-5" />
-                    <span className="sr-only">Fechar</span>
-                </Button>
-                {renderContent()}
-            </div>
+        <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl">
+            {renderContent()}
         </div>
       );
 }
@@ -418,7 +407,9 @@ export default function FogoPage() {
       <RitualFogoSocialProof />
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
-            <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d" />
+            <div className="w-full min-h-screen flex items-center justify-center p-4">
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d" />
+            </div>
         ) : (
         <div className="w-full">
             <div className="w-full max-w-4xl mx-auto pt-8">
@@ -681,52 +672,53 @@ export default function FogoPage() {
                 <Paragraph>Trinta e sete reais.</Paragraph>
                 <Paragraph>Menos que um jantar fora.</Paragraph>
                 <Paragraph className="font-bold text-xl">Pelo poder de fazer essa pessoa queimar por você para sempre.</Paragraph>
+                
+                <div className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm my-8">
+                    <h3 className="font-headline text-2xl font-bold text-center text-primary mb-4">🎁 BÔNUS EXCLUSIVOS PARA QUEM FAZER O RITUAL HOJE</h3>
+                    <p className="text-lg text-foreground/80 mb-6">⚠️ ATENÇÃO: Estes bônus não são vendidos separadamente. Eles só são liberados para quem ativa o Ritual do Fogo HOJE.</p>
+                    <div className="space-y-4 text-left">
+                        <div>
+                            <h4 className="font-bold">🔥 BÔNUS #1 – Ativação do Vínculo Energético Noturno</h4>
+                            <p className="text-foreground/80">Valor real: <span className="line-through">R$97</span><br/>Ativação extra durante as 5 noites do ritual, fortalecendo o vínculo enquanto a pessoa dorme, intensificando sonhos, pensamentos involuntários e o chamado emocional.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold">🔥 BÔNUS #2 – Ritual de Corte de Terceiras Pessoas</h4>
+                            <p className="text-foreground/80">Valor real: <span className="line-through">R$127</span><br/>Ritual silencioso para esfriar qualquer interferência externa, afastando rivais e conexões paralelas sem confronto ou conflitos.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold">🔥 BÔNUS #3 – Selamento da Chama (Anti-Arrependimento)</h4>
+                            <p className="text-foreground/80">Valor real: <span className="line-through">R$147</span><br/>Após a quinta noite, a chama é selada para evitar esfriamento, afastamentos futuros ou recaídas emocionais.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold">🔥 BÔNUS #4 – Abertura para Amor Novo (se não houver nome específico)</h4>
+                            <p className="text-foreground/80">Valor real: <span className="line-through">R$97</span><br/>Ativação energética para atrair uma nova pessoa alinhada, com conexão intensa desde o primeiro contato.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold">🔥 BÔNUS #5 – Proteção Energética da Chama</h4>
+                            <p className="text-foreground/80">Valor real: <span className="line-through">R$87</span><br/>Blindagem contra inveja, interferências externas e energias negativas que possam enfraquecer o ritual.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold">🔥 BÔNUS #6 – Prioridade Máxima no Templo</h4>
+                            <p className="text-foreground/80">Valor real: <span className="line-through">R$67</span><br/>Seu ritual é iniciado imediatamente, na mesma noite, sem fila de espera.</p>
+                        </div>
+                    </div>
+                    <div className="mt-8">
+                        <p className="text-xl font-bold">👉 VALOR TOTAL REAL: <span className="line-through">R$819</span></p>
+                        <p className="text-2xl font-bold text-destructive mt-2">⚠️ MAS FAZENDO HOJE…</p>
+                        <p className="text-xl font-bold mt-2">FAZENDO HOJE O RITUAL DO FOGO VOCÊ GANHA TOTALMENTE GRÁTIS:</p>
+                        <p className="text-lg font-bold text-green-500 mt-2">✔️ TODOS OS 6 BÔNUS</p>
+                        <p className="text-lg font-bold text-green-500">✔️ ATIVAÇÃO IMEDIATA</p>
+                        <p className="text-lg font-bold text-green-500">✔️ PRIORIDADE NO TEMPLO</p>
+                    </div>
+                </div>
+
                 <Button onClick={handleStartRitual} size="lg" className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md text-lg h-auto py-3">
                     ACENDA A CHAMA
                 </Button>
-            </Section>
-
-            <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm">
-                <h3 className="font-headline text-2xl font-bold text-center text-primary mb-4">🎁 BÔNUS EXCLUSIVOS PARA QUEM FAZER O RITUAL HOJE</h3>
-                <p className="text-lg text-foreground/80 mb-6">⚠️ ATENÇÃO: Estes bônus não são vendidos separadamente. Eles só são liberados para quem ativa o Ritual do Fogo HOJE.</p>
-                <div className="space-y-4 text-left">
-                    <div>
-                        <h4 className="font-bold">🔥 BÔNUS #1 – Ativação do Vínculo Energético Noturno</h4>
-                        <p className="text-foreground/80">Valor real: <span className="line-through">R$97</span><br/>Ativação extra durante as 5 noites do ritual, fortalecendo o vínculo enquanto a pessoa dorme, intensificando sonhos, pensamentos involuntários e o chamado emocional.</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold">🔥 BÔNUS #2 – Ritual de Corte de Terceiras Pessoas</h4>
-                        <p className="text-foreground/80">Valor real: <span className="line-through">R$127</span><br/>Ritual silencioso para esfriar qualquer interferência externa, afastando rivais e conexões paralelas sem confronto ou conflitos.</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold">🔥 BÔNUS #3 – Selamento da Chama (Anti-Arrependimento)</h4>
-                        <p className="text-foreground/80">Valor real: <span className="line-through">R$147</span><br/>Após a quinta noite, a chama é selada para evitar esfriamento, afastamentos futuros ou recaídas emocionais.</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold">🔥 BÔNUS #4 – Abertura para Amor Novo (se não houver nome específico)</h4>
-                        <p className="text-foreground/80">Valor real: <span className="line-through">R$97</span><br/>Ativação energética para atrair uma nova pessoa alinhada, com conexão intensa desde o primeiro contato.</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold">🔥 BÔNUS #5 – Proteção Energética da Chama</h4>
-                        <p className="text-foreground/80">Valor real: <span className="line-through">R$87</span><br/>Blindagem contra inveja, interferências externas e energias negativas que possam enfraquecer o ritual.</p>
-                    </div>
-                    <div>
-                        <h4 className="font-bold">🔥 BÔNUS #6 – Prioridade Máxima no Templo</h4>
-                        <p className="text-foreground/80">Valor real: <span className="line-through">R$67</span><br/>Seu ritual é iniciado imediatamente, na mesma noite, sem fila de espera.</p>
-                    </div>
-                </div>
-                <div className="mt-8">
-                    <p className="text-xl font-bold">👉 VALOR TOTAL REAL: <span className="line-through">R$819</span></p>
-                    <p className="text-2xl font-bold text-destructive mt-2">⚠️ MAS FAZENDO HOJE…</p>
-                    <p className="text-xl font-bold mt-2">FAZENDO HOJE O RITUAL DO FOGO VOCÊ GANHA TOTALMENTE GRÁTIS:</p>
-                    <p className="text-lg font-bold text-green-500 mt-2">✔️ TODOS OS 6 BÔNUS</p>
-                    <p className="text-lg font-bold text-green-500">✔️ ATIVAÇÃO IMEDIATA</p>
-                    <p className="text-lg font-bold text-green-500">✔️ PRIORIDADE NO TEMPLO</p>
-                </div>
+                <SectionTitle className="text-destructive mt-8">Mas Você Precisa Agir Agora</SectionTitle>
             </Section>
 
             <Section className="text-center">
-                <SectionTitle className="text-destructive mt-8">Mas Você Precisa Agir Agora</SectionTitle>
                 <Image
                     src="https://i.imgur.com/gLqf1pr.jpeg"
                     alt="Vagas limitadas"
@@ -815,5 +807,3 @@ export default function FogoPage() {
     </>
   );
 }
-
-    

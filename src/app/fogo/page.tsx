@@ -32,9 +32,26 @@ import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proo
 // BANNER DE DATA DINÂMICA
 // ====================================================================
 const FogoBanner = () => {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    // This will only run on the client side, after hydration
+    const date = new Date().toLocaleDateString('pt-BR', {
+      day: 'numeric',
+      month: 'long',
+    });
+    setCurrentDate(date);
+  }, []);
+
+  if (!currentDate) {
+    return (
+        <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4 h-12 animate-pulse" />
+    );
+  }
+  
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. Na virada e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">1º de janeiro</span>, o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido OU a atração irresistível de um novo amor, despertando desejo e conexão intensa.
+      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. Na virada e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido OU a atração irresistível de um novo amor, despertando desejo e conexão intensa.
     </div>
   );
 }
@@ -340,6 +357,15 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
 
       return (
         <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl">
+            <Button
+                variant="ghost"
+                size="icon"
+                onClick={onClose}
+                className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+            >
+                <X className="h-5 w-5" />
+                <span className="sr-only">Fechar</span>
+            </Button>
             {renderContent()}
         </div>
       );
@@ -791,3 +817,5 @@ export default function FogoPage() {
     </>
   );
 }
+
+    

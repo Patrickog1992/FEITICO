@@ -32,25 +32,9 @@ import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proo
 // BANNER DE DATA DINÂMICA
 // ====================================================================
 const FogoBanner = () => {
-  const [currentDate, setCurrentDate] = useState('');
-
-  useEffect(() => {
-    const date = new Date().toLocaleDateString('pt-BR', {
-      day: 'numeric',
-      month: 'long',
-    });
-    setCurrentDate(date);
-  }, []);
-
-  if (!currentDate) {
-    return (
-        <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4 h-20 animate-pulse" />
-    );
-  }
-
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O fim de ano é um período raro de transição energética. Durante essa virada, e no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, o Ritual da Chama de 5 Noites atua com intensidade maior, acelerando o retorno de um amor perdido OU a atração irresistível de um novo amor, despertando desejo e obsessão.
+      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. Na virada e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">1º de janeiro</span>, o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido OU a atração irresistível de um novo amor, despertando desejo e conexão intensa.
     </div>
   );
 }

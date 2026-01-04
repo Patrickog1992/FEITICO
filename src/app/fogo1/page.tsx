@@ -247,11 +247,11 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
             {/* Chama */}
             <div className={cn(
                 "absolute bottom-20 w-8 h-12 bg-orange-500 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-32 w-16 blur-md scale-y-125" : "h-12 w-8"
+                flameOn ? "h-32 w-16 blur-md" : "h-12 w-8"
             )}></div>
             <div className={cn(
                 "absolute bottom-20 w-4 h-8 bg-yellow-300 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-24 w-12 blur-lg scale-y-125" : "h-8 w-4"
+                flameOn ? "h-24 w-12 blur-lg" : "h-8 w-4"
             )}></div>
         </div>
     );
@@ -283,7 +283,9 @@ const RitualForm = () => {
     }
 
     function onSubmit(values: z.infer<typeof ritualFormSchema>) {
-      handleCheckout();
+      // A validação do zod ainda acontece, mas não bloqueia a ação do botão.
+      // O botão principal agora chama handleCheckout diretamente.
+      console.log("Valores do formulário (não bloqueia o checkout):", values);
     }
 
     return (
@@ -346,7 +348,7 @@ const RitualForm = () => {
                             </FormItem>
                         )}
                         />
-                        <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
+                        <Button type="button" onClick={handleCheckout} size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
                            👉 QUERO O FEITIÇO AGORA
                         </Button>
                     </form>
@@ -373,12 +375,12 @@ export default function Fogo1Page() {
 
   useEffect(() => {
     if (showRitual && ritualFormRef.current) {
-        // We use a small timeout to ensure the element is rendered before scrolling
-        setTimeout(() => {
-            ritualFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+      setTimeout(() => {
+        ritualFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); // Small delay to ensure the element is rendered
     }
   }, [showRitual]);
+
 
   return (
     <>

@@ -247,11 +247,11 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
             {/* Chama */}
             <div className={cn(
                 "absolute bottom-20 w-8 h-12 bg-orange-500 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-32 w-16 blur-md" : "h-12 w-8"
+                flameOn ? "h-32 w-16 blur-md scale-y-125" : "h-12 w-8"
             )}></div>
             <div className={cn(
                 "absolute bottom-20 w-4 h-8 bg-yellow-300 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-24 w-12 blur-lg" : "h-8 w-4"
+                flameOn ? "h-24 w-12 blur-lg scale-y-125" : "h-8 w-4"
             )}></div>
         </div>
     );
@@ -282,7 +282,6 @@ const RitualForm = () => {
       window.location.href = "https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d";
     }
 
-    // A função onSubmit agora não faz nada, pois o botão vai direto para o checkout
     function onSubmit(values: z.infer<typeof ritualFormSchema>) {
       handleCheckout();
     }
@@ -366,17 +365,18 @@ const RitualForm = () => {
 // ====================================================================
 export default function Fogo1Page() {
   const [showRitual, setShowRitual] = useState(false);
+  const ritualFormRef = useRef<HTMLDivElement>(null);
 
   const handleStartRitual = () => {
     setShowRitual(true);
   };
 
   useEffect(() => {
-    if (showRitual) {
-      const ritualFormElement = document.getElementById('ritual-form');
-      if (ritualFormElement) {
-        ritualFormElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+    if (showRitual && ritualFormRef.current) {
+        // We use a small timeout to ensure the element is rendered before scrolling
+        setTimeout(() => {
+            ritualFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
     }
   }, [showRitual]);
 
@@ -997,7 +997,7 @@ export default function Fogo1Page() {
             </div>
           )}
 
-          <div id="ritual-form">
+          <div id="ritual-form" ref={ritualFormRef}>
             {showRitual && <RitualForm />}
           </div>
 
@@ -1313,5 +1313,3 @@ export default function Fogo1Page() {
     </>
   );
 }
-
-    

@@ -95,8 +95,7 @@ const RitualForm = () => {
       },
     });
 
-    const onSubmit = (values: z.infer<typeof ritualFormSchema>) => {
-      console.log(values);
+    const handleCheckout = () => {
       window.location.href = "https://pay.kirvano.com/562d86be-b4f9-49fc-b88f-bf16e2fdb785";
     }
 
@@ -133,7 +132,7 @@ const RitualForm = () => {
 
             <div>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
+                    <form onSubmit={(e) => { e.preventDefault(); handleCheckout(); }} className="space-y-4 mt-4">
                         <FormField
                         control={form.control}
                         name="requesterName"
@@ -591,3 +590,5 @@ export default function ChamaEternaPage() {
     </div>
   );
 }
+
+    

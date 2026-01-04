@@ -246,12 +246,12 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
 
             {/* Chama */}
             <div className={cn(
-                "absolute bottom-20 w-8 h-12 bg-orange-500 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-32 w-16 blur-md" : "h-12 w-8"
+                "absolute bottom-20 w-10 h-16 bg-orange-500 rounded-full blur-md transition-transform duration-500 origin-bottom",
+                flameOn ? "scale-150" : "scale-100"
             )}></div>
             <div className={cn(
-                "absolute bottom-20 w-4 h-8 bg-yellow-300 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-24 w-12 blur-lg" : "h-8 w-4"
+                "absolute bottom-20 w-8 h-12 bg-yellow-300 rounded-full blur-lg transition-transform duration-500 origin-bottom",
+                flameOn ? "scale-150" : "scale-100"
             )}></div>
         </div>
     );
@@ -278,14 +278,14 @@ const RitualForm = () => {
       },
     });
 
-    const handleCheckout = () => {
-      window.location.href = "https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d";
-    }
-
     function onSubmit(values: z.infer<typeof ritualFormSchema>) {
       // A validação do zod ainda acontece, mas não bloqueia a ação do botão.
-      // O botão principal agora chama handleCheckout diretamente.
       console.log("Valores do formulário (não bloqueia o checkout):", values);
+      handleCheckout();
+    }
+    
+    const handleCheckout = () => {
+      window.location.href = "https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d";
     }
 
     return (
@@ -348,7 +348,7 @@ const RitualForm = () => {
                             </FormItem>
                         )}
                         />
-                        <Button type="button" onClick={handleCheckout} size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
+                        <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">
                            👉 QUERO O FEITIÇO AGORA
                         </Button>
                     </form>
@@ -377,7 +377,7 @@ export default function Fogo1Page() {
     if (showRitual && ritualFormRef.current) {
       setTimeout(() => {
         ritualFormRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100); // Small delay to ensure the element is rendered
+      }, 100); 
     }
   }, [showRitual]);
 

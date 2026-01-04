@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ThumbsUp, Heart, UserPlus, LockIcon, X, Sparkles, Wand2, Flame } from "lucide-react";
@@ -282,6 +282,11 @@ const RitualForm = () => {
       window.location.href = "https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d";
     }
 
+    // A função onSubmit agora não faz nada, pois o botão vai direto para o checkout
+    function onSubmit(values: z.infer<typeof ritualFormSchema>) {
+      handleCheckout();
+    }
+
     return (
         <div className="w-full max-w-md mx-auto bg-card p-6 rounded-2xl shadow-2xl border border-border my-12">
             
@@ -315,7 +320,7 @@ const RitualForm = () => {
 
             <div>
                 <Form {...form}>
-                    <form onSubmit={(e) => { e.preventDefault(); handleCheckout(); }} className="space-y-4 mt-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 mt-4">
                         <FormField
                         control={form.control}
                         name="requesterName"
@@ -363,12 +368,17 @@ export default function Fogo1Page() {
   const [showRitual, setShowRitual] = useState(false);
 
   const handleStartRitual = () => {
-    const ritualFormElement = document.getElementById('ritual-form');
-    if (ritualFormElement) {
-        ritualFormElement.scrollIntoView({ behavior: 'smooth' });
-    }
     setShowRitual(true);
   };
+
+  useEffect(() => {
+    if (showRitual) {
+      const ritualFormElement = document.getElementById('ritual-form');
+      if (ritualFormElement) {
+        ritualFormElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [showRitual]);
 
   return (
     <>
@@ -1303,3 +1313,5 @@ export default function Fogo1Page() {
     </>
   );
 }
+
+    

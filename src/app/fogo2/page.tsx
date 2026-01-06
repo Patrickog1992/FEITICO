@@ -418,7 +418,7 @@ export default function Fogo2Page() {
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
             <div className="w-full min-h-screen flex items-center justify-center p-4">
-                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d" />
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://checkout.perfectpay.com.br/pay/PPU38CQ5LBC" />
             </div>
         ) : (
         <div className="w-full">

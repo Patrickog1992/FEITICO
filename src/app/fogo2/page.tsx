@@ -32,26 +32,9 @@ import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proo
 // BANNER DE DATA DINÂMICA
 // ====================================================================
 const FogoBanner = () => {
-  const [currentDate, setCurrentDate] = useState('');
-
-  useEffect(() => {
-    // This will only run on the client side, after hydration
-    const date = new Date().toLocaleDateString('pt-BR', {
-      day: 'numeric',
-      month: 'long',
-    });
-    setCurrentDate(date);
-  }, []);
-
-  if (!currentDate) {
-    return (
-        <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4 h-12 animate-pulse" />
-    );
-  }
-  
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. Na virada e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido OU a atração irresistível de um novo amor, despertando desejo e conexão intensa.
+      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">10 de janeiro</span> o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
     </div>
   );
 }
@@ -426,7 +409,7 @@ export default function Fogo2Page() {
             <FogoBanner />
             </div>
             <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold font-headline text-primary uppercase">
+            <h1 className="text-2xl md:text-4xl font-bold font-headline text-primary uppercase">
                 Sussurre o nome da pessoa desejada nesta chama sagrada…
                 e em até 5 noites, ela vai ficar totalmente obcecada por você 
                 ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
@@ -441,6 +424,7 @@ export default function Fogo2Page() {
                 width={700}
                 height={400}
                 className="rounded-lg shadow-lg mx-auto"
+                priority
                 />
                 <Paragraph className="mt-6 font-semibold text-foreground">
                     Ele ou ela vai se revirar na cama à noite, incapaz de tirar você da cabeça.

@@ -33,7 +33,7 @@ import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proo
 // ====================================================================
 const FogoBanner = () => {
   return (
-    <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
+    <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
       ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">10 de janeiro</span> o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
     </div>
   );

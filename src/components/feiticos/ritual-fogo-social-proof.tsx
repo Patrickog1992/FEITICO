@@ -22,7 +22,7 @@ export default function RitualFogoSocialProof() {
         description: (
           <div className="flex items-center gap-2">
             <Flame className="h-4 w-4 text-primary" />
-            <div className="flex flex-col">
+            <div className="flex flex-col text-left">
                 <span className="text-xs">{name} {city}</span>
                 <span className="text-xs uppercase font-bold text-destructive">recebeu o Ritual da Chama</span>
             </div>

@@ -409,7 +409,7 @@ export default function Fogo2Page() {
             <FogoBanner />
             </div>
             <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
-            <h1 className="text-2xl md:text-4xl font-bold font-headline text-primary uppercase">
+            <h1 className="text-xl md:text-4xl font-bold font-headline text-primary uppercase">
                 Sussurre o nome da pessoa desejada nesta chama sagrada…
                 e em até 5 noites, ela vai ficar totalmente obcecada por você 
                 ou alguém novo surgirá, tomado por um desejo impossível de ignorar.

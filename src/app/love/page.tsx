@@ -30,7 +30,7 @@ export default function Home() {
           </div>
         )}
         
-        {showAltar && <AltarEspiritualLove onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/5fbfabed-b287-43fb-9640-735dfb2a99f3" />}
+        {showAltar && <AltarEspiritualLove onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ5S9N" />}
 
       </main>
     </>

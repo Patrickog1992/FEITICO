@@ -21,7 +21,10 @@ export default function SocialProof() {
         description: (
           <div className="flex items-center gap-2">
             <Sparkles className="h-4 w-4 text-primary" />
-            <p className="text-xs">{name} {city} acabou de receber o feitiço.</p>
+            <div className="flex flex-col text-left">
+                <span className="text-xs">{name} {city}</span>
+                <span className="text-xs uppercase font-bold text-destructive">acabou de receber o feitiço.</span>
+            </div>
           </div>
         ),
         duration: 5000,

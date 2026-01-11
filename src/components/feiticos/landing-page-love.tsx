@@ -286,7 +286,12 @@ export default function LandingPage({ onStart }: LandingPageProps) {
             </div>
         </Section>
         
-        <Testimonials />
+        <section className="w-full max-w-4xl mx-auto my-8 md:my-16 px-4">
+            <h2 className="font-headline text-3xl font-bold text-center text-primary mb-8">
+                Veja o que as pessoas estão falando sobre a Lady Soraya
+            </h2>
+            <Testimonials />
+        </section>
 
         <Section className="text-center">
           <SectionTitle>Garantia de Satisfação</SectionTitle>

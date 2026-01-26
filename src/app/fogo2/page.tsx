@@ -401,7 +401,7 @@ export default function Fogo2Page() {
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
             <div className="w-full min-h-screen flex items-center justify-center p-4">
-                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ5LBC" />
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ6JN4" />
             </div>
         ) : (
         <div className="w-full">
@@ -662,8 +662,8 @@ export default function Fogo2Page() {
                 <Paragraph className="text-xl line-through text-destructive">Não R$500.</Paragraph>
                 <Paragraph className="text-xl line-through text-destructive">Não R$200.</Paragraph>
                 <Paragraph className="text-2xl line-through text-destructive mb-4">Nem mesmo R$100.</Paragraph>
-                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$37</span>.</Paragraph>
-                <Paragraph>Trinta e sete reais.</Paragraph>
+                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$27</span>.</Paragraph>
+                <Paragraph>Vinte e sete reais.</Paragraph>
                 <Paragraph>Menos que um jantar fora.</Paragraph>
                 <Paragraph className="font-bold text-xl">Pelo poder de fazer essa pessoa queimar por você para sempre.</Paragraph>
                 

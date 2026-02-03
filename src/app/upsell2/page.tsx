@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -23,7 +22,7 @@ export default function Upsell2Page() {
       <main>
         {isClient && (
             <div dangerouslySetInnerHTML={{ __html: `
-            <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/sdk.js", s.async=!0,document.head.appendChild(s); </script> <div id="ifr_6981f7cb8cb5dc32dbfcb8c9_wrapper" style="margin: 0 auto; width: 100%; max-width: 400px;"> <div style="position: relative; padding: 177.77777777777777% 0 0 0;" id="ifr_6981f7cb8cb5dc32dbfcb8c9_aspect"> <iframe frameborder="0" allowfullscreen src="about:blank" id="ifr_6981f7cb8cb5dc32dbfcb8c9" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" referrerpolicy="origin" onload=" this.onload=null, this.src='https://scripts.converteai.net/66f7b845-c900-4cf3-b6f2-f848ebd65e7f/players/6981f7cb8cb5dc32dbfcb8c9/v4/embed.html' +(location.search||'?') +'&vl=' +encodeURIComponent(location.href)"></iframe> </div> </div>
+            <vturb-smartplayer id="vid-6981f7cb8cb5dc32dbfcb8c9" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/66f7b845-c900-4cf3-b6f2-f848ebd65e7f/players/6981f7cb8cb5dc32dbfcb8c9/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
             `}} />
         )}
       </main>

@@ -30,7 +30,7 @@ export default function Home() {
           </div>
         )}
         
-        {showAltar && <AltarEspiritualLove onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ5S9N" />}
+        {showAltar && <AltarEspiritualLove onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ7337" />}
 
       </main>
     </>

@@ -45,7 +45,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
         Último desejo de Lady Soraya
         </h1>
         <p className="text-xl md:text-2xl mt-2">
-        Ajudar 3737 pessoas a encontrarem o amor de suas vidas, seja ele um amor perdido… ou um novo amor predestinado.
+        Ajudar 2727 pessoas a encontrarem o amor de suas vidas, seja ele um amor perdido… ou um novo amor predestinado.
         </p>
       </header>
       
@@ -193,7 +193,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 height={200}
                 className="rounded-lg shadow-lg mx-auto my-4"
             />
-            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia seguinte, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres e homens como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que pessoas do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 3737 pessoas a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
+            <Paragraph>Meu coração quase parou. O feitiço funcionou. No dia seguinte, fui correndo até a cabana de Lady Soraya. Contei tudo. Ela sorriu, emocionada... mas logo seu olhar ficou sério. “Minha querida... eu vivo sozinha desde que deixei meu coven. O que me traz alegria é ajudar mulheres e homens como você a encontrarem o amor verdadeiro. Mas são poucas as que chegam até mim.” “Você pode me ajudar a espalhar essa bênção?” Foi aí que tive uma ideia. Criamos um site para que pessoas do mundo todo pudessem receber o feitiço de amor de Lady Soraya. Ela ficou radiante. “Meu desejo sempre foi ajudar 2727 pessoas a encontrarem o amor verdadeiro.” “E agora... você me deu essa chance.”</Paragraph>
         </Section>
 
         <Section className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm">
@@ -223,7 +223,7 @@ export default function LandingPage({ onStart }: LandingPageProps) {
               <br/>
               <span className="font-bold">Ele atrai a pessoa certa um novo amor predestinado que combina exatamente com a sua energia.</span>
             </Paragraph>
-            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500">Apenas R$37,37</span> — um número sagrado — para as 3737 pessoas escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que esteja sofrendo sozinho... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
+            <Paragraph>E quanto isso custa? Nada comparado ao valor do amor verdadeiro. Lady Soraya não busca lucro — apenas cumprir sua missão. Mas, para manter o site, foi necessário cobrar um valor simbólico. <span className="text-green-500">Apenas R$27,27</span> — um número sagrado — para as 2727 pessoas escolhidas. Mesmo que você esteja passando por dificultades... Mesmo que esteja sofrendo sozinho... Mesmo que tenha perdido as esperanças... Este é o seu sinal.</Paragraph>
             
             <div className="my-6 text-left text-foreground/90 p-4 border border-primary/20 rounded-lg bg-primary/5 space-y-2">
                 <p className="text-lg font-semibold text-center mb-4 text-primary">Somente hoje, ao lançar o feitiço de Lady Soraya, você receberá gratuitamente:</p>
@@ -233,10 +233,10 @@ export default function LandingPage({ onStart }: LandingPageProps) {
                 <p><strong>BÔNUS 4 (R$97) <span className="text-green-500">✔️</span> Chamada Amorosa (para novos amores)</strong> — atrai a pessoa predestinada quando você não tem ninguém específico em mente, alinhando o universo ao seu favor.</p>
                 <p><strong>BÔNUS 5 (R$77) <span className="text-green-500">✔️</span> Mensagem de Ativação Personalizada</strong> — prepara sua energia emocional e espiritual para receber o amor, evitando bloqueios e acelerando os resultados do ritual.</p>
                 <p className="text-center font-bold mt-4">🎁 Valor total dos bônus: <span className="line-through">R$ 465</span> <br/>👉 Hoje: <span className="text-green-500">incluídos gratuitamente no seu ritual</span></p>
-                <p className="text-center text-sm text-foreground/70 mt-4">Esses bônus só são entregues enquanto Lady Soraya ainda busca ajudar as 3737 pessoas escolhidas. Quando esse número for alcançado, os rituais bônus serão retirados permanentemente.</p>
+                <p className="text-center text-sm text-foreground/70 mt-4">Esses bônus só são entregues enquanto Lady Soraya ainda busca ajudar as 2727 pessoas escolhidas. Quando esse número for alcançado, os rituais bônus serão retirados permanentemente.</p>
             </div>
             
-            <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas <span className="text-green-500">R$ 37,37</span> hoje, você pode lançar o feitiço que fará qualquer pessoa te amar eternamente. ✨</Paragraph>
+            <Paragraph className="my-6 text-xl font-bold text-primary">✨ Por apenas <span className="text-green-500">R$ 27,27</span> hoje, você pode lançar o feitiço que fará qualquer pessoa te amar eternamente. ✨</Paragraph>
             <div className="my-6 p-4 bg-primary/10 rounded-lg">
                 <p className="text-2xl font-bold text-primary">Pouquíssimas pessoas no mundo já sentiram uma ligação assim.</p>
             </div>

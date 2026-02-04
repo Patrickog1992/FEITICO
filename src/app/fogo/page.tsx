@@ -32,9 +32,26 @@ import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proo
 // BANNER DE DATA DINÂMICA
 // ====================================================================
 const FogoBanner = () => {
+  const [currentDate, setCurrentDate] = useState('');
+
+  useEffect(() => {
+    // This will only run on the client side, after hydration
+    const date = new Date().toLocaleDateString('pt-BR', {
+      day: 'numeric',
+      month: 'long',
+    });
+    setCurrentDate(date);
+  }, []);
+
+  if (!currentDate) {
+    return (
+      <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4 h-12 animate-pulse" />
+    );
+  }
+  
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia 4 de fevereiro o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
+      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span> o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
     </div>
   );
 }
@@ -401,7 +418,7 @@ export default function FogoPage() {
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
             <div className="w-full min-h-screen flex items-center justify-center p-4">
-                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ6JN4" />
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ5LBC" />
             </div>
         ) : (
         <div className="w-full">

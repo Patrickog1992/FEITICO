@@ -32,26 +32,9 @@ import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proo
 // BANNER DE DATA DINÂMICA
 // ====================================================================
 const FogoBanner = () => {
-  const [currentDate, setCurrentDate] = useState('');
-
-  useEffect(() => {
-    // This will only run on the client side, after hydration
-    const date = new Date().toLocaleDateString('pt-BR', {
-      day: 'numeric',
-      month: 'long',
-    });
-    setCurrentDate(date);
-  }, []);
-
-  if (!currentDate) {
-    return (
-        <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4 h-12 animate-pulse" />
-    );
-  }
-  
   return (
-    <div className="bg-destructive text-destructive-foreground text-center p-3 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. Na virada e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido OU a atração irresistível de um novo amor, despertando desejo e conexão intensa.
+    <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
+      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia 4 de fevereiro o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
     </div>
   );
 }
@@ -418,7 +401,7 @@ export default function FogoPage() {
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
             <div className="w-full min-h-screen flex items-center justify-center p-4">
-                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://pay.kirvano.com/c298ed00-5e07-4499-8eb4-6426ba33068d" />
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ6JN4" />
             </div>
         ) : (
         <div className="w-full">
@@ -678,8 +661,8 @@ export default function FogoPage() {
                 <Paragraph className="text-xl line-through text-destructive">Não R$500.</Paragraph>
                 <Paragraph className="text-xl line-through text-destructive">Não R$200.</Paragraph>
                 <Paragraph className="text-2xl line-through text-destructive mb-4">Nem mesmo R$100.</Paragraph>
-                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$37</span>.</Paragraph>
-                <Paragraph>Trinta e sete reais.</Paragraph>
+                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$27</span>.</Paragraph>
+                <Paragraph>Vinte e sete reais.</Paragraph>
                 <Paragraph>Menos que um jantar fora.</Paragraph>
                 <Paragraph className="font-bold text-xl">Pelo poder de fazer essa pessoa queimar por você para sempre.</Paragraph>
                 

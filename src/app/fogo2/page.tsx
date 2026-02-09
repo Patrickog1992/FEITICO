@@ -574,6 +574,26 @@ export default function Fogo2Page() {
             
             <Section>
                 <SectionTitle>Histórias reais de pessoas que usaram a chama</SectionTitle>
+                <div className="flex gap-4 justify-center mb-8">
+                    <div className="w-1/2">
+                        <video
+                            src="https://i.imgur.com/ytP7xVn.mp4"
+                            poster="https://i.imgur.com/fgbqWuB.jpeg"
+                            controls
+                            playsInline
+                            className="w-full rounded-lg"
+                        />
+                    </div>
+                    <div className="w-1/2">
+                        <video
+                            src="https://i.imgur.com/EA2kXJ9.mp4"
+                            poster="https://i.imgur.com/fUvqemu.jpeg"
+                            controls
+                            playsInline
+                            className="w-full rounded-lg"
+                        />
+                    </div>
+                </div>
                 <Testimonials />
             </Section>
 

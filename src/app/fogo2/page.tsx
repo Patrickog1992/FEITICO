@@ -69,7 +69,7 @@ const testimonialsData = [
   },
   {
     name: "Carlos M.",
-    avatar: "https://i.imgur.com/GJZpDHa.png",
+    avatar: "https://i.imgur.com/BJPY2Qu.jpg",
     text: "Meu relacionamento estava por um fio. Depois do ritual da chama, a energia entre nós mudou completamente. Ela se tornou mais carinhosa, atenciosa e finalmente aceitou meu pedido de casamento! Sou eternamente grato.",
   },
   {
@@ -89,7 +89,7 @@ const testimonialsData = [
   },
   {
     name: "Lucas S.",
-    avatar: "https://i.imgur.com/SPsVs9s.jpg",
+    avatar: "https://i.imgur.com/om1IUWv.jpg",
     text: "Estávamos separados há meses. Depois que o nome dela foi sussurrado na chama, ela começou a curtir minhas fotos, me mandou mensagem e hoje estamos planejando nosso futuro juntos. Foi a melhor decisão que já tomei.",
   },
 ];

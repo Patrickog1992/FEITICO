@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -289,7 +290,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
             return (
               <>
                 <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual da União</h2>
-
+                <p className="text-center text-gray-600 mb-4">Clique no circulo abaixo e coloque a foto da pessoa amada</p>
                 <div className="flex flex-col items-center gap-2 my-4">
                     <div 
                         className="relative w-32 h-32 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400 cursor-pointer hover:bg-gray-50 transition-colors"

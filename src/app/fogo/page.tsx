@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -211,8 +212,6 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
     const [targetName, setTargetName] = useState("");
     const [requesterName, setRequesterName] = useState("");
     const [loadingMessages, setLoadingMessages] = useState<string[]>([]);
-    const [photoPreview, setPhotoPreview] = useState<string | null>(null);
-    const fileInputRef = useRef<HTMLInputElement>(null);
     
     const formBringBack = useForm<z.infer<typeof formSchemaBringBack>>({
       resolver: zodResolver(formSchemaBringBack),
@@ -254,17 +253,6 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
       setStep("loading");
     }
 
-    const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (event.target.files && event.target.files[0]) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setPhotoPreview(reader.result as string);
-        };
-        reader.readAsDataURL(file);
-      }
-    };
-
     const renderContent = () => {
         switch (step) {
           case "choice":
@@ -289,29 +277,6 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
             return (
               <>
                 <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual da União</h2>
-                <p className="text-center text-gray-600 mb-4">Clique no circulo abaixo e coloque a foto da pessoa amada</p>
-                <div className="flex flex-col items-center gap-2 my-4">
-                    <div 
-                        className="relative w-32 h-32 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400 cursor-pointer hover:bg-gray-50 transition-colors"
-                        onClick={() => fileInputRef.current?.click()}
-                    >
-                        {photoPreview ? (
-                            <Image src={photoPreview} alt="Preview da foto" layout="fill" className="rounded-full object-cover" />
-                        ) : (
-                            <div className="text-center">
-                                <UserPlus className="h-8 w-8 mx-auto" />
-                                <span className="text-xs mt-1 block">Foto da pessoa</span>
-                            </div>
-                        )}
-                    </div>
-                    <input
-                        type="file"
-                        ref={fileInputRef}
-                        onChange={handlePhotoChange}
-                        className="hidden"
-                        accept="image/*"
-                    />
-                </div>
                 <p className="text-center text-gray-600 mb-6">A Sacerdotisa Azara precisa dos nomes para vincular a alma de vocês dois.</p>
                 <Form {...formBringBack}>
                   <form onSubmit={formBringBack.handleSubmit(onSubmitBringBack)} className="space-y-4">
@@ -453,7 +418,7 @@ export default function FogoPage() {
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
             <div className="w-full min-h-screen flex items-center justify-center p-4">
-                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ6JN4" />
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ7KGM" />
             </div>
         ) : (
         <div className="w-full">

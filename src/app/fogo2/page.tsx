@@ -217,12 +217,12 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
 
             {/* Chama */}
             <div className={cn(
-                "absolute bottom-20 w-8 h-12 bg-orange-500 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-32 w-16 blur-md" : "h-12 w-8"
+                "absolute bottom-20 w-10 h-16 bg-orange-500 rounded-full blur-md transition-transform duration-500 origin-bottom",
+                flameOn ? "scale-150" : "scale-100"
             )}></div>
             <div className={cn(
-                "absolute bottom-20 w-4 h-8 bg-yellow-300 rounded-full blur-sm transition-all duration-500",
-                flameOn ? "h-24 w-12 blur-lg" : "h-8 w-4"
+                "absolute bottom-20 w-8 h-12 bg-yellow-300 rounded-full blur-lg transition-transform duration-500 origin-bottom",
+                flameOn ? "scale-150" : "scale-100"
             )}></div>
         </div>
     );

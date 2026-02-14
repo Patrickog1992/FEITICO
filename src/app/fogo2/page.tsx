@@ -207,35 +207,64 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 // ALTAR DO FOGO
 // ====================================================================
 const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
-    const FlameShape = ({ className }: { className?: string }) => (
+    // A more realistic, multi-layered SVG flame component
+    const FlameComponent = ({ isOn }: { isOn: boolean }) => (
+      <div
+        className={cn(
+          "absolute bottom-[70px] h-40 w-32 origin-bottom transform-gpu transition-transform duration-500 ease-out",
+          isOn ? "scale-100" : "scale-0"
+        )}
+      >
         <svg
-            viewBox="0 0 40 60"
-            xmlns="http://www.w3.org/2000/svg"
-            className={className}
+          viewBox="0 0 100 150"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute top-0 left-0 h-full w-full"
         >
-            <path
-            d="M20 0C20 0 10 12 10 24C10 36 20 60 20 60C20 60 30 36 30 24C30 12 20 0 20 0Z"
-            fill="currentColor"
-            />
+          {/* Outer, softer flame */}
+          <path
+            d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z"
+            fill="url(#grad1)"
+          />
+          {/* Middle, brighter flame */}
+          <path
+            d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z"
+            fill="url(#grad2)"
+            className="animate-pulse"
+            style={{ animationDuration: '2s', opacity: 0.8 }}
+          />
+          {/* Inner core */}
+          <path
+            d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z"
+            fill="white"
+            className="animate-pulse"
+            style={{ animationDuration: '1.5s', opacity: 0.7 }}
+          />
         </svg>
+        <svg width="0" height="0">
+          <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} />
+            </radialGradient>
+            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
     );
 
     return (
         <div className="relative w-full h-56 flex items-center justify-center cursor-pointer" onClick={onClick}>
-            {/* Altar */}
+            {/* Altar base */}
             <div className="absolute bottom-10 w-32 h-16 bg-stone-700 rounded-t-lg shadow-lg">
                 <div className="w-full h-2 bg-stone-800 rounded-t-lg"></div>
             </div>
             <div className="absolute bottom-0 w-48 h-10 bg-stone-600 rounded-t-md shadow-inner"></div>
 
-            {/* Chama SVG - COMPLETELY NEW SHAPE */}
-            <div className={cn(
-                "absolute bottom-[75px] h-24 w-16 transition-transform duration-500 ease-in-out transform-gpu origin-bottom",
-                flameOn ? "scale-y-125 scale-x-125" : "scale-0"
-            )}>
-                <FlameShape className="absolute inset-0 w-full h-full text-orange-500 blur-md" />
-                <FlameShape className="absolute inset-0 w-full h-full scale-75 text-yellow-300 blur-lg" />
-            </div>
+            {/* The new flame component */}
+            <FlameComponent isOn={flameOn} />
         </div>
     );
 };
@@ -884,5 +913,7 @@ export default function Fogo2Page() {
     </>
   );
 }
+
+    
 
     

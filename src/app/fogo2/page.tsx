@@ -208,7 +208,7 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 // ====================================================================
 const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
     return (
-        <div className="relative w-full h-48 flex items-center justify-center cursor-pointer" onClick={onClick}>
+        <div className="relative w-full h-56 flex items-center justify-center cursor-pointer" onClick={onClick}>
             {/* Altar */}
             <div className="absolute bottom-10 w-32 h-16 bg-stone-700 rounded-t-lg shadow-lg">
                 <div className="w-full h-2 bg-stone-800 rounded-t-lg"></div>

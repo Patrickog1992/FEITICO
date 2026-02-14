@@ -207,6 +207,19 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 // ALTAR DO FOGO
 // ====================================================================
 const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
+    const FlameShape = ({ className }: { className?: string }) => (
+        <svg
+            viewBox="0 0 40 60"
+            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+        >
+            <path
+            d="M20 0C20 0 10 12 10 24C10 36 20 60 20 60C20 60 30 36 30 24C30 12 20 0 20 0Z"
+            fill="currentColor"
+            />
+        </svg>
+    );
+
     return (
         <div className="relative w-full h-56 flex items-center justify-center cursor-pointer" onClick={onClick}>
             {/* Altar */}
@@ -215,15 +228,14 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
             </div>
             <div className="absolute bottom-0 w-48 h-10 bg-stone-600 rounded-t-md shadow-inner"></div>
 
-            {/* Chama */}
+            {/* Chama SVG - COMPLETELY NEW SHAPE */}
             <div className={cn(
-                "absolute bottom-20 w-8 h-12 bg-orange-500 rounded-t-full blur-sm transition-all duration-300",
-                flameOn ? "h-32 w-16 blur-md" : "h-12 w-8"
-            )}></div>
-            <div className={cn(
-                "absolute bottom-20 w-4 h-8 bg-yellow-300 rounded-t-full blur-sm transition-all duration-300",
-                flameOn ? "h-24 w-12 blur-lg" : "h-8 w-4"
-            )}></div>
+                "absolute bottom-[75px] h-24 w-16 transition-transform duration-500 ease-in-out transform-gpu origin-bottom",
+                flameOn ? "scale-y-125 scale-x-125" : "scale-0"
+            )}>
+                <FlameShape className="absolute inset-0 w-full h-full text-orange-500 blur-md" />
+                <FlameShape className="absolute inset-0 w-full h-full scale-75 text-yellow-300 blur-lg" />
+            </div>
         </div>
     );
 };

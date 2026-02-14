@@ -206,35 +206,28 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 // ====================================================================
 // ALTAR DO FOGO
 // ====================================================================
-
-const LareiraInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
+const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
     return (
-        <div className="relative w-56 h-40 flex flex-col items-center justify-end cursor-pointer my-6" onClick={onClick}>
-            {/* Fireplace structure */}
-            <div className="w-full h-28 bg-stone-800 rounded-t-lg p-2 flex items-end shadow-inner">
-                <div className="w-full h-full bg-black/80 rounded-sm relative overflow-hidden">
-                    {/* Fire logs */}
-                    <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-3/4 h-5">
-                         <div className="w-full h-2 bg-stone-900 rounded-full rotate-[-15deg] absolute bottom-0"></div>
-                         <div className="w-full h-2 bg-stone-900 rounded-full rotate-[10deg] absolute bottom-1"></div>
-                    </div>
-
-                    {/* Flame */}
-                    <div className={cn(
-                        "absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-0 bg-orange-500 rounded-t-full blur-md transition-all duration-300 ease-out",
-                        flameOn ? "h-20 opacity-80" : "opacity-0"
-                    )}></div>
-                    <div className={cn(
-                        "absolute bottom-2 left-1/2 -translate-x-1/2 w-4 h-0 bg-yellow-300 rounded-t-full blur-lg transition-all duration-500 ease-out",
-                        flameOn ? "h-16 opacity-90" : "opacity-0"
-                    )}></div>
-                </div>
+        <div className="relative w-full h-48 flex items-center justify-center cursor-pointer" onClick={onClick}>
+            {/* Altar */}
+            <div className="absolute bottom-10 w-32 h-16 bg-stone-700 rounded-t-lg shadow-lg">
+                <div className="w-full h-2 bg-stone-800 rounded-t-lg"></div>
             </div>
-             <div className="w-64 h-3 bg-stone-700 rounded-b-sm shadow-lg"></div>
-             {!flameOn && <p className="absolute -bottom-6 text-sm text-primary animate-pulse">Clique na lareira para acender a chama</p>}
+            <div className="absolute bottom-0 w-48 h-10 bg-stone-600 rounded-t-md shadow-inner"></div>
+
+            {/* Chama */}
+            <div className={cn(
+                "absolute bottom-20 w-8 h-12 bg-orange-500 rounded-full blur-sm transition-all duration-500",
+                flameOn ? "h-32 w-16 blur-md" : "h-12 w-8"
+            )}></div>
+            <div className={cn(
+                "absolute bottom-20 w-4 h-8 bg-yellow-300 rounded-full blur-sm transition-all duration-500",
+                flameOn ? "h-24 w-12 blur-lg" : "h-8 w-4"
+            )}></div>
         </div>
     );
 };
+
 
 const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
     const [step, setStep] = useState<"choice" | "formBringBack" | "formNewLove" | "loading" | "final">("choice");
@@ -243,7 +236,13 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
     const [requesterName, setRequesterName] = useState("");
     const [loadingMessages, setLoadingMessages] = useState<string[]>([]);
     const [flameOn, setFlameOn] = useState(false);
+    const [altarMessage, setAltarMessage] = useState("CLIQUE NO ALTAR PARA ACENDER A CHAMA");
     
+    const handleAltarClick = () => {
+        setFlameOn(true);
+        setAltarMessage("A CHAMA ESTÁ ARDENDO");
+    }
+
     const formBringBack = useForm<z.infer<typeof formSchemaBringBack>>({
       resolver: zodResolver(formSchemaBringBack),
       defaultValues: { requesterName: "", targetName: "" },
@@ -368,6 +367,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
           case "final":
             return (
                 <div className="flex flex-col items-center justify-center text-center">
+                    <Sparkles className="h-16 w-16 text-green-500 mb-4"/>
                     <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO ESTABELECIDA!</h3>
                     {targetName ? (
                          <p className="text-lg text-gray-700 mb-2">
@@ -378,8 +378,11 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                             Seu campo energético está aberto. O universo está pronto para trazer seu novo amor.
                         </p>
                     )}
-                    <LareiraInterativa flameOn={flameOn} onClick={() => setFlameOn(true)} />
-                    <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
+                    <div className="text-center my-4">
+                        <p className={cn("text-sm font-bold uppercase", flameOn ? "text-destructive" : "text-primary")}>{altarMessage}</p>
+                    </div>
+                    <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
+                    <p className="text-md text-gray-600 mt-4 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
                     <Button onClick={() => window.location.href = checkoutUrl} size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">FINALIZAR O RITUAL</Button>
                 </div>
             );

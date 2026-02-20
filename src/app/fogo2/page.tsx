@@ -52,7 +52,7 @@ const FogoBanner = () => {
   
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span> o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
+      ATENÇÃO: Durante a Quaresma e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, as energias de renovação e reconciliação estão mais ativas. O Ritual da Chama realizado nesses dias potencializa o retorno de quem se afastou ou atrai um novo amor com intensidade e desejo irresistível.
     </div>
   );
 }
@@ -913,7 +913,3 @@ export default function Fogo2Page() {
     </>
   );
 }
-
-    
-
-    

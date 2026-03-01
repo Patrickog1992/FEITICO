@@ -26,6 +26,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proof";
+import { cn } from "@/lib/utils";
 
 
 // ====================================================================
@@ -206,12 +207,75 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 // ALTAR DO FOGO
 // ====================================================================
 
+const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
+    const FlameComponent = ({ isOn }: { isOn: boolean }) => (
+      <div
+        className={cn(
+          "absolute bottom-[70px] h-40 w-32 origin-bottom transform-gpu transition-transform duration-500 ease-out",
+          isOn ? "scale-100" : "scale-0"
+        )}
+      >
+        <svg
+          viewBox="0 0 100 150"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute top-0 left-0 h-full w-full"
+        >
+          <path
+            d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z"
+            fill="url(#grad1)"
+          />
+          <path
+            d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z"
+            fill="url(#grad2)"
+            className="animate-pulse"
+            style={{ animationDuration: '2s', opacity: 0.8 }}
+          />
+          <path
+            d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z"
+            fill="white"
+            className="animate-pulse"
+            style={{ animationDuration: '1.5s', opacity: 0.7 }}
+          />
+        </svg>
+        <svg width="0" height="0">
+          <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} />
+            </radialGradient>
+            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+              <stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} />
+              <stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    );
+
+    return (
+        <div className="relative w-full h-56 flex items-center justify-center cursor-pointer" onClick={onClick}>
+            <div className="absolute bottom-10 w-32 h-16 bg-stone-700 rounded-t-lg shadow-lg">
+                <div className="w-full h-2 bg-stone-800 rounded-t-lg"></div>
+            </div>
+            <div className="absolute bottom-0 w-48 h-10 bg-stone-600 rounded-t-md shadow-inner"></div>
+            <FlameComponent isOn={flameOn} />
+        </div>
+    );
+};
+
 const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
     const [step, setStep] = useState<"choice" | "formBringBack" | "formNewLove" | "loading" | "final">("choice");
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
     const [targetName, setTargetName] = useState("");
     const [requesterName, setRequesterName] = useState("");
     const [loadingMessages, setLoadingMessages] = useState<string[]>([]);
+    const [flameOn, setFlameOn] = useState(false);
+    const [altarMessage, setAltarMessage] = useState("CLIQUE NO ALTAR PARA ACENDER A CHAMA");
+    
+    const handleAltarClick = () => {
+        setFlameOn(true);
+        setAltarMessage("A CHAMA ESTÁ ARDENDO");
+    }
     
     const formBringBack = useForm<z.infer<typeof formSchemaBringBack>>({
       resolver: zodResolver(formSchemaBringBack),
@@ -336,19 +400,23 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
     
           case "final":
             return (
-                <div className="flex flex-col items-center justify-center text-center h-64">
-                    <Sparkles className="h-20 w-20 text-green-500 mb-4"/>
+                <div className="flex flex-col items-center justify-center text-center">
+                    <Sparkles className="h-16 w-16 text-green-500 mb-4"/>
                     <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO ESTABELECIDA!</h3>
                     {targetName ? (
-                         <p className="text-lg text-gray-700 mb-6">
+                         <p className="text-lg text-gray-700 mb-2">
                             <span className="font-bold text-primary">{targetName}</span> está espiritualmente vulnerável. O vínculo foi mapeado com sucesso.
                         </p>
                     ) : (
-                        <p className="text-lg text-gray-700 mb-6">
+                        <p className="text-lg text-gray-700 mb-2">
                             Seu campo energético está aberto. O universo está pronto para trazer seu novo amor.
                         </p>
                     )}
-                    <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
+                    <div className="text-center my-4">
+                        <p className={cn("text-sm font-bold uppercase", flameOn ? "text-destructive" : "text-primary")}>{altarMessage}</p>
+                    </div>
+                    <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
+                    <p className="text-md text-gray-600 mt-4 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
                     <Button onClick={() => window.location.href = checkoutUrl} size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">FINALIZAR O RITUAL</Button>
                 </div>
             );
@@ -516,7 +584,7 @@ export default function FogoPage() {
                 <Paragraph>Não são velas de loja barata nem pensamentos positivos.</Paragraph>
                 <Paragraph>É um ritual de fogo antigo que remonta a mais de 3.000 anos, às sacerdotisas zoroastristas da Pérsia.</Paragraph>
                 <Paragraph>Elas sabiam algo que foi escondido das pessoas por séculos:</Paragraph>
-                <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado. E quando é aceso, ele queima por uma única pessoa — e apenas uma.</Paragraph>
+                <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado. E quando é aceso, he queima por uma única pessoa — e apenas uma.</Paragraph>
                 <Paragraph>Rainhas e reis usavam isso para manter seus amores leais. Tão leais que abandonavam amantes, largavam guerras pela metade e atravessavam reinos inteiros apenas para estar perto de quem incendiou sua alma novamente.</Paragraph>
                 <Paragraph>Os sacerdotes odiavam isso.</Paragraph>
                 <Paragraph>Chamavam de perigoso.</Paragraph>
@@ -555,7 +623,7 @@ export default function FogoPage() {
                 
                 <div className="space-y-4 mt-6">
                 <p><strong>Noite 1: A Primeira Faísca</strong><br/>No momento em que o nome entra na chama, algo muda. A pessoa vai se sentir inquieta naquela noite. Vai se revirar às 3 da manhã sem saber por quê. Seu rosto vai piscar na mente dela. Sentirá uma dor estranha no peito que não consegue explicar.</p>
-                <p><strong>Noite 2: O Calor Aumenta</strong><br/>Começa a pensar em você mais. Muito mais. Vai se pegar olhando fotos antigas suas. Revivendo conversas. A ideia de você com outra pessoa vai deixá-la enjoada.</p>
+                <p><strong>Noite 2: O Calor Aumenta</strong><br/>Começa a pensar em você mais. Muito mais. Vai se pegar olhando fotos antigas suas. Revivendo conversas. A ideia de você com outra pessoa vai deixá-lo enjoada.</p>
                 <p><strong>Noite 3: O Fogo se Espalha</strong><br/>Agora não consegue mais se livrar de você. Vai sonhar com você de forma tão real que acorda confusa. Os amigos vão perceber que algo está errado. Vai mandar uma mensagem fraca só para “testar o terreno”, porque não aguenta mais a pressão.</p>
                 <p><strong>Noite 4: O Incêndio</strong><br/>Está perdendo o controle. Não consegue focar no trabalho. Não sente prazer em nada. Todas as outras pessoas parecem sem graça perto de você. O fogo queimou tudo. Só você restou na mente dela.</p>
                 <p><strong>Noite 5: Rendição Total</strong><br/>Ela quebra. O orgulho? Sumiu. As defesas? Viraram cinzas. Liga. Manda mensagem. Aparece. Chora, pede desculpas e jura que nunca mais vai te deixar. Diz coisas como: “Não sei o que aconteceu comigo, mas não consigo viver sem você.”</p>

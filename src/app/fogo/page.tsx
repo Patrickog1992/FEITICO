@@ -240,13 +240,13 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
 
 const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
     const [step, setStep] = useState<"choice" | "quiz" | "form" | "loading" | "altar" | "sealing">("choice");
+    const [isBringBack, setIsBringBack] = useState(true);
     const [quizIndex, setQuizIndex] = useState(0);
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
     const [targetName, setTargetName] = useState("");
     const [requesterName, setRequesterName] = useState("");
     const [flameOn, setFlameOn] = useState(false);
     const [timeLeft, setTimeLeft] = useState(300); // 5 minutos
-    const [checkedCount, setCheckedCount] = useState(0);
 
     const formSchema = z.object({
         requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
@@ -308,8 +308,9 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
         return `${mins}:${secs.toString().padStart(2, '0')}`;
     };
 
-    const handleIntentChoice = (isBringBack: boolean) => {
-        if (isBringBack) {
+    const handleIntentChoice = (bringBack: boolean) => {
+        setIsBringBack(bringBack);
+        if (bringBack) {
             setStep("quiz");
         } else {
             setStep("form");
@@ -332,7 +333,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
 
     const handleAltarClick = () => {
         setFlameOn(true);
-        setTimeout(() => setStep("sealing"), 1500);
+        setTimeout(() => setStep("sealing"), 800);
     };
 
     const renderContent = () => {
@@ -343,11 +344,11 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                         <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
                         <p className="text-center text-gray-600">Escolha o caminho para que a Sacerdotisa Azara possa guiar o ritual.</p>
                         <div className="space-y-4">
-                            <Button onClick={() => handleIntentChoice(true)} size="lg" className="w-full h-auto py-4 text-lg justify-start bg-primary hover:bg-primary/90 text-white shadow-xl">
+                            <Button onClick={() => handleIntentChoice(true)} size="lg" className="w-full h-auto py-5 text-lg justify-start bg-primary hover:bg-primary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
                                 <Heart className="mr-4 flex-shrink-0 fill-current"/>
                                 Quero trazer um amor de volta
                             </Button>
-                            <Button onClick={() => handleIntentChoice(false)} size="lg" className="w-full h-auto py-4 text-lg justify-start bg-secondary hover:bg-secondary/90 text-white shadow-xl">
+                            <Button onClick={() => handleIntentChoice(false)} size="lg" className="w-full h-auto py-5 text-lg justify-start bg-secondary hover:bg-secondary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
                                 <UserPlus className="mr-4 flex-shrink-0"/>
                                 Quero atrair um novo amor
                             </Button>
@@ -368,7 +369,12 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                         <h2 className="text-xl font-headline font-bold text-gray-800">{quizQuestions[quizIndex].q}</h2>
                         <div className="space-y-3">
                             {quizQuestions[quizIndex].options.map((opt, i) => (
-                                <Button key={i} onClick={handleQuizOption} variant="outline" className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all">
+                                <Button 
+                                    key={i} 
+                                    onClick={handleQuizOption} 
+                                    variant="outline" 
+                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all text-gray-800 active:text-gray-800"
+                                >
                                     {opt}
                                 </Button>
                             ))}
@@ -391,11 +397,11 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                         <FormMessage />
                                     </FormItem>
                                 )}/>
-                                {targetName !== "" && (
+                                {isBringBack && (
                                     <FormField control={form.control} name="targetName" render={({ field }) => (
                                         <FormItem>
                                             <FormControl>
-                                                <Input placeholder="Nome da pessoa desejada" {...field} className="bg-gray-100 text-center text-lg py-6" autoComplete="off" />
+                                                <Input placeholder="Nome de quem você deseja" {...field} className="bg-gray-100 text-center text-lg py-6" autoComplete="off" />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -455,7 +461,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     <div key={i} className="flex items-start gap-3">
                                         <Checkbox 
                                             id={`check-${i}`} 
-                                            onCheckedChange={(checked) => setCheckedCount(prev => checked ? prev + 1 : prev - 1)} 
+                                            defaultChecked={true}
                                         />
                                         <Label htmlFor={`check-${i}`} className="text-xs leading-tight font-medium text-gray-700">{text}</Label>
                                     </div>
@@ -472,13 +478,9 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                             <Button 
                                 onClick={() => window.location.href = checkoutUrl} 
                                 size="lg" 
-                                disabled={checkedCount < 3}
-                                className={cn(
-                                    "w-full font-bold text-xl py-8 h-auto shadow-2xl transition-all",
-                                    checkedCount >= 3 ? "bg-green-600 hover:bg-green-700 animate-button-glow-success" : "bg-gray-300 cursor-not-allowed opacity-50"
-                                )}
+                                className="w-full font-bold text-xl py-8 h-auto shadow-2xl transition-all bg-green-600 hover:bg-green-700 animate-button-glow-success"
                             >
-                                {checkedCount < 3 ? "ACEITE OS TERMOS ACIMA" : "SELR RITUAL AGORA"}
+                                SELAR RITUAL AGORA
                             </Button>
                             <div className="flex items-center justify-center gap-2 text-[10px] text-gray-400">
                                 <LockIcon className="h-3 w-3" />
@@ -809,7 +811,7 @@ export default function FogoPage() {
                 <Paragraph className="text-xl line-through text-destructive">Não R$500.</Paragraph>
                 <Paragraph className="text-xl line-through text-destructive">Não R$200.</Paragraph>
                 <Paragraph className="text-2xl line-through text-destructive mb-4">Nem mesmo R$100.</Paragraph>
-                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$27</span>.</Paragraph>
+                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$27,00</span>.</Paragraph>
                 <Paragraph>Vinte e sete reais.</Paragraph>
                 <Paragraph>Menos que um jantar fora.</Paragraph>
                 <Paragraph className="font-bold text-xl">Pelo poder de fazer essa pessoa queimar por você para sempre.</Paragraph>

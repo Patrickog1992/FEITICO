@@ -52,7 +52,7 @@ const FogoBanner = () => {
   
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: O início do ano marca a abertura de um novo ciclo energético. No dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span> o Ritual da Chama de 5 Noites atua com força ampliada, acelerando o retorno de um amor perdido ou a atração irresistível de um novo amor, despertando desejo e conexão intensa.
+      ATENÇÃO: Durante a <span className="bg-white text-destructive px-1 rounded-sm mx-1">QUARESMA</span> e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, as energias de renovação e reconciliação estão mais ativas. O Ritual da Chama realizado nesses dias potencializa o retorno de quem se afastou ou atrai um novo amor com intensidade e desejo irresistível.
     </div>
   );
 }
@@ -561,12 +561,13 @@ export default function FogoPage() {
             <Section>
                 <SectionTitle>Por Que Isso Funciona (E Por Que Todo o Resto Falha)</SectionTitle>
                 <Paragraph>A maioria das pessoas faz tudo errado.</Paragraph>
-                <Paragraph>Choram abraçadas ao travesseiro.<br/>Imploram atenção.<br/>Stalkeiam redes sociais.<br/>Ou simplesmente esperam o “amor aparecer”.</Paragraph>
+                <Paragraph>Acha que o amor voltará pelo espaço ou aparecerá por acaso.</Paragraph>
+                <Paragraph>Stalkeiam redes sociais.<br/>Imploram atenção.<br/>Choram abraçadas ao travesseiro.</Paragraph>
                 <Paragraph>Ouvem amigos dizendo:</Paragraph>
                 <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">“Dá tempo ao tempo.”</Paragraph>
                 <Paragraph>Deixa eu te contar a verdade:</Paragraph>
-                <Paragraph>O amor não volta por espaço.<br/>E não aparece por acaso.</Paragraph>
-                <Paragraph className="font-bold">Ele volta — ou surge — quando algo se agarra à alma e não solta mais.</Paragraph>
+                <Paragraph>Homens e mulheres não voltam por espaço.<br/>E não aparecem por coincidência.</Paragraph>
+                <Paragraph className="font-bold">Eles voltam — ou surgem — quando algo se agarra à alma e não solta mais.</Paragraph>
                 <Paragraph className="font-bold">E é exatamente isso que essa chama faz.</Paragraph>
                 <Paragraph>Ela não pede.<br/>Não convence.<br/>Ela queima o seu nome — ou a sua energia — no espírito da pessoa certa até você ser tudo em que ela consegue pensar.</Paragraph>
             </Section>
@@ -730,7 +731,7 @@ export default function FogoPage() {
                 />
                 <Paragraph className="mt-6">A Sacerdotisa Azara é descendente direta dos guardiões do fogo zoroastristas da antiga Pérsia.</Paragraph>
                 <Paragraph>A família dela guarda a chama sagrada há mais de 1.500 anos. Quando os templos foram destruídos, eles fugiram com as brasas, mantendo a tradição viva em segredo.</Paragraph>
-                <Paragraph>Hoje, ela realiza o ritual da chama em seu templo particular para um número limitado de pessoas por semana.</Paragraph>
+                <Paragraph>Hoje, she realiza o ritual da chama em seu templo particular para um número limitado de pessoas por semana.</Paragraph>
                 <Paragraph>Ela não faz isso por dinheiro. É o chamado dela. O propósito dela. Garantir que esse poder antigo não se perca no mundo.</Paragraph>
                 <Paragraph className="font-bold">Mas o ritual a drena. Cada um exige dias de preparação e recuperação. Por isso ela só pode ajudar um número limitado de pessoas.</Paragraph>
             </Section>

@@ -467,7 +467,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                             <p className="text-sm text-gray-600">Contribuição simbólica para materiais do templo (Velas e Óleos):</p>
                             <div className="flex flex-col items-center justify-center">
                                 <span className="text-gray-400 line-through text-sm">De R$ 497,00</span>
-                                <span className="text-4xl font-bold text-green-600">R$ 47,00</span>
+                                <span className="text-4xl font-bold text-green-600">R$ 27,00</span>
                             </div>
                             <Button 
                                 onClick={() => window.location.href = checkoutUrl} 
@@ -528,7 +528,7 @@ export default function FogoPage() {
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
             <div className="w-full min-h-screen flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm fixed inset-0 z-50 overflow-y-auto">
-                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ7KGM" />
+                 <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ6JN4" />
             </div>
         ) : (
         <div className="w-full">
@@ -809,8 +809,8 @@ export default function FogoPage() {
                 <Paragraph className="text-xl line-through text-destructive">Não R$500.</Paragraph>
                 <Paragraph className="text-xl line-through text-destructive">Não R$200.</Paragraph>
                 <Paragraph className="text-2xl line-through text-destructive mb-4">Nem mesmo R$100.</Paragraph>
-                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$47</span>.</Paragraph>
-                <Paragraph>Quarenta e sete reais.</Paragraph>
+                <Paragraph className="text-2xl">Hoje, você pode ter o Ritual da Chama de 5 Noites realizado por apenas <span className="font-bold text-green-500 text-3xl">R$27</span>.</Paragraph>
+                <Paragraph>Vinte e sete reais.</Paragraph>
                 <Paragraph>Menos que um jantar fora.</Paragraph>
                 <Paragraph className="font-bold text-xl">Pelo poder de fazer essa pessoa queimar por você para sempre.</Paragraph>
                 
@@ -876,7 +876,7 @@ export default function FogoPage() {
                 <Paragraph>Esta página pode não ficar no ar.</Paragraph>
                 <Paragraph>Eles já tentaram enterrar esse ritual antes.</Paragraph>
                 <Paragraph>Terapeutas, coaches de relacionamento, toda a indústria de “autoajuda” — eles adorariam ver isso desaparecer.</Paragraph>
-                <Paragraph>Porque quando as pessoas têm esse poder, ninguém tem chance.</Paragraph>
+                <Paragraph>Porque quando as pessoas têm esse power, ninguém tem chance.</Paragraph>
                 <Paragraph>Não posso prometer que esta página estará aqui amanhã.</Paragraph>
                 <Paragraph>Mas posso prometer isto:</Paragraph>
                 <Paragraph className="font-bold text-primary text-xl">👉 Se você agir agora, a Sacerdotisa Azara começará seu ritual ainda hoje à noite.</Paragraph>

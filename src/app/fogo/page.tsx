@@ -373,7 +373,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     key={i} 
                                     onClick={handleQuizOption} 
                                     variant="outline" 
-                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all text-gray-800 active:text-gray-800 focus:text-gray-800"
+                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800 hover:!text-gray-800 active:!text-gray-800 focus:!text-gray-800 focus-visible:!text-gray-800"
                                 >
                                     {opt}
                                 </Button>
@@ -493,7 +493,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
     };
 
     return (
-        <div className="relative w-full max-w-md mx-auto rounded-3xl p-8 bg-white border shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden">
+        <div className="relative w-full h-auto max-w-md mx-auto rounded-3xl p-8 bg-white border shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-yellow-400 to-primary"></div>
             <Button
                 variant="ghost"
@@ -538,7 +538,7 @@ export default function FogoPage() {
             <FogoBanner />
             </div>
             <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold font-headline text-primary uppercase">
+            <h1 className="text-2xl md:text-3xl font-bold font-headline text-primary uppercase">
                 Sussurre o nome da pessoa desejada nesta chama sagrada…
                 e em até 5 noites, ela vai ficar totalmente obcecada por você 
                 ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
@@ -744,7 +744,7 @@ export default function FogoPage() {
                 <Paragraph className="italic">“Não consigo respirar sem você.”</Paragraph>
                 <Paragraph>Os generais chamaram de loucura.</Paragraph>
                 <Paragraph>Os sacerdotes chamaram de bruxaria.</Paragraph>
-                <Paragraph className="font-bold">Quem usou a chama chamou de poder.</Paragraph>
+                <Paragraph className="font-bold">Quem usou a chama chamou de power.</Paragraph>
             </Section>
             
             <Section>
@@ -926,7 +926,7 @@ export default function FogoPage() {
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se essa pessoa jurou que nunca voltaria?</h3>
-                        <Paragraph>Pessoas dizem muitas coisas. Palavras grandes. Mas palavras não significam nada quando a alma está em chamas. Na quinta noite, ele nem vai lembrar do que jurou. Estará ocupada demais implorando para você aceitá-la de volta.</Paragraph>
+                        <Paragraph>Pessoas dizem muitas coisas. Palavras grandes. Mas palavras não significam nada quando a alma está em chamas. Na quinta noite, ele nem vai lembrar do que jurou. Estará ocupada demais implorando para você aceitá-lo de volta.</Paragraph>
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se eu não acreditar nisso?</h3>

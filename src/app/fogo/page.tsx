@@ -333,7 +333,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
 
     const handleAltarClick = () => {
         setFlameOn(true);
-        setTimeout(() => setStep("sealing"), 400); // Mais rápido conforme solicitado
+        setTimeout(() => setStep("sealing"), 400); // Rápido conforme solicitado
     };
 
     const renderContent = () => {
@@ -461,7 +461,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     <div key={i} className="flex items-start gap-3">
                                         <Checkbox 
                                             id={`check-${i}`} 
-                                            defaultChecked={true}
+                                            defaultChecked={false}
                                         />
                                         <Label htmlFor={`check-${i}`} className="text-xs leading-tight font-medium text-gray-700">{text}</Label>
                                     </div>
@@ -629,7 +629,7 @@ export default function FogoPage() {
                 <Paragraph>Não são velas de loja barata nem pensamentos positivos.</Paragraph>
                 <Paragraph>É um ritual de fogo antigo que remonta a mais de 3.000 anos, às sacerdotisas zoroastristas da Pérsia.</Paragraph>
                 <Paragraph>Elas sabiam algo que foi escondido das pessoas por séculos:</Paragraph>
-                <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado. E quando é aceso, he queima por uma única pessoa — e apenas uma.</Paragraph>
+                <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado. E quando é aceso, ele queima por uma única pessoa — e apenas uma.</Paragraph>
                 <Paragraph>Rainhas e reis usavam isso para manter seus amores leais. Tão leais que abandonavam amantes, largavam guerras pela metade e atravessavam reinos inteiros apenas para estar perto de quem incendiou sua alma novamente.</Paragraph>
                 <Paragraph>Os sacerdotes odiavam isso.</Paragraph>
                 <Paragraph>Chamavam de perigoso.</Paragraph>
@@ -664,7 +664,7 @@ export default function FogoPage() {
                 <Paragraph>Isso não são meses de espera.</Paragraph>
                 <Paragraph>Não são anos de terapia.</Paragraph>
                 <Paragraph>Não é “manifestar por seis meses e torcer para dar certo”.</Paragraph>
-                <Paragraph>A Sacerdotisa Azara sussurra o nome na chama sagrada e, em até 5 noites, o world da pessoa vira de cabeça para baixo.</Paragraph>
+                <Paragraph>A Sacerdotisa Azara sussurra o nome na chama sagrada e, em até 5 noites, o mundo da pessoa vira de cabeça para baixo.</Paragraph>
                 
                 <div className="space-y-4 mt-6">
                 <p><strong>Noite 1: A Primeira Faísca</strong><br/>No momento em que o nome entra na chama, algo muda. A pessoa vai se sentir inquieta naquela noite. Vai se revirar às 3 da manhã sem saber por quê. Seu rosto vai piscar na mente dela. Sentirá uma dor estranha no peito que não consegue explicar.</p>

@@ -4,7 +4,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ThumbsUp, Heart, UserPlus, LockIcon, X, Sparkles, Wand2, Flame } from "lucide-react";
+import { ThumbsUp, Heart, UserPlus, LockIcon, X, Sparkles, Wand2, Flame, AlertTriangle, CheckCircle2 } from "lucide-react";
 import React from "react";
 import FacebookPixel from "@/components/analytics/facebook-pixel";
 import Autoplay from "embla-carousel-autoplay";
@@ -24,7 +24,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import RitualFogoSocialProof from "@/components/feiticos/ritual-fogo-social-proof";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +37,6 @@ const FogoBanner = () => {
   const [currentDate, setCurrentDate] = useState('');
 
   useEffect(() => {
-    // This will only run on the client side, after hydration
     const date = new Date().toLocaleDateString('pt-BR', {
       day: 'numeric',
       month: 'long',
@@ -52,7 +52,7 @@ const FogoBanner = () => {
   
   return (
     <div className="bg-destructive text-destructive-foreground text-center p-3 text-xs font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: Durante a <span className="bg-white text-destructive px-1 rounded-sm mx-1">QUARESMA</span> e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, as energias de renovação e reconciliação estão mais ativas. O Ritual da Chama realizado nesses dias potencializa o retorno de quem se afastou ou atrai um novo amor com intensidade e desejo irresistível.
+      ATENÇÃO: Durante a <span className="bg-white text-destructive px-1 rounded-sm mx-1 font-bold italic uppercase">QUARESMA</span> e especialmente no dia <span className="bg-yellow-400 text-black px-2 py-1 rounded-md mx-1">{currentDate}</span>, as energias de renovação e reconciliação estão mais ativas. O Ritual da Chama realizado nesses dias potencializa o retorno de quem se afastou ou atrai um novo amor com intensidade e desejo irresistível.
     </div>
   );
 }
@@ -176,7 +176,7 @@ const Testimonials = () => {
 
 // ====================================================================
 // COMPONENTES DE LAYOUT DA PÁGINA
-// =_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=_=
+// ====================================================================
 
 const Section: React.FC<{
   children: React.ReactNode;
@@ -204,7 +204,7 @@ const Paragraph: React.FC<{ children: React.ReactNode; className?: string }> = (
 );
 
 // ====================================================================
-// ALTAR DO FOGO
+// FUNIL DO ALTAR DO FOGO (COMPONENTE PRINCIPAL)
 // ====================================================================
 
 const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
@@ -215,40 +215,15 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
           isOn ? "scale-100" : "scale-0"
         )}
       >
-        <svg
-          viewBox="0 0 100 150"
-          xmlns="http://www.w3.org/2000/svg"
-          className="absolute top-0 left-0 h-full w-full"
-        >
-          <path
-            d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z"
-            fill="url(#grad1)"
-          />
-          <path
-            d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z"
-            fill="url(#grad2)"
-            className="animate-pulse"
-            style={{ animationDuration: '2s', opacity: 0.8 }}
-          />
-          <path
-            d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z"
-            fill="white"
-            className="animate-pulse"
-            style={{ animationDuration: '1.5s', opacity: 0.7 }}
-          />
+        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 h-full w-full">
+          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1)" />
+          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2)" className="animate-pulse" style={{ animationDuration: '2s', opacity: 0.8 }} />
+          <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.7 }} />
         </svg>
-        <svg width="0" height="0">
-          <defs>
-            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-              <stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} />
-            </radialGradient>
-            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-              <stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} />
-            </radialGradient>
-          </defs>
-        </svg>
+        <svg width="0" height="0"><defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} /></radialGradient>
+        </defs></svg>
       </div>
     );
 
@@ -264,205 +239,272 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
 };
 
 const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUrl: string }) => {
-    const [step, setStep] = useState<"choice" | "formBringBack" | "formNewLove" | "loading" | "final">("choice");
+    const [step, setStep] = useState<"choice" | "quiz" | "form" | "loading" | "altar" | "sealing">("choice");
+    const [quizIndex, setQuizIndex] = useState(0);
     const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
     const [targetName, setTargetName] = useState("");
     const [requesterName, setRequesterName] = useState("");
-    const [loadingMessages, setLoadingMessages] = useState<string[]>([]);
     const [flameOn, setFlameOn] = useState(false);
-    const [altarMessage, setAltarMessage] = useState("CLIQUE NO ALTAR PARA ACENDER A CHAMA");
-    
+    const [timeLeft, setTimeLeft] = useState(300); // 5 minutos
+    const [checkedCount, setCheckedCount] = useState(0);
+
+    const formSchema = z.object({
+        requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
+        targetName: z.string().optional(),
+    });
+
+    const form = useForm<z.infer<typeof formSchema>>({
+        resolver: zodResolver(formSchema),
+        defaultValues: { requesterName: "", targetName: "" },
+    });
+
+    const quizQuestions = [
+        {
+            q: "Há quanto tempo as energias de vocês se afastaram?",
+            options: ["Menos de 1 mês", "De 1 a 6 meses", "Mais de 6 meses"]
+        },
+        {
+            q: "Existe uma terceira pessoa interferindo no campo vibracional?",
+            options: ["Sim", "Não", "Sinto uma energia estranha"]
+        },
+        {
+            q: "Qual o nível de frieza atual dele(a)?",
+            options: ["Gelo total", "Me ignora", "Oscilante"]
+        }
+    ];
+
+    const loadingMessages = [
+        "Localizando frequência vibracional de {TARGET_NAME}...",
+        "Detectando bloqueios de terceiras pessoas...",
+        "Mapeando conexões cármicas residuais...",
+        "Analisando vulnerabilidade espiritual: ALTA...",
+        "Caminho desobstruído para a Sacerdotisa Azara...",
+    ];
+
+    useEffect(() => {
+        if (step === "loading") {
+            const interval = setInterval(() => {
+                setLoadingMessageIndex((prev) => {
+                    if (prev < loadingMessages.length - 1) return prev + 1;
+                    clearInterval(interval);
+                    setStep("altar");
+                    return prev;
+                });
+            }, 1800);
+            return () => clearInterval(interval);
+        }
+    }, [step, loadingMessages.length]);
+
+    useEffect(() => {
+        if (step === "sealing" && timeLeft > 0) {
+            const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
+            return () => clearInterval(timer);
+        }
+    }, [step, timeLeft]);
+
+    const formatTime = (seconds: number) => {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    };
+
+    const handleIntentChoice = (isBringBack: boolean) => {
+        if (isBringBack) {
+            setStep("quiz");
+        } else {
+            setStep("form");
+        }
+    };
+
+    const handleQuizOption = () => {
+        if (quizIndex < quizQuestions.length - 1) {
+            setQuizIndex(quizIndex + 1);
+        } else {
+            setStep("form");
+        }
+    };
+
+    const onSubmitForm = (values: z.infer<typeof formSchema>) => {
+        setRequesterName(values.requesterName);
+        setTargetName(values.targetName || "alguém especial");
+        setStep("loading");
+    };
+
     const handleAltarClick = () => {
         setFlameOn(true);
-        setAltarMessage("A CHAMA ESTÁ ARDENDO");
-    }
-    
-    const formBringBack = useForm<z.infer<typeof formSchemaBringBack>>({
-      resolver: zodResolver(formSchemaBringBack),
-      defaultValues: { requesterName: "", targetName: "" },
-    });
-  
-    const formNewLove = useForm<z.infer<typeof formSchemaNewLove>>({
-      resolver: zodResolver(formSchemaNewLove),
-      defaultValues: { requesterName: "" },
-    });
-  
-    useEffect(() => {
-      if (step === "loading") {
-        const interval = setInterval(() => {
-          setLoadingMessageIndex((prevIndex) => {
-            if (prevIndex < loadingMessages.length - 1) {
-              return prevIndex + 1;
-            }
-            clearInterval(interval);
-            setStep("final");
-            return prevIndex;
-          });
-        }, 1500);
-        return () => clearInterval(interval);
-      }
-    }, [step, loadingMessages.length]);
-    
-    function onSubmitBringBack(values: z.infer<typeof formSchemaBringBack>) {
-      setTargetName(values.targetName);
-      setRequesterName(values.requesterName);
-      setLoadingMessages(loadingMessagesBringBack);
-      setStep("loading");
-    }
-  
-    function onSubmitNewLove(values: z.infer<typeof formSchemaNewLove>) {
-      setTargetName("");
-      setRequesterName(values.requesterName);
-      setLoadingMessages(loadingMessagesNewLove);
-      setStep("loading");
-    }
+        setTimeout(() => setStep("sealing"), 1500);
+    };
 
     const renderContent = () => {
         switch (step) {
-          case "choice":
-            return (
-              <>
-                <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
-                <p className="text-center text-gray-600 mb-6">Escolha o caminho do seu coração para que a Sacerdotisa Azara possa guiar o ritual.</p>
-                <div className="space-y-4">
-                    <Button onClick={() => setStep("formBringBack")} size="lg" className="w-full h-auto py-3 text-lg justify-start whitespace-normal">
-                        <Heart className="mr-4 flex-shrink-0"/>
-                        Quero trazer um amor de volta
-                    </Button>
-                    <Button onClick={() => setStep("formNewLove")} size="lg" className="w-full h-auto py-3 text-lg justify-start whitespace-normal">
-                        <UserPlus className="mr-4 flex-shrink-0"/>
-                        Quero atrair um novo amor
-                    </Button>
-                </div>
-              </>
-            );
-    
-          case "formBringBack":
-            return (
-              <>
-                <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual da União</h2>
-                <p className="text-center text-gray-600 mb-6">A Sacerdotisa Azara precisa dos nomes para vincular a alma de vocês dois.</p>
-                <Form {...formBringBack}>
-                  <form onSubmit={formBringBack.handleSubmit(onSubmitBringBack)} className="space-y-4">
-                    <FormField control={formBringBack.control} name="requesterName" render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input placeholder="Seu nome" {...field} className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3" autoComplete="off" />
-                          </FormControl>
-                          <FormMessage className="text-red-500 text-center" />
-                        </FormItem>
-                    )}/>
-                    <FormField control={formBringBack.control} name="targetName" render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input placeholder="Nome de quem você deseja" {...field} className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3" autoComplete="off" />
-                          </FormControl>
-                          <FormMessage className="text-red-500 text-center" />
-                        </FormItem>
-                    )}/>
-                    <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">Vincular Almas Agora</Button>
-                    <div className="flex items-center justify-center gap-2 text-xs text-gray-500"><LockIcon className="h-3 w-3" /><span>Seus dados estão 100% protegidos e privados.</span></div>
-                  </form>
-                </Form>
-              </>
-            );
-    
-        case "formNewLove":
-            return (
-              <>
-                <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual da Atração</h2>
-                <p className="text-center text-gray-600 mb-6">Informe seu nome para que a Sacerdotisa Azara possa abrir seus caminhos para o amor.</p>
-                <Form {...formNewLove}>
-                  <form onSubmit={formNewLove.handleSubmit(onSubmitNewLove)} className="space-y-4">
-                    <FormField control={formNewLove.control} name="requesterName" render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input placeholder="Seu nome" {...field} className="bg-gray-100 text-center text-base md:text-lg font-headline text-gray-800 placeholder:text-gray-400 border-gray-300 focus:border-primary focus-visible:ring-primary py-3" autoComplete="off" />
-                          </FormControl>
-                          <FormMessage className="text-red-500 text-center" />
-                        </FormItem>
-                    )}/>
-                    <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg py-3 h-auto">Abrir Meus Caminhos</Button>
-                    <div className="flex items-center justify-center gap-2 text-xs text-gray-500"><LockIcon className="h-3 w-3" /><span>Seus dados estão 100% protegidos e privados.</span></div>
-                  </form>
-                </Form>
-              </>
-            );
-    
-          case "loading":
-            const currentMessage = loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName);
-            return (
-              <div className="flex flex-col items-center justify-center text-center h-64">
-                <Wand2 className="h-20 w-20 text-primary animate-pulse mb-6" />
-                <p className="text-xl font-headline text-gray-700 transition-all duration-500 animate-in fade-in">{currentMessage}</p>
-              </div>
-            );
-    
-          case "final":
-            return (
-                <div className="flex flex-col items-center justify-center text-center">
-                    <Sparkles className="h-16 w-16 text-green-500 mb-4"/>
-                    <h3 className="text-2xl font-bold font-headline text-green-600 mb-2">CONEXÃO ESTABELECIDA!</h3>
-                    {targetName ? (
-                         <p className="text-lg text-gray-700 mb-2">
-                            <span className="font-bold text-primary">{targetName}</span> está espiritualmente vulnerável. O vínculo foi mapeado com sucesso.
-                        </p>
-                    ) : (
-                        <p className="text-lg text-gray-700 mb-2">
-                            Seu campo energético está aberto. O universo está pronto para trazer seu novo amor.
-                        </p>
-                    )}
-                    <div className="text-center my-4">
-                        <p className={cn("text-sm font-bold uppercase", flameOn ? "text-destructive" : "text-primary")}>{altarMessage}</p>
+            case "choice":
+                return (
+                    <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
+                        <p className="text-center text-gray-600">Escolha o caminho para que a Sacerdotisa Azara possa guiar o ritual.</p>
+                        <div className="space-y-4">
+                            <Button onClick={() => handleIntentChoice(true)} size="lg" className="w-full h-auto py-4 text-lg justify-start bg-primary hover:bg-primary/90 text-white shadow-xl">
+                                <Heart className="mr-4 flex-shrink-0 fill-current"/>
+                                Quero trazer um amor de volta
+                            </Button>
+                            <Button onClick={() => handleIntentChoice(false)} size="lg" className="w-full h-auto py-4 text-lg justify-start bg-secondary hover:bg-secondary/90 text-white shadow-xl">
+                                <UserPlus className="mr-4 flex-shrink-0"/>
+                                Quero atrair um novo amor
+                            </Button>
+                        </div>
                     </div>
-                    <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
-                    <p className="text-md text-gray-600 mt-4 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
-                    <Button onClick={() => window.location.href = checkoutUrl} size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-lg h-12">FINALIZAR O RITUAL</Button>
-                </div>
-            );
-        }
-      };
+                );
 
-      return (
-        <div className="relative w-full max-w-md mx-auto rounded-lg p-8 bg-white border shadow-2xl">
+            case "quiz":
+                return (
+                    <div className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-500">
+                        <div className="flex justify-between items-center mb-2">
+                            <span className="text-xs font-bold text-primary uppercase tracking-widest">Diagnóstico Espiritual</span>
+                            <span className="text-xs font-bold text-gray-400">{quizIndex + 1}/3</span>
+                        </div>
+                        <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                            <div className="bg-primary h-full transition-all duration-500" style={{ width: `${((quizIndex + 1) / 3) * 100}%` }}></div>
+                        </div>
+                        <h2 className="text-xl font-headline font-bold text-gray-800">{quizQuestions[quizIndex].q}</h2>
+                        <div className="space-y-3">
+                            {quizQuestions[quizIndex].options.map((opt, i) => (
+                                <Button key={i} onClick={handleQuizOption} variant="outline" className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all">
+                                    {opt}
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+                );
+
+            case "form":
+                return (
+                    <div className="space-y-6 animate-in fade-in duration-500">
+                        <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Prepare o Ritual</h2>
+                        <p className="text-center text-gray-600 mb-6">A Sacerdotisa Azara precisa dos nomes para selar o destino na chama.</p>
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmitForm)} className="space-y-4">
+                                <FormField control={form.control} name="requesterName" render={({ field }) => (
+                                    <FormItem>
+                                        <FormControl>
+                                            <Input placeholder="Seu nome" {...field} className="bg-gray-100 text-center text-lg py-6" autoComplete="off" />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}/>
+                                {targetName !== "" && (
+                                    <FormField control={form.control} name="targetName" render={({ field }) => (
+                                        <FormItem>
+                                            <FormControl>
+                                                <Input placeholder="Nome da pessoa desejada" {...field} className="bg-gray-100 text-center text-lg py-6" autoComplete="off" />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}/>
+                                )}
+                                <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-xl py-6 h-auto">CONECTAR AGORA</Button>
+                                <div className="flex items-center justify-center gap-2 text-xs text-gray-500"><LockIcon className="h-3 w-3" /><span>Seus dados estão 100% protegidos e privados.</span></div>
+                            </form>
+                        </Form>
+                    </div>
+                );
+
+            case "loading":
+                return (
+                    <div className="flex flex-col items-center justify-center text-center h-80 space-y-6">
+                        <div className="relative">
+                            <Wand2 className="h-20 w-20 text-primary animate-pulse" />
+                            <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-ping"></div>
+                        </div>
+                        <div className="space-y-2">
+                            <p className="text-xs font-bold text-primary uppercase tracking-tighter animate-pulse">Escaneamento Astral em Curso</p>
+                            <p className="text-xl font-headline text-gray-700 h-14 transition-all duration-500">{loadingMessages[loadingMessageIndex].replace('{TARGET_NAME}', targetName)}</p>
+                        </div>
+                    </div>
+                );
+
+            case "altar":
+                return (
+                    <div className="space-y-6 animate-in zoom-in-95 duration-500 text-center">
+                        <div className="bg-green-100 text-green-700 p-2 rounded-lg text-xs font-bold flex items-center justify-center gap-2">
+                            <CheckCircle2 className="h-4 w-4" /> CONEXÃO ESTABELECIDA
+                        </div>
+                        <h2 className="text-2xl font-headline font-bold text-gray-800">A chama sagrada aguarda o seu toque</h2>
+                        <p className="text-sm text-gray-600 italic">Clique no altar para que a Sacerdotisa Azara invoque o nome de {targetName} no fogo antigo.</p>
+                        <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
+                        <p className="text-xs font-bold text-primary uppercase animate-bounce">Toque no altar para acender</p>
+                    </div>
+                );
+
+            case "sealing":
+                return (
+                    <div className="space-y-6 animate-in fade-in duration-700">
+                        <div className="bg-red-600 text-white p-3 rounded-lg text-center shadow-lg animate-pulse">
+                            <p className="text-xs font-bold uppercase">Atenção: Portal de Quaresma Aberto</p>
+                            <p className="text-2xl font-mono font-bold">{formatTime(timeLeft)}</p>
+                            <p className="text-[10px]">Selo expira quando o cronômetro zerar</p>
+                        </div>
+
+                        <div className="space-y-4">
+                            <h3 className="text-xl font-bold font-headline text-gray-800 text-center">Contrato de Selamento</h3>
+                            <div className="space-y-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
+                                {[
+                                    `Entendo que este feitiço de obsessão é irreversível para ${targetName}.`,
+                                    "Prometo manter segredo absoluto para não quebrar o encantamento.",
+                                    "Aceito que o universo trará os resultados em até 5 noites."
+                                ].map((text, i) => (
+                                    <div key={i} className="flex items-start gap-3">
+                                        <Checkbox 
+                                            id={`check-${i}`} 
+                                            onCheckedChange={(checked) => setCheckedCount(prev => checked ? prev + 1 : prev - 1)} 
+                                        />
+                                        <Label htmlFor={`check-${i}`} className="text-xs leading-tight font-medium text-gray-700">{text}</Label>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="space-y-4 text-center">
+                            <p className="text-sm text-gray-600">Contribuição simbólica para materiais do templo (Velas e Óleos):</p>
+                            <div className="flex flex-col items-center justify-center">
+                                <span className="text-gray-400 line-through text-sm">De R$ 497,00</span>
+                                <span className="text-4xl font-bold text-green-600">R$ 47,00</span>
+                            </div>
+                            <Button 
+                                onClick={() => window.location.href = checkoutUrl} 
+                                size="lg" 
+                                disabled={checkedCount < 3}
+                                className={cn(
+                                    "w-full font-bold text-xl py-8 h-auto shadow-2xl transition-all",
+                                    checkedCount >= 3 ? "bg-green-600 hover:bg-green-700 animate-button-glow-success" : "bg-gray-300 cursor-not-allowed opacity-50"
+                                )}
+                            >
+                                {checkedCount < 3 ? "ACEITE OS TERMOS ACIMA" : "SELR RITUAL AGORA"}
+                            </Button>
+                            <div className="flex items-center justify-center gap-2 text-[10px] text-gray-400">
+                                <LockIcon className="h-3 w-3" />
+                                <span>CONEXÃO CRIPTOGRAFADA E SIGILOSA</span>
+                            </div>
+                        </div>
+                    </div>
+                );
+        }
+    };
+
+    return (
+        <div className="relative w-full max-w-md mx-auto rounded-3xl p-8 bg-white border shadow-[0_20px_50px_rgba(0,0,0,0.2)] overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-yellow-400 to-primary"></div>
             <Button
                 variant="ghost"
                 size="icon"
                 onClick={onClose}
-                className="absolute top-2 right-2 rounded-full text-gray-500 hover:text-gray-800 hover:bg-gray-100"
+                className="absolute top-2 right-2 rounded-full text-gray-400 hover:text-gray-800"
             >
                 <X className="h-5 w-5" />
-                <span className="sr-only">Fechar</span>
             </Button>
             {renderContent()}
         </div>
-      );
-}
-
-const formSchemaBringBack = z.object({
-    requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
-    targetName: z.string().min(2, { message: "O nome de quem você deseja é necessário." }),
-  });
-  
-  const formSchemaNewLove = z.object({
-    requesterName: z.string().min(2, { message: "Seu nome é necessário." }),
-  });
-
-  const loadingMessagesBringBack = [
-    "Invocando a Sacerdotisa Azara...",
-    "Analisando as energias cósmicas...",
-    "Conectando à alma de {TARGET_NAME}...",
-    "Tecendo os fios do destino...",
-    "Alinhando os corações...",
-  ];
-  
-  const loadingMessagesNewLove = [
-      "Invocando a Sacerdotisa Azara...",
-      "Limpando seus caminhos astrais...",
-      "Alinhando o universo ao seu favor...",
-      "Abrindo seu coração para o amor verdadeiro...",
-      "Atraindo a alma gêmea destinada a você...",
-  ];
+    );
+};
 
 
 // ====================================================================
@@ -485,7 +527,7 @@ export default function FogoPage() {
       <RitualFogoSocialProof />
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
-            <div className="w-full min-h-screen flex items-center justify-center p-4">
+            <div className="w-full min-h-screen flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm fixed inset-0 z-50 overflow-y-auto">
                  <AltarDoFogo onClose={handleCloseAltar} checkoutUrl="https://go.perfectpay.com.br/PPU38CQ7KGM" />
             </div>
         ) : (
@@ -774,7 +816,7 @@ export default function FogoPage() {
                 
                 <div className="text-center bg-card/80 p-6 rounded-2xl shadow-2xl shadow-primary/10 backdrop-blur-sm my-8">
                     <h3 className="font-headline text-2xl font-bold text-center text-primary mb-4">🎁 BÔNUS EXCLUSIVOS PARA QUEM FAZER O RITUAL HOJE</h3>
-                    <p className="text-lg text-foreground/80 mb-6">⚠️ ATENÇÃO: Estes bônus não são vendidos separadamente. Eles só são liberados para quem ativa o Ritual do Fogo HOJE.</p>
+                    <p className="text-lg text-foreground/80 mb-6">⚠️ ATENÇÃO: Estas bônus não são vendidos separadamente. Eles só são liberados para quem ativa o Ritual do Fogo HOJE.</p>
                     <div className="space-y-4 text-left">
                         <div>
                             <h4 className="font-bold">🔥 BÔNUS #1 – Ativação do Vínculo Energético Noturno</h4>

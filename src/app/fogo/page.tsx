@@ -333,7 +333,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
 
     const handleAltarClick = () => {
         setFlameOn(true);
-        setTimeout(() => setStep("sealing"), 800);
+        setTimeout(() => setStep("sealing"), 400); // Mais rápido conforme solicitado
     };
 
     const renderContent = () => {
@@ -373,7 +373,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     key={i} 
                                     onClick={handleQuizOption} 
                                     variant="outline" 
-                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all text-gray-800 active:text-gray-800"
+                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all text-gray-800 active:text-gray-800 focus:text-gray-800"
                                 >
                                     {opt}
                                 </Button>
@@ -401,7 +401,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     <FormField control={form.control} name="targetName" render={({ field }) => (
                                         <FormItem>
                                             <FormControl>
-                                                <Input placeholder="Nome de quem você deseja" {...field} className="bg-gray-100 text-center text-lg py-6" autoComplete="off" />
+                                                <Input placeholder="Nome da pessoa desejada" {...field} className="bg-gray-100 text-center text-lg py-6" autoComplete="off" />
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
@@ -664,7 +664,7 @@ export default function FogoPage() {
                 <Paragraph>Isso não são meses de espera.</Paragraph>
                 <Paragraph>Não são anos de terapia.</Paragraph>
                 <Paragraph>Não é “manifestar por seis meses e torcer para dar certo”.</Paragraph>
-                <Paragraph>A Sacerdotisa Azara sussurra o nome na chama sagrada e, em até 5 noites, o mundo da pessoa vira de cabeça para baixo.</Paragraph>
+                <Paragraph>A Sacerdotisa Azara sussurra o nome na chama sagrada e, em até 5 noites, o world da pessoa vira de cabeça para baixo.</Paragraph>
                 
                 <div className="space-y-4 mt-6">
                 <p><strong>Noite 1: A Primeira Faísca</strong><br/>No momento em que o nome entra na chama, algo muda. A pessoa vai se sentir inquieta naquela noite. Vai se revirar às 3 da manhã sem saber por quê. Seu rosto vai piscar na mente dela. Sentirá uma dor estranha no peito que não consegue explicar.</p>
@@ -926,7 +926,7 @@ export default function FogoPage() {
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se essa pessoa jurou que nunca voltaria?</h3>
-                        <Paragraph>Pessoas dizem muitas coisas. Palavras grandes. Mas palavras não significam nada quando a alma está em chamas. Na quinta noite, ela nem vai lembrar do que jurou. Estará ocupada demais implorando para você aceitá-la de volta.</Paragraph>
+                        <Paragraph>Pessoas dizem muitas coisas. Palavras grandes. Mas palavras não significam nada quando a alma está em chamas. Na quinta noite, ele nem vai lembrar do que jurou. Estará ocupada demais implorando para você aceitá-la de volta.</Paragraph>
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se eu não acreditar nisso?</h3>

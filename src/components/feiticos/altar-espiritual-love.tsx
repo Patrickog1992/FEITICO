@@ -26,17 +26,17 @@ type AltarEspiritualLoveProps = {
 };
 
 // ====================================================================
-// COMPONENTE DE VELA VERMELHA INTERATIVA
+// COMPONENTE DE VELA VERMELHA INTERATIVA (PROPORÇÕES AJUSTADAS)
 // ====================================================================
 const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
     const FlameComponent = ({ isOn }: { isOn: boolean }) => (
       <div
         className={cn(
-          "absolute bottom-[165px] h-36 w-28 origin-bottom transform-gpu transition-all duration-700 ease-out z-20",
+          "absolute bottom-[155px] h-24 w-20 origin-bottom transform-gpu transition-all duration-700 ease-out z-20",
           isOn ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
       >
-        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="h-full w-full drop-shadow-[0_0_20px_rgba(255,50,50,0.8)]">
+        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="h-full w-full drop-shadow-[0_0_15px_rgba(255,50,50,0.7)]">
           <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_candle)" />
           <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_candle)" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.9 }} />
           <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1s', opacity: 0.8 }} />
@@ -49,30 +49,29 @@ const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =>
     );
 
     return (
-        <div className="relative w-full h-72 flex items-center justify-center cursor-pointer group" onClick={onClick}>
+        <div className="relative w-full h-64 flex items-center justify-center cursor-pointer group" onClick={onClick}>
             {/* Prato da Vela */}
-            <div className="absolute bottom-4 w-36 h-6 bg-stone-300 rounded-full shadow-inner border-b-4 border-stone-400"></div>
+            <div className="absolute bottom-4 w-24 h-4 bg-stone-300 rounded-full shadow-inner border-b-2 border-stone-400"></div>
             
             {/* Corpo da Vela Vermelha */}
-            <div className="absolute bottom-8 w-20 h-44 bg-gradient-to-r from-rose-700 via-rose-600 to-rose-800 rounded-t-md shadow-xl relative overflow-hidden border-x border-rose-900/20">
+            <div className="absolute bottom-6 w-12 h-36 bg-gradient-to-r from-rose-700 via-rose-600 to-rose-800 rounded-t-sm shadow-xl relative overflow-hidden border-x border-rose-900/20">
                 {/* Gotas de Cera (Drips) */}
-                <div className="absolute top-0 left-2 w-3 h-16 bg-rose-400/40 rounded-full blur-[1px]"></div>
-                <div className="absolute top-0 right-4 w-2 h-24 bg-rose-400/40 rounded-full blur-[1px]"></div>
-                <div className="absolute top-6 left-10 w-2 h-12 bg-rose-400/40 rounded-full blur-[1px]"></div>
+                <div className="absolute top-0 left-1 w-2 h-10 bg-rose-400/30 rounded-full blur-[1px]"></div>
+                <div className="absolute top-0 right-2 w-1.5 h-16 bg-rose-400/30 rounded-full blur-[1px]"></div>
                 
                 {/* Brilho Interno da Vela quando acesa */}
                 <div className={cn(
-                    "absolute inset-0 bg-orange-500/20 transition-opacity duration-1000",
+                    "absolute inset-0 bg-orange-500/10 transition-opacity duration-1000",
                     flameOn ? "opacity-100" : "opacity-0"
                 )}></div>
             </div>
 
             {/* Pavio (Wick) */}
-            <div className="absolute bottom-[180px] w-1 h-5 bg-gray-900 rounded-full z-10"></div>
+            <div className="absolute bottom-[168px] w-0.5 h-4 bg-gray-900 rounded-full z-10"></div>
 
             {/* Brilho de Ambiente */}
             <div className={cn(
-                "absolute bottom-40 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl transition-opacity duration-1000",
+                "absolute bottom-24 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl transition-opacity duration-1000",
                 flameOn ? "opacity-100" : "opacity-0"
             )}></div>
 

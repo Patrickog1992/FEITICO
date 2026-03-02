@@ -26,35 +26,57 @@ type AltarEspiritualLoveProps = {
 };
 
 // ====================================================================
-// COMPONENTE DE CHAMA REALISTA (SVG)
+// COMPONENTE DE VELA VERMELHA INTERATIVA
 // ====================================================================
-const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
+const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
     const FlameComponent = ({ isOn }: { isOn: boolean }) => (
       <div
         className={cn(
-          "absolute bottom-[70px] h-40 w-32 origin-bottom transform-gpu transition-transform duration-500 ease-out",
-          isOn ? "scale-100" : "scale-0"
+          "absolute bottom-[165px] h-36 w-28 origin-bottom transform-gpu transition-all duration-700 ease-out z-20",
+          isOn ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
       >
-        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 h-full w-full">
-          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_love)" />
-          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_love)" className="animate-pulse" style={{ animationDuration: '2s', opacity: 0.8 }} />
-          <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.7 }} />
+        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="h-full w-full drop-shadow-[0_0_20px_rgba(255,50,50,0.8)]">
+          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_candle)" />
+          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_candle)" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.9 }} />
+          <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1s', opacity: 0.8 }} />
         </svg>
         <svg width="0" height="0"><defs>
-            <radialGradient id="grad1_love" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} /></radialGradient>
-            <radialGradient id="grad2_love" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad1_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,80,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(220,20,60,0.2)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad2_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,100,1)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,100,0,0.5)", stopOpacity: 0 }} /></radialGradient>
         </defs></svg>
       </div>
     );
 
     return (
-        <div className="relative w-full h-56 flex items-center justify-center cursor-pointer" onClick={onClick}>
-            <div className="absolute bottom-10 w-32 h-16 bg-stone-700 rounded-t-lg shadow-lg">
-                <div className="w-full h-2 bg-stone-800 rounded-t-lg"></div>
+        <div className="relative w-full h-72 flex items-center justify-center cursor-pointer group" onClick={onClick}>
+            {/* Prato da Vela */}
+            <div className="absolute bottom-4 w-36 h-6 bg-stone-300 rounded-full shadow-inner border-b-4 border-stone-400"></div>
+            
+            {/* Corpo da Vela Vermelha */}
+            <div className="absolute bottom-8 w-20 h-44 bg-gradient-to-r from-rose-700 via-rose-600 to-rose-800 rounded-t-md shadow-xl relative overflow-hidden border-x border-rose-900/20">
+                {/* Gotas de Cera (Drips) */}
+                <div className="absolute top-0 left-2 w-3 h-16 bg-rose-400/40 rounded-full blur-[1px]"></div>
+                <div className="absolute top-0 right-4 w-2 h-24 bg-rose-400/40 rounded-full blur-[1px]"></div>
+                <div className="absolute top-6 left-10 w-2 h-12 bg-rose-400/40 rounded-full blur-[1px]"></div>
+                
+                {/* Brilho Interno da Vela quando acesa */}
+                <div className={cn(
+                    "absolute inset-0 bg-orange-500/20 transition-opacity duration-1000",
+                    isOn ? "opacity-100" : "opacity-0"
+                )}></div>
             </div>
-            <div className="absolute bottom-0 w-48 h-10 bg-stone-600 rounded-t-md shadow-inner"></div>
-            <FlameComponent isOn={flameOn} />
+
+            {/* Pavio (Wick) */}
+            <div className="absolute bottom-[180px] w-1 h-5 bg-gray-900 rounded-full z-10"></div>
+
+            {/* Brilho de Ambiente */}
+            <div className={cn(
+                "absolute bottom-40 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl transition-opacity duration-1000",
+                isOn ? "opacity-100" : "opacity-0"
+            )}></div>
+
+            <FlameComponent isOn={isOn} />
         </div>
     );
 };
@@ -256,10 +278,10 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
             <div className="bg-green-100 text-green-700 p-2 rounded-lg text-xs font-bold flex items-center justify-center gap-2">
                 <CheckCircle2 className="h-4 w-4" /> CONEXÃO ESTABELECIDA
             </div>
-            <h2 className="text-2xl font-headline font-bold text-gray-800">A chama sagrada aguarda o seu toque</h2>
-            <p className="text-sm text-gray-600 italic">Clique no altar para que Lady Soraya invoque o nome de {targetName} no fogo antigo.</p>
-            <AltarInterativo flameOn={flameOn} onClick={handleAltarClick} />
-            <p className="text-xs font-bold text-primary uppercase animate-bounce">Toque no altar para acender</p>
+            <h2 className="text-2xl font-headline font-bold text-gray-800">A vela sagrada aguarda o seu toque</h2>
+            <p className="text-sm text-gray-600 italic">Clique na vela para que Lady Soraya invoque o nome de {targetName} no fogo antigo.</p>
+            <VelaInterativa flameOn={flameOn} onClick={handleAltarClick} />
+            <p className="text-xs font-bold text-primary uppercase animate-bounce">Toque na vela para acender</p>
           </div>
         );
 

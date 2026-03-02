@@ -23,7 +23,7 @@ export default function DynamicDateBanner() {
 
   return (
     <div className="bg-yellow-400 text-black text-center p-2 text-sm font-semibold w-full max-w-4xl mx-auto rounded-lg mb-4">
-      ATENÇÃO: No dia <span className="bg-white text-yellow-500 px-2 py-1 rounded-md mx-1">{currentDate}</span>, as energias cósmicas estão mais abertas devido a nesse começo de ano e o feitiço de Lady Soraya será até 3x mais forte, aproveite!
+      ATENÇÃO: Durante a <span className="bg-white text-destructive px-1 rounded-sm mx-1 font-bold italic uppercase">QUARESMA</span> e especialmente no dia <span className="bg-white text-yellow-500 px-2 py-1 rounded-md mx-1">{currentDate}</span>, as energias cósmicas estão mais abertas devido a intensidade da espiritualidade e o feitiço de Lady Soraya está muito mais poderoso aproveite!
     </div>
   );
 }

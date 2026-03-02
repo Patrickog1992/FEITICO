@@ -63,7 +63,7 @@ const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =>
                 {/* Brilho Interno da Vela quando acesa */}
                 <div className={cn(
                     "absolute inset-0 bg-orange-500/20 transition-opacity duration-1000",
-                    isOn ? "opacity-100" : "opacity-0"
+                    flameOn ? "opacity-100" : "opacity-0"
                 )}></div>
             </div>
 
@@ -73,10 +73,10 @@ const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =>
             {/* Brilho de Ambiente */}
             <div className={cn(
                 "absolute bottom-40 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl transition-opacity duration-1000",
-                isOn ? "opacity-100" : "opacity-0"
+                flameOn ? "opacity-100" : "opacity-0"
             )}></div>
 
-            <FlameComponent isOn={isOn} />
+            <FlameComponent isOn={flameOn} />
         </div>
     );
 };

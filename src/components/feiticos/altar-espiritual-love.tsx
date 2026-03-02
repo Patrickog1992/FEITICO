@@ -26,62 +26,60 @@ type AltarEspiritualLoveProps = {
 };
 
 // ====================================================================
-// COMPONENTE DE VELA VERMELHA INTERATIVA (CORREÇÃO DE POSICIONAMENTO)
+// COMPONENTE DE VELA VERMELHA (RECONSTRUÍDO COM FLEXBOX)
 // ====================================================================
 const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
-    const FlameComponent = ({ isOn }: { isOn: boolean }) => (
-      <div
-        className={cn(
-          "absolute bottom-[175px] h-20 w-16 origin-bottom transform-gpu transition-all duration-700 ease-out z-20",
-          isOn ? "scale-100 opacity-100" : "scale-0 opacity-0"
-        )}
-      >
-        <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="h-full w-full drop-shadow-[0_0_15px_rgba(255,50,50,0.7)]">
-          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_love_candle)" />
-          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_love_candle)" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.9 }} />
-          <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1s', opacity: 0.8 }} />
-        </svg>
-        <svg width="0" height="0"><defs>
-            <radialGradient id="grad1_love_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,80,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(220,20,60,0.2)", stopOpacity: 0 }} /></radialGradient>
-            <radialGradient id="grad2_love_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,100,1)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,100,0,0.5)", stopOpacity: 0 }} /></radialGradient>
-        </defs></svg>
-      </div>
-    );
-
     return (
-        <div className="relative w-full h-64 flex justify-center cursor-pointer group" onClick={onClick}>
-            {/* Prato da Vela (Base) */}
-            <div className="absolute bottom-10 w-24 h-4 bg-stone-300 rounded-full shadow-inner border-b-2 border-stone-400"></div>
-            
-            {/* Corpo da Vela Vermelha (Senta sobre o prato) */}
-            <div className="absolute bottom-[50px] w-10 h-32 bg-gradient-to-r from-rose-700 via-rose-600 to-rose-800 rounded-t-sm shadow-xl relative overflow-hidden border-x border-rose-900/20">
-                {/* Gotas de Cera (Drips) */}
-                <div className="absolute top-0 left-1 w-2 h-10 bg-rose-400/30 rounded-full blur-[1px]"></div>
-                <div className="absolute top-0 right-2 w-1.5 h-16 bg-rose-400/30 rounded-full blur-[1px]"></div>
+        <div className="relative w-full h-72 flex flex-col items-center justify-center cursor-pointer group mb-4" onClick={onClick}>
+            {/* Wrapper centralizado para garantir empilhamento perfeito */}
+            <div className="relative flex flex-col items-center justify-end h-full w-full pb-6">
                 
-                {/* Brilho Interno da Vela quando acesa */}
+                {/* 1. Chama (SVG) - Fica no topo do pavio */}
                 <div className={cn(
-                    "absolute inset-0 bg-orange-500/10 transition-opacity duration-1000",
+                    "absolute top-2 z-30 transition-all duration-700 ease-out origin-bottom transform-gpu",
+                    flameOn ? "scale-100 opacity-100" : "scale-0 opacity-0"
+                )}>
+                    <svg viewBox="0 0 100 150" className="h-24 w-20 drop-shadow-[0_0_20px_rgba(255,80,50,0.8)]">
+                        <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_love_fixed)" />
+                        <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_love_fixed)" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.9 }} />
+                        <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1s', opacity: 0.8 }} />
+                        <defs>
+                            <radialGradient id="grad1_love_fixed" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,80,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(220,20,60,0.2)", stopOpacity: 0 }} /></radialGradient>
+                            <radialGradient id="grad2_love_fixed" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,100,1)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,100,0,0.5)", stopOpacity: 0 }} /></radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                {/* 2. Pavio (Wick) - Conecta a chama ao corpo */}
+                <div className="w-1 h-4 bg-zinc-900 rounded-t-full mb-[-2px] z-20"></div>
+
+                {/* 3. Corpo da Vela - Centro do visual */}
+                <div className="w-12 h-40 bg-gradient-to-r from-red-800 via-red-600 to-red-900 rounded-t-lg shadow-2xl relative overflow-hidden border-x border-red-950/30 z-10">
+                    {/* Detalhes de cera derretida */}
+                    <div className="absolute top-0 left-1 w-2 h-12 bg-red-400/20 rounded-full blur-[1px]"></div>
+                    <div className="absolute top-0 right-2 w-1.5 h-20 bg-red-400/20 rounded-full blur-[1px]"></div>
+                    {/* Brilho interno quando acesa */}
+                    <div className={cn(
+                        "absolute inset-0 bg-orange-500/10 transition-opacity duration-1000",
+                        flameOn ? "opacity-100" : "opacity-0"
+                    )}></div>
+                </div>
+
+                {/* 4. Prato (Base) - No fundo de tudo */}
+                <div className="w-32 h-6 bg-zinc-300 rounded-full shadow-inner border-b-4 border-zinc-400 mt-[-12px] z-0"></div>
+
+                {/* Brilho de ambiente suave */}
+                <div className={cn(
+                    "absolute bottom-16 w-64 h-64 bg-orange-500/10 rounded-full blur-[100px] transition-opacity duration-1000 pointer-events-none",
                     flameOn ? "opacity-100" : "opacity-0"
                 )}></div>
             </div>
-
-            {/* Pavio (Wick) - Posicionado no TOPO da vela (bottom-50 + h-32 = 182px aprox) */}
-            <div className="absolute bottom-[182px] w-0.5 h-4 bg-gray-900 rounded-full z-10"></div>
-
-            {/* Brilho de Ambiente */}
-            <div className={cn(
-                "absolute bottom-24 w-48 h-48 bg-orange-500/10 rounded-full blur-3xl transition-opacity duration-1000",
-                flameOn ? "opacity-100" : "opacity-0"
-            )}></div>
-
-            <FlameComponent isOn={flameOn} />
         </div>
     );
 };
 
 // ====================================================================
-// FUNIL LADY SORAYA
+// FUNIL LADY SORAYA (SINCRONIZADO COM FOGO)
 // ====================================================================
 export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspiritualLoveProps) {
   const [step, setStep] = useState<"choice" | "quiz" | "form" | "loading" | "altar" | "sealing">("choice");
@@ -178,7 +176,7 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
 
   const handleAltarClick = () => {
     setFlameOn(true);
-    setTimeout(() => setStep("sealing"), 400);
+    setTimeout(() => setStep("sealing"), 400); // Rápido como solicitado
   };
 
   const renderContent = () => {
@@ -187,7 +185,7 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
         return (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
-            <p className="text-center text-gray-600">Escolha o caminho para que Lady Soraya possa guiar o ritual.</p>
+            <p className="text-center text-gray-600">Escolha o caminho do seu coração para que Lady Soraya possa guiar o ritual.</p>
             <div className="space-y-4">
                 <Button onClick={() => handleIntentChoice(true)} size="lg" className="w-full h-auto py-5 text-lg justify-start bg-primary hover:bg-primary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
                     <Heart className="mr-4 flex-shrink-0 fill-current"/>

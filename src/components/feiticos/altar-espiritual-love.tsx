@@ -176,7 +176,8 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
 
   const handleAltarClick = () => {
     setFlameOn(true);
-    setTimeout(() => setStep("sealing"), 400); // Rápido como solicitado
+    // Delay de 1.8 segundos para o usuário ver a chama ascender antes de mudar de tela
+    setTimeout(() => setStep("sealing"), 1800); 
   };
 
   const renderContent = () => {

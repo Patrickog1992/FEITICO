@@ -216,13 +216,13 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
         )}
       >
         <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 h-full w-full">
-          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1)" />
-          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2)" className="animate-pulse" style={{ animationDuration: '2s', opacity: 0.8 }} />
+          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_fogo_fixed)" />
+          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_fogo_fixed)" className="animate-pulse" style={{ animationDuration: '2s', opacity: 0.8 }} />
           <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.7 }} />
         </svg>
         <svg width="0" height="0"><defs>
-            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} /></radialGradient>
-            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad1_fogo_fixed" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad2_fogo_fixed" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} /></radialGradient>
         </defs></svg>
       </div>
     );
@@ -333,7 +333,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
 
     const handleAltarClick = () => {
         setFlameOn(true);
-        setTimeout(() => setStep("sealing"), 400); // Rápido conforme solicitado
+        setTimeout(() => setStep("sealing"), 1800); 
     };
 
     const renderContent = () => {
@@ -344,11 +344,11 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                         <h2 className="text-center text-2xl font-headline font-bold text-gray-800">Qual é a sua intenção?</h2>
                         <p className="text-center text-gray-600">Escolha o caminho para que a Sacerdotisa Azara possa guiar o ritual.</p>
                         <div className="space-y-4">
-                            <Button onClick={() => handleIntentChoice(true)} size="lg" className="w-full h-auto py-5 text-lg justify-start bg-primary hover:bg-primary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
+                            <Button onClick={() => handleIntentChoice(true)} size="lg" className="w-full h-auto py-4 text-lg justify-start bg-primary hover:bg-primary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
                                 <Heart className="mr-4 flex-shrink-0 fill-current"/>
                                 Quero trazer um amor de volta
                             </Button>
-                            <Button onClick={() => handleIntentChoice(false)} size="lg" className="w-full h-auto py-5 text-lg justify-start bg-secondary hover:bg-secondary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
+                            <Button onClick={() => handleIntentChoice(false)} size="lg" className="w-full h-auto py-4 text-lg justify-start bg-secondary hover:bg-secondary/90 text-white shadow-xl whitespace-normal text-left leading-tight">
                                 <UserPlus className="mr-4 flex-shrink-0"/>
                                 Quero atrair um novo amor
                             </Button>
@@ -405,7 +405,8 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                             </FormControl>
                                             <FormMessage />
                                         </FormItem>
-                                    )}/>
+                                    )}
+                                    />
                                 )}
                                 <Button type="submit" size="lg" className="w-full font-bold bg-green-600 text-white hover:bg-green-700 animate-button-glow-success text-xl py-6 h-auto">CONECTAR AGORA</Button>
                                 <div className="flex items-center justify-center gap-2 text-xs text-gray-500"><LockIcon className="h-3 w-3" /><span>Seus dados estão 100% protegidos e privados.</span></div>
@@ -538,7 +539,7 @@ export default function FogoPage() {
             <FogoBanner />
             </div>
             <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
-            <h1 className="text-2xl md:text-3xl font-bold font-headline text-primary uppercase">
+            <h1 className="text-xl md:text-2xl font-bold font-headline text-primary uppercase">
                 Sussurre o nome da pessoa desejada nesta chama sagrada…
                 e em até 5 noites, ela vai ficar totalmente obcecada por você 
                 ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
@@ -629,7 +630,7 @@ export default function FogoPage() {
                 <Paragraph>Não são velas de loja barata nem pensamentos positivos.</Paragraph>
                 <Paragraph>É um ritual de fogo antigo que remonta a mais de 3.000 anos, às sacerdotisas zoroastristas da Pérsia.</Paragraph>
                 <Paragraph>Elas sabiam algo que foi escondido das pessoas por séculos:</Paragraph>
-                <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tem um ponto na alma que pode ser incendiado. E quando é aceso, ele queima por uma única pessoa — e apenas uma.</Paragraph>
+                <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">Todo ser humano tel um ponto na alma que pode ser incendiado. E quando é aceso, ele queima por uma única pessoa — e apenas uma.</Paragraph>
                 <Paragraph>Rainhas e reis usavam isso para manter seus amores leais. Tão leais que abandonavam amantes, largavam guerras pela metade e atravessavam reinos inteiros apenas para estar perto de quem incendiou sua alma novamente.</Paragraph>
                 <Paragraph>Os sacerdotes odiavam isso.</Paragraph>
                 <Paragraph>Chamavam de perigoso.</Paragraph>

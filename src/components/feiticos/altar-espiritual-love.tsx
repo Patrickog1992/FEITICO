@@ -26,35 +26,35 @@ type AltarEspiritualLoveProps = {
 };
 
 // ====================================================================
-// COMPONENTE DE VELA VERMELHA INTERATIVA (PROPORÇÕES AJUSTADAS)
+// COMPONENTE DE VELA VERMELHA INTERATIVA (CORREÇÃO DE POSICIONAMENTO)
 // ====================================================================
 const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () => void }) => {
     const FlameComponent = ({ isOn }: { isOn: boolean }) => (
       <div
         className={cn(
-          "absolute bottom-[155px] h-24 w-20 origin-bottom transform-gpu transition-all duration-700 ease-out z-20",
+          "absolute bottom-[175px] h-20 w-16 origin-bottom transform-gpu transition-all duration-700 ease-out z-20",
           isOn ? "scale-100 opacity-100" : "scale-0 opacity-0"
         )}
       >
         <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="h-full w-full drop-shadow-[0_0_15px_rgba(255,50,50,0.7)]">
-          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_candle)" />
-          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_candle)" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.9 }} />
+          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_love_candle)" />
+          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_love_candle)" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.9 }} />
           <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1s', opacity: 0.8 }} />
         </svg>
         <svg width="0" height="0"><defs>
-            <radialGradient id="grad1_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,80,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(220,20,60,0.2)", stopOpacity: 0 }} /></radialGradient>
-            <radialGradient id="grad2_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,100,1)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,100,0,0.5)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad1_love_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,80,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(220,20,60,0.2)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad2_love_candle" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,100,1)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,100,0,0.5)", stopOpacity: 0 }} /></radialGradient>
         </defs></svg>
       </div>
     );
 
     return (
-        <div className="relative w-full h-64 flex items-center justify-center cursor-pointer group" onClick={onClick}>
-            {/* Prato da Vela */}
-            <div className="absolute bottom-4 w-24 h-4 bg-stone-300 rounded-full shadow-inner border-b-2 border-stone-400"></div>
+        <div className="relative w-full h-64 flex justify-center cursor-pointer group" onClick={onClick}>
+            {/* Prato da Vela (Base) */}
+            <div className="absolute bottom-10 w-24 h-4 bg-stone-300 rounded-full shadow-inner border-b-2 border-stone-400"></div>
             
-            {/* Corpo da Vela Vermelha */}
-            <div className="absolute bottom-6 w-12 h-36 bg-gradient-to-r from-rose-700 via-rose-600 to-rose-800 rounded-t-sm shadow-xl relative overflow-hidden border-x border-rose-900/20">
+            {/* Corpo da Vela Vermelha (Senta sobre o prato) */}
+            <div className="absolute bottom-[50px] w-10 h-32 bg-gradient-to-r from-rose-700 via-rose-600 to-rose-800 rounded-t-sm shadow-xl relative overflow-hidden border-x border-rose-900/20">
                 {/* Gotas de Cera (Drips) */}
                 <div className="absolute top-0 left-1 w-2 h-10 bg-rose-400/30 rounded-full blur-[1px]"></div>
                 <div className="absolute top-0 right-2 w-1.5 h-16 bg-rose-400/30 rounded-full blur-[1px]"></div>
@@ -66,8 +66,8 @@ const VelaInterativa = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =>
                 )}></div>
             </div>
 
-            {/* Pavio (Wick) */}
-            <div className="absolute bottom-[168px] w-0.5 h-4 bg-gray-900 rounded-full z-10"></div>
+            {/* Pavio (Wick) - Posicionado no TOPO da vela (bottom-50 + h-32 = 182px aprox) */}
+            <div className="absolute bottom-[182px] w-0.5 h-4 bg-gray-900 rounded-full z-10"></div>
 
             {/* Brilho de Ambiente */}
             <div className={cn(
@@ -89,6 +89,7 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
   const [quizIndex, setQuizIndex] = useState(0);
   const [loadingMessageIndex, setLoadingMessageIndex] = useState(0);
   const [targetName, setTargetName] = useState("");
+  const [requesterName, setRequesterName] = useState("");
   const [flameOn, setFlameOn] = useState(false);
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutos
 
@@ -170,6 +171,7 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
   };
 
   const onSubmitForm = (values: z.infer<typeof formSchema>) => {
+    setRequesterName(values.requesterName);
     setTargetName(values.targetName || "alguém especial");
     setStep("loading");
   };
@@ -216,7 +218,7 @@ export default function AltarEspiritualLove({ onClose, checkoutUrl }: AltarEspir
                         key={i} 
                         onClick={handleQuizOption} 
                         variant="outline" 
-                        className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800 hover:!text-gray-800"
+                        className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800"
                     >
                         {opt}
                     </Button>

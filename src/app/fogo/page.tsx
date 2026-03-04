@@ -216,13 +216,13 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
         )}
       >
         <svg viewBox="0 0 100 150" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 left-0 h-full w-full">
-          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_fogo_fixed)" />
-          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_fogo_fixed)" className="animate-pulse" style={{ animationDuration: '2s', opacity: 0.8 }} />
+          <path d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z" fill="url(#grad1_fogo_fixed_new)" />
+          <path d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z" fill="url(#grad2_fogo_fixed_new)" className="animate-pulse" style={{ animationDuration: '2s', opacity: 0.8 }} />
           <path d="M50 150 C 40 130, 40 100, 50 50 C 60 100, 60 130, 50 150 Z" fill="white" className="animate-pulse" style={{ animationDuration: '1.5s', opacity: 0.7 }} />
         </svg>
         <svg width="0" height="0"><defs>
-            <radialGradient id="grad1_fogo_fixed" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} /></radialGradient>
-            <radialGradient id="grad2_fogo_fixed" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad1_fogo_fixed_new" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} /></radialGradient>
+            <radialGradient id="grad2_fogo_fixed_new" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} /><stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} /></radialGradient>
         </defs></svg>
       </div>
     );
@@ -373,7 +373,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     key={i} 
                                     onClick={handleQuizOption} 
                                     variant="outline" 
-                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800 hover:!text-gray-800 active:!text-gray-800 focus:!text-gray-800 focus-visible:!text-gray-800"
+                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800"
                                 >
                                     {opt}
                                 </Button>
@@ -471,11 +471,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                         </div>
 
                         <div className="space-y-4 text-center">
-                            <p className="text-sm text-gray-600">Contribuição simbólica para materiais do templo (Velas e Óleos):</p>
-                            <div className="flex flex-col items-center justify-center">
-                                <span className="text-gray-400 line-through text-sm">De R$ 497,00</span>
-                                <span className="text-4xl font-bold text-green-600">R$ 27,00</span>
-                            </div>
+                            <p className="text-md text-gray-600 mb-6">Tudo está pronto. A Sacerdotisa Azara aguarda sua confirmação para finalizar o ritual.</p>
                             <Button 
                                 onClick={() => window.location.href = checkoutUrl} 
                                 size="lg" 
@@ -539,7 +535,7 @@ export default function FogoPage() {
             <FogoBanner />
             </div>
             <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
-            <h1 className="text-xl md:text-2xl font-bold font-headline text-primary uppercase">
+            <h1 className="text-lg md:text-xl font-bold font-headline text-primary uppercase">
                 Sussurre o nome da pessoa desejada nesta chama sagrada…
                 e em até 5 noites, ela vai ficar totalmente obcecada por você 
                 ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
@@ -919,7 +915,7 @@ export default function FogoPage() {
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se essa pessoa me bloqueou em tudo?</h3>
-                        <Paragraph>Melhor ainda. O bloqueio não protege. Ele prende a pessoa dentro da própria cabeça com o fogo. Ela ficará tão obcecada que dará um jeito de falar com você — uma conta nova, um e-mail, aparecendo pessoalmente. O bloqueio vira a prisão dela, e você é a única saída.</Paragraph>
+                        <Paragraph>Melhor ainda. O bloqueio não protege. Ele prende a pessoa dentro da própria cabeça with o fogo. Ela ficará tão obcecada que dará um jeito de falar com você — uma conta nova, um e-mail, aparecendo pessoalmente. O bloqueio vira a prisão dela, e você é a única saída.</Paragraph>
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se já se passaram meses ou anos?</h3>
@@ -939,7 +935,7 @@ export default function FogoPage() {
                     </div>
                 </div>
                 <div className="text-center mt-8">
-                    <Button onClick={handleStartRitual} size="lg" className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md text-lg h-auto py-3">
+                    <Button onClick={handleStartRitual} size="lg" className="mt-8 animate-button-glow-success bg-success text-success-foreground hover:bg-success/90 font-bold w-full max-w-md h-auto py-3">
                     QUERO AGORA
                     </Button>
                 </div>

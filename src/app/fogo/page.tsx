@@ -71,7 +71,7 @@ const testimonialsData = [
   {
     name: "Carlos M.",
     avatar: "https://i.imgur.com/BJPY2Qu.jpg",
-    text: "Meu relacionamento estava por um fio. Depois do ritual da chama, a energia entre nós mudou completamente. Ela se tornou mais carinhosa, atenciosa e finalmente aceitou meu pedido de casamento! Sou eternamente grato.",
+    text: "Meu relacionamento estava por um fio. Depois do ritual da chama, a energia entre nós mudou completamente. Ela se tornou mais carinhosa, atenciosa e finalmente aceitou meu pedido de casamento! Sou eternamente grata.",
   },
   {
     name: "Sofia O.",
@@ -425,7 +425,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                         </div>
 
                         <div className="bg-red-600 text-white p-3 rounded-xl text-center shadow-lg animate-pulse border-2 border-red-400">
-                            <p className="text-[10px] font-bold uppercase tracking-widest">Portal de Quaresma: Selamento Prioritário</p>
+                            <p className="text-[10px] font-bold uppercase tracking-widest">O PORTAL VAI SE FECHAR EM</p>
                             <p className="text-3xl font-mono font-bold">{formatTime(timeLeft)}</p>
                             <p className="text-[10px]">O selo espiritual expira quando o cronômetro zerar</p>
                         </div>

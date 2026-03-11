@@ -373,7 +373,7 @@ const AltarDoFogo = ({ onClose, checkoutUrl }: { onClose: () => void, checkoutUr
                                     key={i} 
                                     onClick={handleQuizOption} 
                                     variant="outline" 
-                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800"
+                                    className="w-full justify-start text-left py-6 h-auto border-2 hover:border-primary hover:bg-primary/5 transition-all !text-gray-800 active:!text-gray-800 focus:!text-gray-800"
                                 >
                                     {opt}
                                 </Button>
@@ -535,7 +535,7 @@ export default function FogoPage() {
             <FogoBanner />
             </div>
             <header className="text-center my-8 md:my-12 px-4 max-w-4xl mx-auto">
-            <h1 className="text-lg md:text-xl font-bold font-headline text-primary uppercase">
+            <h1 className="text-base md:text-lg font-bold font-headline text-primary uppercase">
                 Sussurre o nome da pessoa desejada nesta chama sagrada…
                 e em até 5 noites, ela vai ficar totalmente obcecada por você 
                 ou alguém novo surgirá, tomado por um desejo impossível de ignorar.
@@ -675,7 +675,7 @@ export default function FogoPage() {
 
             <Section>
                 <SectionTitle>Mas Preciso Te Avisar…</SectionTitle>
-                <Paragraph>Isso não é brincadeira.</Paragraph>
+                <Paragraph>Eso não é brincadeira.</Paragraph>
                 <Paragraph>Quando a Sacerdotisa Azara realiza esse ritual, as pessoas não apenas voltam.</Paragraph>
                 <Paragraph className="font-bold">Elas grudam.<br/>Elas se tornam obcecadas.<br/>Elas não se cansam de você.</Paragraph>
                 <Paragraph className="text-center font-bold text-destructive border-2 border-destructive p-4 rounded-lg">Se você não está pronta(o) para essa pessoa te desejar a cada segundo de todos os dias… não faça isso.</Paragraph>

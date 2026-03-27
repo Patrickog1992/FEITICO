@@ -71,7 +71,7 @@ const testimonialsData = [
   {
     name: "Carlos M.",
     avatar: "https://i.imgur.com/BJPY2Qu.jpg",
-    text: "Meu relacionamento estava por um fio. Depois do ritual da chama, a energia entre nós mudou completamente. Ela se tornou mais carinhosa, atenciosa e finalmente aceitou meu pedido de casamento! Sou eternamente grato.",
+    text: "Meu relacionamento estava por um fio. Depois do ritual da chama, a energia entre nós mudou completamente. Ela se tornou mais carinhosa, atenciosa e finalmente aceitou meu pedido de casamento! Sou eternamente grata.",
   },
   {
     name: "Sofia O.",
@@ -223,12 +223,12 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
           {/* Outer, softer flame */}
           <path
             d="M50 150 C 10 120, 10 70, 50 0 C 90 70, 90 120, 50 150 Z"
-            fill="url(#grad1)"
+            fill="url(#grad1_f2)"
           />
           {/* Middle, brighter flame */}
           <path
             d="M50 150 C 25 125, 25 80, 50 20 C 75 80, 75 125, 50 150 Z"
-            fill="url(#grad2)"
+            fill="url(#grad2_f2)"
             className="animate-pulse"
             style={{ animationDuration: '2s', opacity: 0.8 }}
           />
@@ -242,11 +242,11 @@ const AltarInterativo = ({ flameOn, onClick }: { flameOn: boolean, onClick: () =
         </svg>
         <svg width="0" height="0">
           <defs>
-            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <radialGradient id="grad1_f2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
               <stop offset="0%" style={{ stopColor: "rgba(255,165,0,0.7)", stopOpacity: 1 }} />
               <stop offset="100%" style={{ stopColor: "rgba(255,0,0,0.3)", stopOpacity: 0 }} />
             </radialGradient>
-            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <radialGradient id="grad2_f2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
               <stop offset="0%" style={{ stopColor: "rgba(255,255,0,0.9)", stopOpacity: 1 }} />
               <stop offset="100%" style={{ stopColor: "rgba(255,165,0,0.4)", stopOpacity: 0 }} />
             </radialGradient>
@@ -488,7 +488,7 @@ export default function Fogo2Page() {
 
   return (
     <>
-      <FacebookPixel />
+      <FacebookPixel pixelId="977302024872953" />
       <RitualFogoSocialProof />
       <div className="bg-background text-foreground min-h-screen">
         {showAltar ? (
@@ -612,7 +612,7 @@ export default function Fogo2Page() {
                 <Paragraph>Fica frio. Distante. Some.</Paragraph>
                 <Paragraph className="font-bold text-primary border-l-4 border-primary pl-4">O Ritual da Chama de 5 Noites liga esse interruptor novamente.</Paragraph>
                 <Paragraph className="font-bold">Por isso as pessoas chamam de "ritual das pessoas em CHAMAS!'</Paragraph>
-                <Paragraph>Porque quando o nome toca na chama, essa pessoa vai se queimar por você. E SOMENTE POR VOCÊ</Paragraph>
+                <Paragraph>Because quando o nome toca na chama, essa pessoa vai se queimar por você. E SOMENTE POR VOCÊ</Paragraph>
             </Section>
             
             <Section>
@@ -631,7 +631,7 @@ export default function Fogo2Page() {
                 
                 <div className="space-y-4 mt-6">
                 <p><strong>Noite 1: A Primeira Faísca</strong><br/>No momento em que o nome entra na chama, algo muda. A pessoa vai se sentir inquieta naquela noite. Vai se revirar às 3 da manhã sem saber por quê. Seu rosto vai piscar na mente dela. Sentirá uma dor estranha no peito que não consegue explicar.</p>
-                <p><strong>Noite 2: O Calor Aumenta</strong><br/>Começa a pensar em você mais. Muito mais. Vai se pegar olhando fotos antigas suas. Revivendo conversas. A ideia de você com outra pessoa vai deixá-la enjoada.</p>
+                <p><strong>Noite 2: O Calor Aumenta</strong><br/>Começa a pensar em você mais. Muito mais. Vai se pegar olhando fotos antigas suas. Revivendo conversas. A ideia de você com outra pessoa vai deixá-lo enjoada.</p>
                 <p><strong>Noite 3: O Fogo se Espalha</strong><br/>Agora não consegue mais se livrar de você. Vai sonhar com você de forma tão real que acorda confusa. Os amigos vão perceber que algo está errado. Vai mandar uma mensagem fraca só para “testar o terreno”, porque não aguenta mais a pressão.</p>
                 <p><strong>Noite 4: O Incêndio</strong><br/>Está perdendo o controle. Não consegue focar no trabalho. Não sente prazer em nada. Todas as outras pessoas parecem sem graça perto de você. O fogo queimou tudo. Só você restou na mente dela.</p>
                 <p><strong>Noite 5: Rendição Total</strong><br/>Ela quebra. O orgulho? Sumiu. As defesas? Viraram cinzas. Liga. Manda mensagem. Aparece. Chora, pede desculpas e jura que nunca mais vai te deixar. Diz coisas como: “Não sei o que aconteceu comigo, mas não consigo viver sem você.”</p>
@@ -707,7 +707,7 @@ export default function Fogo2Page() {
                 <Paragraph className="italic">“Não consigo respirar sem você.”</Paragraph>
                 <Paragraph>Os generais chamaram de loucura.</Paragraph>
                 <Paragraph>Os sacerdotes chamaram de bruxaria.</Paragraph>
-                <Paragraph className="font-bold">Quem usou a chama chamou de poder.</Paragraph>
+                <Paragraph className="font-bold">Quem usou a chama chamou de power.</Paragraph>
             </Section>
             
             <Section>
@@ -841,7 +841,7 @@ export default function Fogo2Page() {
                 <Paragraph>Esta página pode não ficar no ar.</Paragraph>
                 <Paragraph>Eles já tentaram enterrar esse ritual antes.</Paragraph>
                 <Paragraph>Terapeutas, coaches de relacionamento, toda a indústria de “autoajuda” — eles adorariam ver isso desaparecer.</Paragraph>
-                <Paragraph>Porque quando as pessoas têm esse poder, ninguém tem chance.</Paragraph>
+                <Paragraph>Porque quando as pessoas têm esse poder, ningém tem chance.</Paragraph>
                 <Paragraph>Não posso prometer que esta página estará aqui amanhã.</Paragraph>
                 <Paragraph>Mas posso prometer isto:</Paragraph>
                 <Paragraph className="font-bold text-primary text-xl">👉 Se você agir agora, a Sacerdotisa Azara começará seu ritual ainda hoje à noite.</Paragraph>
@@ -889,7 +889,7 @@ export default function Fogo2Page() {
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se essa pessoa jurou que nunca voltaria?</h3>
-                        <Paragraph>Pessoas dizem muitas coisas. Palavras grandes. Mas palavras não significam nada quando a alma está em chamas. Na quinta noite, ela nem vai lembrar do que jurou. Estará ocupada demais implorando para você aceitá-la de volta.</Paragraph>
+                        <Paragraph>Pessoas dizem muitas coisas. Palavras grandes. Mas palavras não significam nada quando a alma está em chamas. Na quinta noite, ele nem vai lembrar do que jurou. Estará ocupada demais implorando para você aceitá-lo de volta.</Paragraph>
                     </div>
                     <div>
                         <h3 className="font-bold text-lg text-primary">E se eu não acreditar nisso?</h3>

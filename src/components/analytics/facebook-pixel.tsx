@@ -5,19 +5,23 @@ import Script from 'next/script'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react';
 
-const FacebookPixel = () => {
+interface FacebookPixelProps {
+  pixelId?: string;
+}
+
+const FacebookPixel = ({ pixelId = '1631335694503418' }: FacebookPixelProps) => {
   const pathname = usePathname();
 
   useEffect(() => {
     if (window.fbq) {
       window.fbq('track', 'PageView');
     }
-  }, [pathname]);
+  }, [pathname, pixelId]);
 
   return (
     <>
       <Script
-        id="fb-pixel-script"
+        id={`fb-pixel-script-${pixelId}`}
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
@@ -29,14 +33,14 @@ const FacebookPixel = () => {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1631335694503418');
+            fbq('init', '${pixelId}');
             fbq('track', 'PageView');
           `,
         }}
       />
       <noscript>
         <img height="1" width="1" style={{display: 'none'}}
-          src="https://www.facebook.com/tr?id=1631335694503418&ev=PageView&noscript=1"
+          src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
         />
       </noscript>
     </>
